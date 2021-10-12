@@ -57,81 +57,27 @@
                                 </div>
                             </div>
                         </form>
-                        <form class="needs-validation" novalidate id="form_freehold_lease_agreement">
+                        <form class="needs-validation" novalidate id="formMain">
                             <div class="form-group mb-4">
-                                <label for="FreeholdLeasePrice" class="form-label">Enter the Names of the Tenants</label>
-                                <input type="text" name="FreeholdLeaseNames" id="FreeholdLeaseNames" class="form-control" required>
+                                <label for="names" class="form-label" id="labelNames"></label>
+                                <input type="text" name="names" id="names" class="form-control" required>
                             </div>
                             <div class="form-group mb-4">
-                                <label for="FreeholdLeasePrice" class="form-label">Monthly Rent Amount</label>
-                                <input type="text" name="FreeholdLeasePrice" id="FreeholdLeasePrice" class="form-control" placeholder="$" required>
+                                <label for="price" class="form-label" id="labelPrice"></label>
+                                <input type="text" name="price" id="price" class="form-control" placeholder="$" required>
                             </div>
+                            <div class="form-group mb-4">
+                                <label for="inputDate" class="form-label" id="labelDate"></label>
+                                <input type="date" name="inputDate" id="inputDate" class="form-control" required>
+                            </div>
+                            <input type="hidden" name="type" id="type" required>
                             <div class="form-group">
-                                <label for="FreeholdLeaseDate" class="form-label">Closing Date</label>
-                                <input type="date" name="FreeholdLeaseDate" id="FreeholdLeaseDate" class="form-control" required>
+                                <label for="deposit" class="form-label" id="labelDeposit">Please Enter the Deposit Amount</label>
+                                <input type="text" name="deposit" id="deposit" class="form-control" placeholder="$" required>
                             </div>
                             <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit" value="form_freehold_lease_agreement" onclick="setTarget(this.value)">Draft Offer Now</button>
-                                <button class="btn" type="button" onclick="hideForm(); form_mls_number.style.display='block';">Back</button>
-                            </div>
-                        </form>
-                        <form class="needs-validation" novalidate id="form_freehold_purchase_agreement">
-                            <div class="form-group mb-4">
-                                <label for="FreeholdPurchaseName" class="form-label">Enter the Names of the Buyers</label>
-                                <input type="text" name="FreeholdPurchaseName" id="FreeholdPurchaseName" class="form-control" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="FreeholdPurchasePrice" class="form-label">Offer Price</label>
-                                <input type="text" name="FreeholdPurchasePrice" id="FreeholdPurchasePrice" class="form-control" placeholder="$" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="FreeholdPurchaseDate" class="form-label">Closing Date</label>
-                                <input type="date" name="FreeholdPurchaseDate" id="FreeholdPurchaseDate" class="form-control" required>
-                            </div>
-                            <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit" value="form_freehold_purchase_agreement" onclick="setTarget(this.value)">Draft Offer Now</button>
-                                <button class="btn" type="button" onclick="hideForm(); form_mls_number.style.display='block';">Back</button>
-
-                            </div>
-                        </form>
-                        <form class="needs-validation" novalidate id="form_condo_lease_agreement">
-                            <div class="form-group mb-4">
-                                <label for="CondoLeaseNames" class="form-label">Enter the Names of the Tenants (Seprated by &)</label>
-                                <input type="text" name="CondoLeaseNames" id="CondoLeaseNames" class="form-control" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="CondoLeasePrice" class="form-label">Monthly Rent Amount</label>
-                                <input type="text" name="CondoLeasePrice" id="CondoLeasePrice" class="form-control" placeholder="$" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="CondoLeaseDate" class="form-label">Closing Date</label>
-                                <input type="date" name="CondoLeaseDate" id="CondoLeaseDate" class="form-control" required>
-                            </div>
-                            <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit" value="form_condo_lease_agreement" onclick="setTarget(this.value)">Draft Offer Now</button>
-                                <button class="btn" type="button" onclick="hideForm(); form_mls_number.style.display='block';">Back</button>
-                            </div>
-                        </form>
-                        <form class="needs-validation" novalidate id="form_condo_purchase_agreement">
-                            <div class="form-group mb-4">
-                                <label for="CondoPurchaseNames" class="form-label">Enter the Names of the Buyers</label>
-                                <input type="text" name="CondoPurchaseNames" id="CondoPurchaseNames" class="form-control" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="CondoPurchaseDate" class="form-label">Closing Date</label>
-                                <input type="date" name="CondoPurchaseDate" id="CondoPurchaseDate" class="form-control" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="CondoPurchasePrice" class="form-label">Offer Price</label>
-                                <input type="text" name="CondoPurchasePrice" id="CondoPurchasePrice" class="form-control" placeholder="$" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="CondoPurchaseDeposit" class="form-label">Please Enter the Deposit Amount</label>
-                                <input type="text" name="CondoPurchaseDeposit" id="CondoPurchaseDeposit" class="form-control" placeholder="$" required>
-                            </div>
-                            <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit" value="form_condo_purchase_agreement" onclick="setTarget(this.value)">Draft Offer Now</button>
-                                <button class="btn" type="button" onclick="hideForm(); form_mls_number.style.display='block';">Back</button>
+                                <button class="btn btn-primary" type="submit" onclick="setTarget()">Draft Offer Now</button>
+                                <button class="btn" type="button" onclick="hideForm(); form_mls_number.style.display='block'; formMain.style.display='none';">Back</button>
                             </div>
                         </form>
                     </div>
@@ -147,37 +93,34 @@
         var cardText = document.getElementById('card-text');
         var cardSubtitle = document.getElementById('card-subtitle');
         var form_mls_number = document.getElementById('form_mls_number');
-        var form_freehold_lease_agreement = document.getElementById('form_freehold_lease_agreement');
-        var form_freehold_purchase_agreement = document.getElementById('form_freehold_purchase_agreement');
-        var form_condo_lease_agreement = document.getElementById('form_condo_lease_agreement');
-        var form_condo_purchase_agreement = document.getElementById('form_condo_purchase_agreement');
+        var formMain = document.getElementById('formMain');
+        var labelNames = document.getElementById('labelNames');
+        var labelPrice = document.getElementById('labelPrice');
+        var labelType = document.getElementById('labelType');
+        var labelDate = document.getElementById('labelDate');
+        var labelDeposit = document.getElementById('labelDeposit');
         var mls_number = document.getElementById('mls_number');
-        var FreeholdLeaseNames = document.getElementById('FreeholdLeaseNames');
-        var FreeholdLeasePrice = document.getElementById('FreeholdLeasePrice');
-        var FreeholdLeaseDate = document.getElementById('FreeholdLeaseDate');
-        var FreeholdPurchaseName = document.getElementById('FreeholdPurchaseName');
-        var FreeholdPurchasePrice = document.getElementById('FreeholdPurchasePrice');
-        var FreeholdPurchaseDate = document.getElementById('FreeholdPurchaseDate');
-        var CondoLeaseNames = document.getElementById('CondoLeaseNames');
-        var CondoLeasePrice = document.getElementById('CondoLeasePrice');
-        var CondoLeaseDate = document.getElementById('CondoLeaseDate');
-        var CondoPurchaseNames = document.getElementById('CondoPurchaseNames');
-        var CondoPurchaseDate = document.getElementById('CondoPurchaseDate');
-        var CondoPurchasePrice = document.getElementById('CondoPurchasePrice');
-        var CondoPurchaseDeposit = document.getElementById('CondoPurchaseDeposit');
+        var names = document.getElementById('names');
+        var price = document.getElementById('price');
+        var type = document.getElementById('type');
+        var inputDate = document.getElementById('inputDate');
+        var deposit = document.getElementById('deposit');
 
         function hideForm() {
             cardHeader.style.display = 'none';
-            cardText.style.display = "none";
-            form_mls_number.style.display = 'none';
-            form_freehold_lease_agreement.style.display = 'none';
-            form_freehold_purchase_agreement.style.display = 'none';
-            form_condo_lease_agreement.style.display = 'none';
-            form_condo_purchase_agreement.style.display = 'none';
+            cardText.style.display = 'none';
         }
 
-        function setTarget(buttonHTML) {
-            targetForm = buttonHTML;
+        function setTarget(buttonValue) {
+            if (buttonValue != undefined) {
+                targetForm = buttonValue;
+            }
+        }
+
+        window.onload = function () {
+            hideForm();
+            form_mls_number.style.display = 'block';
+            formMain.style.display = 'none';
         }
 
         function sendForm(name_form) {
@@ -190,56 +133,25 @@
             }
 
             var formData = new FormData();
-            formData.append('mls_number', mls_number.value);
-
-            if (name_form == 'form_freehold_lease_agreement') {
-                formData.append('FreeholdLeaseNames', FreeholdLeaseNames.value);
-                formData.append('FreeholdLeasePrice', FreeholdLeasePrice.value);
-                formData.append('FreeholdLeaseDate',FreeholdLeaseDate.value);
-            } else if (name_form == 'form_freehold_purchase_agreement') {
-                formData.append('FreeholdPurchaseName', FreeholdPurchaseName.value);
-                formData.append('FreeholdPurchasePrice', FreeholdPurchasePrice.value);
-                formData.append('FreeholdPurchaseDate', FreeholdPurchaseDate.value);
-            } else if (name_form == 'form_condo_lease_agreement') {
-                formData.append('CondoLeaseNames', CondoLeaseNames.value);
-                formData.append('CondoLeasePrice', CondoLeasePrice.value);
-                formData.append('CondoLeaseDate', CondoLeaseDate.value);
-            } else if (name_form == 'form_condo_purchase_agreement') {
-                formData.append('CondoPurchaseNames', CondoPurchaseNames.value);
-                formData.append('CondoPurchaseDate', CondoPurchaseDate.value);
-                formData.append('CondoPurchasePrice', CondoPurchasePrice.value);
-                formData.append('CondoPurchaseDeposit', CondoPurchaseDeposit.value);
+            formData.append('Mls Number', mls_number.value);
+            formData.append('Names', names.value);
+            formData.append('Date', inputDate.value);
+            formData.append('Price', price.value);
+            if (name_form == 'form_freehold_purchase_agreement' || name_form == 'form_condo_purchase_agreement') {
+                formData.append('Deposit', deposit.value);
             }
+            formData.append('Type', type.value);
 
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
                     hideForm();
                     cardText.style.display = "block";
+                    form_mls_number.style.display = 'none';
+                    formMain.style.display = 'none';
                 }
             };
             xhttp.open('POST', url, true);
             xhttp.send(formData);
-        
-
-            console.log(formData);
-
-            // var data = new FormData();
-            // data.append('user', 'person');
-            // data.append('pwd', 'password');
-            // data.append('organization', 'place');
-            // data.append('requiredkey', 'key');
-
-            // var xhr = new XMLHttpRequest();
-            // xhr.open('POST', 'somewhere', true);
-            // xhr.onload = function () {
-            //     console.log(this.responseText);
-            // };
-            // xhr.send(data);
-        }
-
-        window.onload = function () {
-            hideForm();
-            form_mls_number.style.display = 'block';
         }
 
         function eventNext() {
@@ -254,24 +166,48 @@
             xhttp.onreadystatechange = function() {
                 if(this.readyState === 4 && this.status === 200) {
                     var response = JSON.parse(this.responseText);
-
-                    hideForm();
+                    form_mls_number.style.display = 'none';
+                    formMain.style.display = 'block';
+                    deposit.value = 'just value for validation';
 
                     let agreement = response.data[0].property_class+' ';
                     if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Rent') {
-                        agreement += 'Lease Agreement';
-                        form_freehold_lease_agreement.style.display = 'block';
+                        agreement += 'Lease';
+                        labelNames.innerHTML = 'Enter the Names of the Tenants';
+                        labelPrice.innerHTML = 'Monthly Rent Amount';
+                        labelDate.innerHTML = 'Closing Date';
+                        labelDeposit.style.display = 'none';
+                        deposit.style.display = 'none';
+                        targetForm = 'form_freehold_lease_agreement';
                     } else if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Sale') {
-                        agreement += 'Purchase Agreement';
-                        form_freehold_purchase_agreement.style.display = 'block';
+                        agreement += 'Purchase';
+                        labelNames.innerHTML = 'Enter the Names of the Buyers';
+                        labelPrice.innerHTML = 'Offer Price';
+                        labelDate.innerHTML = 'Closing Date';
+                        labelDeposit.style.display = 'block';
+                        deposit.value = '';
+                        deposit.style.display = 'block';
+                        targetForm = 'form_freehold_purchase_agreement';
                     } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Rent') {
-                        agreement += 'Lease Agreement';
-                        form_condo_lease_agreement.style.display = 'block';
+                        agreement += 'Lease';
+                        labelNames.innerHTML = 'Enter the Names of the Tenants (Seprated by &)';
+                        labelPrice.innerHTML = 'Monthly Rent Amount';
+                        labelDate.innerHTML = 'Closing Date';
+                        labelDeposit.style.display = 'none';
+                        deposit.style.display = 'none';
+                        targetForm = 'form_condo_lease_agreement';
                     } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Sale') {
-                        agreement += 'Purchase Agreement';
-                        form_condo_purchase_agreement.style.display = 'block';
+                        agreement += 'Purchase';
+                        labelNames.innerHTML = 'Enter the Names of the Buyers';
+                        labelPrice.innerHTML = 'Offer Price';
+                        labelDate.innerHTML = 'Closing Date';
+                        labelDeposit.style.display = 'block';
+                        deposit.value = '';
+                        deposit.style.display = 'block';
+                        targetForm = 'form_condo_purchase_agreement';
                     }
-                    cardTitle.innerHTML = agreement;
+                    type.value = agreement.replace(' ', '');
+                    cardTitle.innerHTML = agreement + ' Agreement';
                     cardSubtitle.innerHTML = response.data[0].title;
                     cardHeader.style.display = 'block';
                 }
