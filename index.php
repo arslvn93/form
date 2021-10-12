@@ -37,11 +37,14 @@
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-xl-4 col-lg-4 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
-                            <p class="card-text m-0" id="card-text">Thank you! Your form has been submitted successfully.</p>
+                            <p class="card-text m-0" id="card-text">
+                                Thank you! Your form has been submitted successfully.
+                                <button class="btn btn-primary d-block mt-2" onclick="location.reload();">Refresh Page</button>
+                            </p>
                             <div id="card-header">
                                 <h5 class="card-title mb-4" id="card-title">Freehold Lease Agreement</h5>
                                 <h6 class="card-subtitle mb-2 text-muted" id="card-subtitle">1165 Sherwood Mills Blvd</h6>
@@ -67,14 +70,14 @@
                                 <input type="text" name="price" id="price" class="form-control" placeholder="$" required>
                             </div>
                             <div class="form-group mb-4">
+                                <label for="deposit" class="form-label" id="labelDeposit">Please Enter the Deposit Amount</label>
+                                <input type="text" name="deposit" id="deposit" class="form-control" placeholder="$" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="inputDate" class="form-label" id="labelDate"></label>
                                 <input type="date" name="inputDate" id="inputDate" class="form-control" required>
                             </div>
                             <input type="hidden" name="type" id="type" required>
-                            <div class="form-group">
-                                <label for="deposit" class="form-label" id="labelDeposit">Please Enter the Deposit Amount</label>
-                                <input type="text" name="deposit" id="deposit" class="form-control" placeholder="$" required>
-                            </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary" type="submit" onclick="setTarget()">Draft Offer Now</button>
                                 <button class="btn" type="button" onclick="hideForm(); form_mls_number.style.display='block'; formMain.style.display='none';">Back</button>
