@@ -1,3 +1,2 @@
-SetEnvIf Origin "http(s)?://(www\.)?(api.property.ca/v1/listings|api.condos.ca/v1/listings)$" AccessControlAllowOrigin=$0$1
-Header set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
-Header set Access-Control-Allow-Credentials true
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Methods: “GET,POST,OPTIONS,DELETE,PUT”
