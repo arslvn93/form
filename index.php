@@ -243,7 +243,8 @@
         }
 
         function eventNext() {
-            var url = `https://api.property.ca/v1/listings?mls_number=${mls_number.value}`;
+            var hero = 'https://cors-anywhere.herokuapp.com/';
+            var url = hero + `https://api.property.ca/v1/listings?mls_number=${mls_number.value}`;
             var xhttp;
             if(window.XMLHttpRequest) {
                 xhttp = new XMLHttpRequest();   
