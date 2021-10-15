@@ -849,89 +849,102 @@
         }
 
         function getMLSForms() {
-            // var hero = 'https://cors-anywhere.herokuapp.com/';
-            var hero = 'https://cors-proxy-mls.herokuapp.com/';
-            var url = hero + `https://api.property.ca/v1/listings?mls_number=${mls_number.value}`;
-            var xhttp;
-            if(window.XMLHttpRequest) {
-                xhttp = new XMLHttpRequest();   
-            } else {
-                xhttp = new ActiveXObject('Microsoft.XMLHTTP');
-            }
-            xhttp.onreadystatechange = function() {
-                if(this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.responseText);
-                    divDeposit.style.display = 'none';
-                    emptyAllForms();
-                    let agreement = response.data[0].property_class+' ';
-                    if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Rent') {
-                        agreement += 'Lease';
-                        labelCustomerName_html = 'Full Legal Name of Tenant';
-                        labelTypeCustomer_html = 'Tenant';
-                        labelPrice_html = 'Monthly Rent Amount';
-                        labelDate_html = 'Closing Date';
-                        targetFinalForm = 'form_freehold_lease_agreement';
-                    } else if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Sale') {
-                        agreement += 'Purchase';
-                        labelCustomerName_html = 'Full Legal Name of Buyer';
-                        labelTypeCustomer_html = 'Buyer';
-                        labelPrice_html = 'Offer Price';
-                        labelDate_html = 'Closing Date';
-                        divDeposit.style.display = 'block';
-                        targetFormArray.push('form_legal_description_property');
-                        targetFormArray.push('form_condition_finance');
-                        targetFormArray.push('form_condition_inspection');
-                        targetFormArray.push('form_chattel');
-                        targetFinalForm = 'form_freehold_purchase_agreement';
-                        $('#inputDate').datepicker('option', 'onSelect', function() {
-                            closed_date_weekend();
-                        });
-                    } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Rent') {
-                        agreement += 'Lease';
-                        labelCustomerName_html = 'Full Legal Name of Tenant';
-                        labelTypeCustomer_html = 'Tenant';
-                        labelPrice_html = 'Monthly Rent Amount';
-                        labelDate_html = 'Closing Date';
-                        targetFinalForm = 'form_condo_lease_agreement';
-                    } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Sale') {
-                        agreement += 'Purchasse';
-                        labelCustomerName_html = 'Full Legal Name of Buyer';
-                        labelTypeCustomer_html = 'Buyer';
-                        labelPrice_html = 'Offer Price';
-                        labelDate_html = 'Closing Date';
-                        divDeposit.style.display = 'block';
-                        targetFormArray.push('form_legal_description_condo');
+            return new Promise(function(resolve, reject) {
+                // var hero = 'https://cors-anywhere.herokuapp.com/';
+                var hero = 'https://cors-proxy-mls.herokuapp.com/';
+                var url = hero + `https://api.property.ca/v1/listings?mls_number=${mls_number.value}`;
+                var xhttp;
+                if(window.XMLHttpRequest) {
+                    xhttp = new XMLHttpRequest();   
+                } else {
+                    xhttp = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState === 4 && this.status === 200) {
+                        var response = JSON.parse(this.responseText);
 
-                        if (response.data[0].parking_spots != 0) {
-                            targetFormArray.push('form_legal_description_parking_spot');
-                            for (var x = p = 0; p < response.data[0].parking_spots - 1; p++) {
-                                addInputParkingSpot();
+                        if (response.hasOwnProperty('data')) {
+                            if (response.data.length != 0) {
+                                if (response.data[0].hasOwnProperty('offer') && response.data[0].hasOwnProperty('property_class')) {
+                                    divDeposit.style.display = 'none';
+                                    emptyAllForms();
+        
+                                    let agreement = response.data[0].property_class+' ';
+        
+                                    if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Rent') {
+                                        agreement += 'Lease';
+                                        labelCustomerName_html = 'Full Legal Name of Tenant';
+                                        labelTypeCustomer_html = 'Tenant';
+                                        labelPrice_html = 'Monthly Rent Amount';
+                                        labelDate_html = 'Closing Date';
+                                        targetFinalForm = 'form_freehold_lease_agreement';
+                                    } else if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Sale') {
+                                        agreement += 'Purchase';
+                                        labelCustomerName_html = 'Full Legal Name of Buyer';
+                                        labelTypeCustomer_html = 'Buyer';
+                                        labelPrice_html = 'Offer Price';
+                                        labelDate_html = 'Closing Date';
+                                        divDeposit.style.display = 'block';
+                                        targetFormArray.push('form_legal_description_property');
+                                        targetFormArray.push('form_condition_finance');
+                                        targetFormArray.push('form_condition_inspection');
+                                        targetFormArray.push('form_chattel');
+                                        targetFinalForm = 'form_freehold_purchase_agreement';
+                                        $('#inputDate').datepicker('option', 'onSelect', function() {
+                                            closed_date_weekend();
+                                        });
+                                    } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Rent') {
+                                        agreement += 'Lease';
+                                        labelCustomerName_html = 'Full Legal Name of Tenant';
+                                        labelTypeCustomer_html = 'Tenant';
+                                        labelPrice_html = 'Monthly Rent Amount';
+                                        labelDate_html = 'Closing Date';
+                                        targetFinalForm = 'form_condo_lease_agreement';
+                                    } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Sale') {
+                                        agreement += 'Purchasse';
+                                        labelCustomerName_html = 'Full Legal Name of Buyer';
+                                        labelTypeCustomer_html = 'Buyer';
+                                        labelPrice_html = 'Offer Price';
+                                        labelDate_html = 'Closing Date';
+                                        divDeposit.style.display = 'block';
+                                        targetFormArray.push('form_legal_description_condo');
+        
+                                        if (response.data[0].parking_spots != 0) {
+                                            targetFormArray.push('form_legal_description_parking_spot');
+                                            for (var x = p = 0; p < response.data[0].parking_spots - 1; p++) {
+                                                addInputParkingSpot();
+                                            }
+                                        }
+        
+                                        if (response.data[0].has_locker == null) {
+                                            targetFormArray.push('form_legal_description_locker');
+                                        }
+                                        targetFormArray.push('form_condition_finance');
+                                        targetFormArray.push('form_condition_status_review');
+                                        targetFormArray.push('form_chattel');
+                                        targetFinalForm = 'form_condo_purchase_agreement';
+                                        $('#inputDate').datepicker('option', 'onSelect', function() {
+                                            closed_date_weekend();
+                                        });
+                                    }
+                                    type.value = agreement.replace(' ', '');
+                                    divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
+                                    divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
+                                    labelPrice.innerHTML = labelPrice_html;
+                                    labelDate.innerHTML = labelDate_html;
+                                    mls_agreement.innerHTML = agreement + ' Agreement';
+                                    mls_address.innerHTML = response.data[0].title;
+                                    resolve('Finish');
+                                    return;
+                                }
                             }
                         }
-
-                        if (response.data[0].has_locker == null) {
-                            targetFormArray.push('form_legal_description_locker');
-                        }
-                        targetFormArray.push('form_condition_finance');
-                        targetFormArray.push('form_condition_status_review');
-                        targetFormArray.push('form_chattel');
-                        targetFinalForm = 'form_condo_purchase_agreement';
-                        $('#inputDate').datepicker('option', 'onSelect', function() {
-                            closed_date_weekend();
-                        });
+                        alert('MLS Number not supported, please try another one.');
                     }
-                    type.value = agreement.replace(' ', '');
-                    divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
-                    divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
-                    labelPrice.innerHTML = labelPrice_html;
-                    labelDate.innerHTML = labelDate_html;
-                    mls_agreement.innerHTML = agreement + ' Agreement';
-                    mls_address.innerHTML = response.data[0].title;
-                    inputDate.onchange = 'haha';
-                }
-            };
-            xhttp.open('GET', url, true);
-            xhttp.send();
+                };
+                xhttp.open('GET', url, true);
+                xhttp.send();
+            });
         }
 
         function goNextForm() {
@@ -948,13 +961,13 @@
         // Loop over them and prevent submission
         Array.prototype.slice.call(forms)
             .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
+                form.addEventListener('submit', async function (event) {
                     event.preventDefault();
                     event.stopPropagation();
                     if (form.checkValidity()) {
                         if (indexTargetForm != targetFormArray.length) {
                             if (indexTargetForm == 1) {
-                                getMLSForms();
+                                await getMLSForms();
                             }
                             goNextForm();
                         } else {
