@@ -141,39 +141,27 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" id="form_legal_description_condo">
+        <div class="row justify-content-center" id="form_legal_descriptions">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
-                            <label for="" class="form-label"><strong>Legal</strong> Description of Condo</label>
-                            <div class="row mb-2">
-                                <label for="legal_condo_unit" class="col-3 col-form-label">UNIT</label>
-                                <div class="col-3">
-                                    <input type="text" name="legal_description_condo_unit" id="legal_description_condo_unit" class="form-control">
+                            <div id="divLegalDescriptionCondo" class="mb-4">
+                                <label for="" class="form-label"><strong>Legal</strong> Description of Condo</label>
+                                <div class="row mb-2">
+                                    <label for="legal_condo_unit" class="col-3 col-form-label">UNIT</label>
+                                    <div class="col-3">
+                                        <input type="text" name="legal_description_condo_unit" id="legal_description_condo_unit" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="legal_description_condo_level" class="col-3 col-form-label">LEVEL</label>
+                                    <div class="col-3">
+                                        <input type="text" name="legal_description_condo_level" id="legal_description_condo_level" class="form-control">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <label for="legal_description_condo_level" class="col-3 col-form-label">LEVEL</label>
-                                <div class="col-3">
-                                    <input type="text" name="legal_description_condo_level" id="legal_description_condo_level" class="form-control">
-                                </div>
-                            </div>
-                            <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit">Next</button>
-                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center" id="form_legal_description_parking_spot">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
-                <div class="card">
-                    <div class="card-body p-4">
-                        <form class="needs-validation" novalidate>
-                            <div id="divParkingSpot">
+                            <div id="divLegalDescriptionParkingSpot">
                                 <div class="row rowParkingSpot">
                                     <div class="col-12">
                                         <div class="form-group mb-4">
@@ -194,48 +182,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit">Next</button>
-                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center" id="form_legal_description_locker">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
-                <div class="card">
-                    <div class="card-body p-4">
-                        <form class="needs-validation" novalidate>
-                            <label for="" class="form-label"><strong>Legal</strong> Description of Locker</label>
-                            <div class="row mb-2">
-                                <label for="legal_description_locker_unit" class="col-3 col-form-label">UNIT</label>
-                                <div class="col-3">
-                                    <input type="text" name="legal_description_locker_unit" id="legal_description_locker_unit" class="form-control">
+                            <div id="divLegalDescriptionLocker" class="mb-4">
+                                <label for="" class="form-label"><strong>Legal</strong> Description of Locker</label>
+                                <div class="row mb-2">
+                                    <label for="legal_description_locker_unit" class="col-3 col-form-label">UNIT</label>
+                                    <div class="col-3">
+                                        <input type="text" name="legal_description_locker_unit" id="legal_description_locker_unit" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="legal_description_locker_level" class="col-3 col-form-label">LEVEL</label>
+                                    <div class="col-3">
+                                        <input type="text" name="legal_description_locker_level" id="legal_description_locker_level" class="form-control">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <label for="legal_description_locker_level" class="col-3 col-form-label">LEVEL</label>
-                                <div class="col-3">
-                                    <input type="text" name="legal_description_locker_level" id="legal_description_locker_level" class="form-control">
-                                </div>
-                            </div>
-                            <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit">Next</button>
-                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center" id="form_legal_description_property">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
-                <div class="card">
-                    <div class="card-body p-4">
-                        <form class="needs-validation" novalidate>
-                            <div class="form-group mb-4" id="divLegalProperty">
+                            <div class="form-group mb-4" id="divLegalDescriptionProperty">
                                 <label for="legal_description_property" class="form-label">What is the Legal Description of the Property?</label>
                                 <textarea name="legal_description_property" id="legal_description_property" rows="4" class="form-control"></textarea>
                             </div>
@@ -507,18 +469,18 @@
         var targetFinalForm = '';
         var form_mls_number = document.getElementById('form_mls_number');
         var form_mls_number_result = document.getElementById('form_mls_number_result');
-        var form_legal_description_condo = document.getElementById('form_legal_description_condo');
-        var form_legal_description_parking_spot = document.getElementById('form_legal_description_parking_spot');
-        var form_legal_description_locker = document.getElementById('form_legal_description_locker');
-        var form_legal_description_property = document.getElementById('form_legal_description_property');
         var form_condition_finance = document.getElementById('form_condition_finance');
         var form_condition_status_review = document.getElementById('form_condition_status_review');
         var form_condition_inspection = document.getElementById('form_condition_inspection');
         var form_chattel = document.getElementById('form_chattel');
         var form_thank_you = document.getElementById('form_thank_you');
         var divCustomer = document.getElementById('divCustomer');
-        var divParkingSpot = document.getElementById('divParkingSpot');
-        
+        var form_legal_descriptions = document.getElementById('form_legal_descriptions');
+        var divLegalDescriptionCondo = document.getElementById('divLegalDescriptionCondo');
+        var divLegalDescriptionParkingSpot = document.getElementById('divLegalDescriptionParkingSpot');
+        var divLegalDescriptionLocker = document.getElementById('divLegalDescriptionLocker');
+        var divLegalDescriptionProperty = document.getElementById('divLegalDescriptionProperty');
+
         var legal_description_condo_unit = document.getElementById('legal_description_condo_unit');
         var legal_description_condo_level = document.getElementById('legal_description_condo_level');
         var legal_description_property = document.getElementById('legal_description_property');
@@ -551,7 +513,7 @@
         }
 
         function closed_date_weekend() {
-            var datetime = inputDate.value;
+            var datetime = $('#inputDate').datepicker('getDate');
             var day = datetime.getDay();
             var date = datetime.getDate();
             var month = datetime.getMonth();
@@ -565,8 +527,7 @@
             actualDate = `${year}-${month}-${date}`;
         };
 
-        function getActualDate()
-        {
+        function getActualDate() {
             var datetime = $('#inputDate').datepicker('getDate');
             var day = datetime.getDay();
             var date = datetime.getDate().toString().padStart(2, '0');
@@ -634,10 +595,10 @@
         }
 
         function addInputParkingSpot() {
-            var rowParkingSpots = divParkingSpot.querySelectorAll('.rowParkingSpot');
+            var rowParkingSpots = divLegalDescriptionParkingSpot.querySelectorAll('.rowParkingSpot');
             rowParkingSpots[0].querySelector('.labelParkingSpot').innerHTML = `<strong>Legal</strong> Description of Parking Spot 1`;
 
-            divParkingSpot.innerHTML += `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelPark"><strong>Legal</strong> Description of Parking Spot ${rowParkingSpots.length + 1}</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_${rowParkingSpots.length}" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_${rowParkingSpots}" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level" class="form-control"></div></div></div></div></div>`;
+            divLegalDescriptionParkingSpot.innerHTML += `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelPark"><strong>Legal</strong> Description of Parking Spot ${rowParkingSpots.length + 1}</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_${rowParkingSpots.length}" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_${rowParkingSpots}" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level" class="form-control"></div></div></div></div></div>`;
         }
     
         function removeInputCustomer(indexRowCustomer) {
@@ -698,10 +659,7 @@
             form_condition_finance.style.display = 'none';
             form_condition_status_review.style.display = 'none';
             form_condition_inspection.style.display = 'none';
-            form_legal_description_condo.style.display = 'none';
-            form_legal_description_parking_spot.style.display = 'none';
-            form_legal_description_locker.style.display = 'none';
-            form_legal_description_property.style.display = 'none';
+            form_legal_descriptions.style.display = 'none';
             form_chattel.style.display = 'none';
             form_thank_you.style.display = 'none';
         }
@@ -776,7 +734,7 @@
         }
 
         function getValuesAllParkingSpots() {
-            var rowParkingSpots = form_legal_description_parking_spot.querySelectorAll('.rowParkingSpot');
+            var rowParkingSpots = divLegalDescriptionParkingSpot.querySelectorAll('.rowParkingSpot');
             var parking_spots_array = [];
 
             var countAllEmptyParkingSpot = 0;
@@ -831,8 +789,8 @@
                 formData.append('Deposit', deposit.value);
                 formData.append('Finance', getSelectedFinanceCondition());
                 formData.append('Status', getSelectedStatusReviewCondition());
-                formData.append('Level', legal_description_condo_level.value);
                 formData.append('Unit', legal_description_condo_unit.value);
+                formData.append('Level', legal_description_condo_level.value);
                 formData.append('Parking', JSON.stringify(getValuesAllParkingSpots()));
                 formData.append('Chattels', getSelectedChattels());
             }
@@ -868,7 +826,11 @@
                                 if (response.data[0].hasOwnProperty('offer') && response.data[0].hasOwnProperty('property_class')) {
                                     divDeposit.style.display = 'none';
                                     emptyAllForms();
-        
+                                    divLegalDescriptionCondo.style.display = 'none';
+                                    divLegalDescriptionParkingSpot.style.display = 'none';
+                                    divLegalDescriptionLocker.style.display = 'none';
+                                    divLegalDescriptionProperty.style.display = 'none';
+
                                     let agreement = response.data[0].property_class+' ';
         
                                     if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Rent') {
@@ -885,7 +847,8 @@
                                         labelPrice_html = 'Offer Price';
                                         labelDate_html = 'Closing Date';
                                         divDeposit.style.display = 'block';
-                                        targetFormArray.push('form_legal_description_property');
+                                        targetFormArray.push('form_legal_descriptions');
+                                        divLegalDescriptionProperty.style.display = 'block';
                                         targetFormArray.push('form_condition_finance');
                                         targetFormArray.push('form_condition_inspection');
                                         targetFormArray.push('form_chattel');
@@ -907,17 +870,18 @@
                                         labelPrice_html = 'Offer Price';
                                         labelDate_html = 'Closing Date';
                                         divDeposit.style.display = 'block';
-                                        targetFormArray.push('form_legal_description_condo');
-        
+                                        targetFormArray.push('form_legal_descriptions');
+                                        divLegalDescriptionCondo.style.display = 'block';
+                                        
                                         if (response.data[0].parking_spots != 0) {
-                                            targetFormArray.push('form_legal_description_parking_spot');
+                                            divLegalDescriptionParkingSpot.style.display = 'block';
                                             for (var x = p = 0; p < response.data[0].parking_spots - 1; p++) {
                                                 addInputParkingSpot();
                                             }
                                         }
         
-                                        if (response.data[0].has_locker == null) {
-                                            targetFormArray.push('form_legal_description_locker');
+                                        if (response.data[0].has_locker != null) {
+                                            divLegalDescriptionLocker.style.display = 'block';
                                         }
                                         targetFormArray.push('form_condition_finance');
                                         targetFormArray.push('form_condition_status_review');
