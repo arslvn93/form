@@ -466,6 +466,7 @@
     </div>
 
     <script>
+        var user = '';
         var firstTimeHide = true;
         var previous_mls_number = '';
         var customerNamesArray = [];
@@ -712,11 +713,20 @@
                 changeMonth: true,
                 dateFormat: 'DD MM d, yy',
             });
+            <?php
+                $user = '';
+
+                if (isset($_GET['user'])) {
+                    $user = $_GET['user'];
+                }
+            ?>
+            user = '<?= $user; ?>';
         }
 
         function displayForm() {
             hideAllForms();
 
+            document.getElementById(targetFormArray[indexTargetForm]).querySelector('.btnSubmit').innerHTML = 'Next';
             if (targetFormArray.length == indexTargetForm + 1) {
                 document.getElementById(targetFormArray[indexTargetForm]).querySelector('.btnSubmit').innerHTML = 'Draft Offer Now';
             }
@@ -852,6 +862,7 @@
             hideAllForms();
             form_thank_you.style.display = 'flex';
             var url = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjEzNjI4OSI_3D';
+
             var xhttp;
             if (window.XMLHttpRequest) {
                 xhttp = new XMLHttpRequest();
@@ -860,6 +871,11 @@
             }
 
             var formData = new FormData();
+
+            if (user != '') {
+                formData.append('user', user);
+            }
+
             formData.append('Names', JSON.stringify(getValuesAllInputCustomers()));
             formData.append('Date', getActualDate());
             formData.append('Price', price.value);
@@ -909,7 +925,7 @@
         async function getMLSForms() {
             return new Promise(function(resolve, reject) {
                 if (previous_mls_number != mls_number.value) {
-                    targetFormArray=['form_mls_number', 'form_mls_number_result'];             
+                    targetFormArray = ['form_mls_number', 'form_mls_number_result'];             
                     // var hero = 'https://cors-anywhere.herokuapp.com/';
                     var hero = 'https://cors-proxy-mls.herokuapp.com/';
                     var url = hero + `https://api.property.ca/v1/listings?mls_number=${mls_number.value}`;
