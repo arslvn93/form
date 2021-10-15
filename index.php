@@ -149,7 +149,7 @@
                             <div id="divLegalDescriptionCondo" class="mb-4">
                                 <label for="" class="form-label"><strong>Legal</strong> Description of Condo</label>
                                 <div class="row mb-2">
-                                    <label for="legal_condo_unit" class="col-3 col-form-label">UNIT</label>
+                                    <label for="legal_description_condo_unit" class="col-3 col-form-label">UNIT</label>
                                     <div class="col-3">
                                         <input type="text" name="legal_description_condo_unit" id="legal_description_condo_unit" class="form-control">
                                     </div>
@@ -463,6 +463,7 @@
     </div>
 
     <script>
+        var previous_mls_number = '';
         var customerNamesArray = [];
         var indexTargetForm = 0;
         var targetFormArray = ['form_mls_number', 'form_mls_number_result'];
@@ -483,6 +484,8 @@
 
         var legal_description_condo_unit = document.getElementById('legal_description_condo_unit');
         var legal_description_condo_level = document.getElementById('legal_description_condo_level');
+        var legal_description_locker_unit = document.getElementById('legal_description_locker_unit');
+        var legal_description_locker_level = document.getElementById('legal_description_locker_level');
         var legal_description_property = document.getElementById('legal_description_property');
         var mls_agreement = document.getElementById('mls_agreement');
         var mls_address = document.getElementById('mls_address');
@@ -598,7 +601,7 @@
             var rowParkingSpots = divLegalDescriptionParkingSpot.querySelectorAll('.rowParkingSpot');
             rowParkingSpots[0].querySelector('.labelParkingSpot').innerHTML = `<strong>Legal</strong> Description of Parking Spot 1`;
 
-            divLegalDescriptionParkingSpot.innerHTML += `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelPark"><strong>Legal</strong> Description of Parking Spot ${rowParkingSpots.length + 1}</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_${rowParkingSpots.length}" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_${rowParkingSpots}" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level" class="form-control"></div></div></div></div></div>`;
+            divLegalDescriptionParkingSpot.innerHTML += `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelParkingSpot"><strong>Legal</strong> Description of Parking Spot ${rowParkingSpots.length + 1}</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_${rowParkingSpots.length}" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_${rowParkingSpots.length}" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level_${rowParkingSpots.length}" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level_${rowParkingSpots.length}" class="form-control"></div></div></div></div></div>`;
         }
     
         function removeInputCustomer(indexRowCustomer) {
@@ -697,6 +700,16 @@
             return '';
         }
 
+        function removeSelectedFinanceCondition() {
+            var finance_conditions = document.querySelectorAll('input[name="finance_condition"]');
+
+            for(f = 0; f < finance_conditions.length; f++) {
+                if (finance_conditions[f].checked) {
+                    finance_conditions[f].checked = false;
+                }
+            }
+        }
+
         function getSelectedStatusReviewCondition() {
             var status_review_conditions = document.querySelectorAll('input[name="status_review_condition"]');
 
@@ -708,6 +721,16 @@
             return '';
         }
 
+        function removeSelectedStatusReviewCondition() {
+            var status_review_conditions = document.querySelectorAll('input[name="status_review_condition"]');
+
+            for(s = 0; s < status_review_conditions.length; s++) {
+                if (status_review_conditions[s].checked) {
+                    status_review_conditions[s].checked = false;
+                }
+            }
+        }
+
         function getSelectedInspectionCondition() {
             var inspection_conditions = document.querySelectorAll('input[name="inspection_condition"]');
 
@@ -717,6 +740,16 @@
                 }
             }
             return '';
+        }
+
+        function removeSelectedInspectionCondition() {
+            var inspection_conditions = document.querySelectorAll('input[name="inspection_condition"]');
+
+            for(i = 0; i < inspection_conditions.length; i++) {
+                if (inspection_conditions[i].checked) {
+                    inspection_conditions[i].checked = false;
+                }
+            }
         }
 
         function getSelectedChattels() {
@@ -731,6 +764,16 @@
 
             var chattels_values = chattels_array.join(', ');
             return chattels_values;
+        }
+
+        function removeSelectedChattels() {
+            var chattels = form_chattel.querySelectorAll('input[name="chattels"]');
+
+            for(c = 0; c < chattels.length; c++) {
+                if (chattels[c].checked) {
+                   chattels[c].checked = false;
+                }
+            }
         }
 
         function getValuesAllParkingSpots() {
@@ -799,115 +842,132 @@
         }
 
         function emptyAllForms() {
-            removeAllInputCustomers();
-            price.value = '';
-            deposit.value = '';
-            inputDate.value = '';
-            $('#inputDate').datepicker('option', 'onSelect', '');
+            return new Promise(function(resolve, reject) {
+                removeAllInputCustomers();
+                price.value = '';
+                deposit.value = '';
+                inputDate.value = '';
+                legal_description_condo_unit.value = '';
+                legal_description_condo_level.value = '';
+                legal_description_locker_unit.value = '';
+                legal_description_locker_level.value = '';
+                legal_description_property.value = '';
+                divLegalDescriptionParkingSpot.innerHTML = `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelParkingSpot"><strong>Legal</strong> Description of Parking Spot</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_0" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_0" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level_0" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level_0" class="form-control"></div></div></div></div></div>`;
+                removeSelectedFinanceCondition();
+                removeSelectedStatusReviewCondition();
+                removeSelectedInspectionCondition();
+                removeSelectedChattels();
+                $('#inputDate').datepicker('option', 'onSelect', '');
+                resolve('Finish');
+            })
         }
 
         function getMLSForms() {
             return new Promise(function(resolve, reject) {
-                // var hero = 'https://cors-anywhere.herokuapp.com/';
-                var hero = 'https://cors-proxy-mls.herokuapp.com/';
-                var url = hero + `https://api.property.ca/v1/listings?mls_number=${mls_number.value}`;
-                var xhttp;
-                if(window.XMLHttpRequest) {
-                    xhttp = new XMLHttpRequest();   
-                } else {
-                    xhttp = new ActiveXObject('Microsoft.XMLHTTP');
-                }
-                xhttp.onreadystatechange = function() {
-                    if(this.readyState === 4 && this.status === 200) {
-                        var response = JSON.parse(this.responseText);
-
-                        if (response.hasOwnProperty('data')) {
-                            if (response.data.length != 0) {
-                                if (response.data[0].hasOwnProperty('offer') && response.data[0].hasOwnProperty('property_class')) {
-                                    divDeposit.style.display = 'none';
-                                    emptyAllForms();
-                                    divLegalDescriptionCondo.style.display = 'none';
-                                    divLegalDescriptionParkingSpot.style.display = 'none';
-                                    divLegalDescriptionLocker.style.display = 'none';
-                                    divLegalDescriptionProperty.style.display = 'none';
-
-                                    let agreement = response.data[0].property_class+' ';
-        
-                                    if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Rent') {
-                                        agreement += 'Lease';
-                                        labelCustomerName_html = 'Full Legal Name of Tenant';
-                                        labelTypeCustomer_html = 'Tenant';
-                                        labelPrice_html = 'Monthly Rent Amount';
-                                        labelDate_html = 'Closing Date';
-                                        targetFinalForm = 'form_freehold_lease_agreement';
-                                    } else if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Sale') {
-                                        agreement += 'Purchase';
-                                        labelCustomerName_html = 'Full Legal Name of Buyer';
-                                        labelTypeCustomer_html = 'Buyer';
-                                        labelPrice_html = 'Offer Price';
-                                        labelDate_html = 'Closing Date';
-                                        divDeposit.style.display = 'block';
-                                        targetFormArray.push('form_legal_descriptions');
-                                        divLegalDescriptionProperty.style.display = 'block';
-                                        targetFormArray.push('form_condition_finance');
-                                        targetFormArray.push('form_condition_inspection');
-                                        targetFormArray.push('form_chattel');
-                                        targetFinalForm = 'form_freehold_purchase_agreement';
-                                        $('#inputDate').datepicker('option', 'onSelect', function() {
-                                            closed_date_weekend();
-                                        });
-                                    } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Rent') {
-                                        agreement += 'Lease';
-                                        labelCustomerName_html = 'Full Legal Name of Tenant';
-                                        labelTypeCustomer_html = 'Tenant';
-                                        labelPrice_html = 'Monthly Rent Amount';
-                                        labelDate_html = 'Closing Date';
-                                        targetFinalForm = 'form_condo_lease_agreement';
-                                    } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Sale') {
-                                        agreement += 'Purchasse';
-                                        labelCustomerName_html = 'Full Legal Name of Buyer';
-                                        labelTypeCustomer_html = 'Buyer';
-                                        labelPrice_html = 'Offer Price';
-                                        labelDate_html = 'Closing Date';
-                                        divDeposit.style.display = 'block';
-                                        targetFormArray.push('form_legal_descriptions');
-                                        divLegalDescriptionCondo.style.display = 'block';
-                                        
-                                        if (response.data[0].parking_spots != 0) {
-                                            divLegalDescriptionParkingSpot.style.display = 'block';
-                                            for (var x = p = 0; p < response.data[0].parking_spots - 1; p++) {
-                                                addInputParkingSpot();
+                if (previous_mls_number != mls_number.value) {                    
+                    // var hero = 'https://cors-anywhere.herokuapp.com/';
+                    var hero = 'https://cors-proxy-mls.herokuapp.com/';
+                    var url = hero + `https://api.property.ca/v1/listings?mls_number=${mls_number.value}`;
+                    var xhttp;
+                    if(window.XMLHttpRequest) {
+                        xhttp = new XMLHttpRequest();   
+                    } else {
+                        xhttp = new ActiveXObject('Microsoft.XMLHTTP');
+                    }
+                    xhttp.onreadystatechange = async function() {
+                        if(this.readyState === 4 && this.status === 200) {
+                            var response = JSON.parse(this.responseText);
+    
+                            if (response.hasOwnProperty('data')) {
+                                if (response.data.length != 0) {
+                                    if (response.data[0].hasOwnProperty('offer') && response.data[0].hasOwnProperty('property_class')) {
+                                        divDeposit.style.display = 'none';
+                                        await emptyAllForms();
+                                        divLegalDescriptionCondo.style.display = 'none';
+                                        divLegalDescriptionParkingSpot.style.display = 'none';
+                                        divLegalDescriptionLocker.style.display = 'none';
+                                        divLegalDescriptionProperty.style.display = 'none';
+    
+                                        let agreement = response.data[0].property_class+' ';
+            
+                                        if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Rent') {
+                                            agreement += 'Lease';
+                                            labelCustomerName_html = 'Full Legal Name of Tenant';
+                                            labelTypeCustomer_html = 'Tenant';
+                                            labelPrice_html = 'Monthly Rent Amount';
+                                            labelDate_html = 'Closing Date';
+                                            targetFinalForm = 'form_freehold_lease_agreement';
+                                        } else if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Sale') {
+                                            agreement += 'Purchase';
+                                            labelCustomerName_html = 'Full Legal Name of Buyer';
+                                            labelTypeCustomer_html = 'Buyer';
+                                            labelPrice_html = 'Offer Price';
+                                            labelDate_html = 'Closing Date';
+                                            divDeposit.style.display = 'block';
+                                            targetFormArray.push('form_legal_descriptions');
+                                            divLegalDescriptionProperty.style.display = 'block';
+                                            targetFormArray.push('form_condition_finance');
+                                            targetFormArray.push('form_condition_inspection');
+                                            targetFormArray.push('form_chattel');
+                                            targetFinalForm = 'form_freehold_purchase_agreement';
+                                            $('#inputDate').datepicker('option', 'onSelect', function() {
+                                                closed_date_weekend();
+                                            });
+                                        } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Rent') {
+                                            agreement += 'Lease';
+                                            labelCustomerName_html = 'Full Legal Name of Tenant';
+                                            labelTypeCustomer_html = 'Tenant';
+                                            labelPrice_html = 'Monthly Rent Amount';
+                                            labelDate_html = 'Closing Date';
+                                            targetFinalForm = 'form_condo_lease_agreement';
+                                        } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Sale') {
+                                            agreement += 'Purchasse';
+                                            labelCustomerName_html = 'Full Legal Name of Buyer';
+                                            labelTypeCustomer_html = 'Buyer';
+                                            labelPrice_html = 'Offer Price';
+                                            labelDate_html = 'Closing Date';
+                                            divDeposit.style.display = 'block';
+                                            targetFormArray.push('form_legal_descriptions');
+                                            divLegalDescriptionCondo.style.display = 'block';
+                                            
+                                            if (response.data[0].parking_spots != 0) {
+                                                divLegalDescriptionParkingSpot.style.display = 'block';
+                                                for (var x = p = 0; p < response.data[0].parking_spots - 1; p++) {
+                                                    addInputParkingSpot();
+                                                }
                                             }
+            
+                                            if (response.data[0].has_locker != null) {
+                                                divLegalDescriptionLocker.style.display = 'block';
+                                            }
+                                            targetFormArray.push('form_condition_finance');
+                                            targetFormArray.push('form_condition_status_review');
+                                            targetFormArray.push('form_chattel');
+                                            targetFinalForm = 'form_condo_purchase_agreement';
+                                            $('#inputDate').datepicker('option', 'onSelect', function() {
+                                                closed_date_weekend();
+                                            });
                                         }
-        
-                                        if (response.data[0].has_locker != null) {
-                                            divLegalDescriptionLocker.style.display = 'block';
-                                        }
-                                        targetFormArray.push('form_condition_finance');
-                                        targetFormArray.push('form_condition_status_review');
-                                        targetFormArray.push('form_chattel');
-                                        targetFinalForm = 'form_condo_purchase_agreement';
-                                        $('#inputDate').datepicker('option', 'onSelect', function() {
-                                            closed_date_weekend();
-                                        });
+                                        type.value = agreement.replace(' ', '');
+                                        divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
+                                        divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
+                                        labelPrice.innerHTML = labelPrice_html;
+                                        labelDate.innerHTML = labelDate_html;
+                                        mls_agreement.innerHTML = agreement + ' Agreement';
+                                        mls_address.innerHTML = response.data[0].title;
+                                        previous_mls_number = mls_number.value;
+                                        resolve('Finish');
+                                        return;
                                     }
-                                    type.value = agreement.replace(' ', '');
-                                    divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
-                                    divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
-                                    labelPrice.innerHTML = labelPrice_html;
-                                    labelDate.innerHTML = labelDate_html;
-                                    mls_agreement.innerHTML = agreement + ' Agreement';
-                                    mls_address.innerHTML = response.data[0].title;
-                                    resolve('Finish');
-                                    return;
                                 }
                             }
+                            alert('MLS Number not supported, please try another one.');
                         }
-                        alert('MLS Number not supported, please try another one.');
-                    }
-                };
-                xhttp.open('GET', url, true);
-                xhttp.send();
+                    };
+                    xhttp.open('GET', url, true);
+                    xhttp.send();
+                }
+                resolve('Finish');
             });
         }
 
