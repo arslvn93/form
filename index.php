@@ -655,10 +655,12 @@
             } else {
                 deposit.value = '0';
             }
+            commas_number_input(deposit);
         };
 
         function commas_number_input(input_element) {
             var new_value = Intl.NumberFormat().format(input_element.value.replace(/,/g, ''));
+            console.log(new_value);
 
             input_element.value = new_value;
         }
