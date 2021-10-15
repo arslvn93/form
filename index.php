@@ -435,7 +435,7 @@
                                         <li class="list-group-item">
                                             <div class="form-check" id="form_chattel_order">
                                                 <input type="checkbox" name="chattels" id="chattel_other" class="form-check-input" value="Other">
-                                                <label for="chattel_other" class="form-check-label" id="label_chattel_other">Other</label>
+                                                <label for="chattel_other" class="form-check-label w-100" id="label_chattel_other">Other</label>
                                             </div>
                                         </li>
                                     </ul>
@@ -507,8 +507,13 @@
 
         chattel_other.onchange = function() {
             if (this.checked == true) {
-                label_chattel_other.innerHTML = `<input type="text" id="input_chattel_other" class="form-control" placeholder="Type Something" value="${label_chattel_other.innerHTML}">`;
+                console.log(label_chattel_other.innerHTML);
+                label_chattel_other.innerHTML = `<textarea id="input_chattel_other" class="form-control" placeholder="Type Something">${label_chattel_other.innerHTML}</textarea>`;
                 this.value = document.getElementById('input_chattel_other').value;
+                document.getElementById('input_chattel_other').oninput = function(event) {
+                    this.style.height = `${this.scrollHeight}px`;
+                    chattel_other.value = this.value;
+                }
             } else {
                 label_chattel_other.innerHTML = document.getElementById('input_chattel_other').value;
                 this.value = label_chattel_other.innerHTML;
@@ -679,7 +684,6 @@
         function displayForm() {
             hideAllForms();
 
-            console.log(targetFormArray);
             if (targetFormArray.length == indexTargetForm + 1) {
                 document.getElementById(targetFormArray[indexTargetForm]).querySelector('.btnSubmit').innerHTML = 'Draft Offer Now';
             }
