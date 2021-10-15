@@ -69,6 +69,9 @@
         .form-check-input:checked[type=radio], .form-check-input:checked[type=checkbox] {
             background: #40d8a1;
         }
+        .greenBordered {
+            border: 1px solid #40d8a1 !important;
+        }
     </style>
 <body>
     <input type="hidden" name="type" id="type">
@@ -335,31 +338,31 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="no_inspection_condition" value="No Inspection Condition" class="form-check-input" onchange="displayForm()">
+                                                <input type="radio" name="inspection_condition" id="no_inspection_condition" value="No Inspection Condition" class="form-check-input" onchange="displayForm();">
                                                 <label for="no_inspection_condition" class="form-check-label">No Inspection Condition</label>
                                             </div>   
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="inspection_one_business_day" value="One Business Day" class="form-check-input" onchange="displayForm()">
+                                                <input type="radio" name="inspection_condition" id="inspection_one_business_day" value="One Business Day" class="form-check-input" onchange="displayForm();">
                                                 <label for="inspection_one_business_day" class="form-check-label">One Business Day</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="inspection_two_business_days" value="Two Business Days" class="form-check-input" onchange="displayForm()">
+                                                <input type="radio" name="inspection_condition" id="inspection_two_business_days" value="Two Business Days" class="form-check-input" onchange="displayForm();">
                                                 <label for="inspection_two_business_days" class="form-check-label">Two Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="inspection_three_business_days" value="Three Business Days" class="form-check-input" onchange="displayForm()">
+                                                <input type="radio" name="inspection_condition" id="inspection_three_business_days" value="Three Business Days" class="form-check-input" onchange="displayForm();">
                                                 <label for="inspection_three_business_days" class="form-check-label">Three Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="inspection_four_business_days" value="Four Business Days" class="form-check-input" onchange="displayForm()">
+                                                <input type="radio" name="inspection_condition" id="inspection_four_business_days" value="Four Business Days" class="form-check-input" onchange="displayForm();">
                                                 <label for="inspection_four_business_days" class="form-check-label">Four Business Days</label>
                                             </div>
                                         </li>
@@ -392,49 +395,49 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="checkbox" name="chattels" id="chattel_1" class="form-check-input" value="Stainless Steel Fridge/Freezer">
+                                                <input type="checkbox" name="chattels" id="chattel_1" class="form-check-input" onclick="changeSelectionBorderColor(this)" value="Stainless Steel Fridge/Freezer">
                                                 <label for="chattel_1" class="form-check-label">Stainless Steel Fridge/Freezer</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="checkbox" name="chattels" id="chattel_2" class="form-check-input" value="Stainless Steel Over-the-Range Microwave with Built in Exhaust Fan">
+                                                <input type="checkbox" name="chattels" id="chattel_2" class="form-check-input" onclick="changeSelectionBorderColor(this)" value="Stainless Steel Over-the-Range Microwave with Built in Exhaust Fan">
                                                 <label for="chattel_2" class="form-check-label">Stainless Steel Over-the-Range Microwave with Built in Exhaust Fan</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="checkbox" name="chattels" id="chattel_3" class="form-check-input" value="Stainless Steel Dishwasher">
+                                                <input type="checkbox" name="chattels" id="chattel_3" class="form-check-input" onclick="changeSelectionBorderColor(this)" value="Stainless Steel Dishwasher">
                                                 <label for="chattel_3" class="form-check-label">Stainless Steel Dishwasher</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="checkbox" name="chattels" id="chattel_4" class="form-check-input" value="Stainless Steel Oven With Electric Range">
+                                                <input type="checkbox" name="chattels" id="chattel_4" class="form-check-input" onclick="changeSelectionBorderColor(this)" value="Stainless Steel Oven With Electric Range">
                                                 <label for="chattel_4" class="form-check-label">Stainless Steel Oven With Electric Range</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="checkbox" name="chattels" id="chattel_5" class="form-check-input" value="Stacked Front Loading Washer & Dryer">
+                                                <input type="checkbox" name="chattels" id="chattel_5" class="form-check-input" onclick="changeSelectionBorderColor(this)" value="Stacked Front Loading Washer & Dryer">
                                                 <label for="chattel_5" class="form-check-label">Stacked Front Loading Washer & Dryer</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="checkbox" name="chattels" id="chattel_6" class="form-check-input" value="All Electric Light Fixtures">
+                                                <input type="checkbox" name="chattels" id="chattel_6" class="form-check-input" onclick="changeSelectionBorderColor(this)" value="All Electric Light Fixtures">
                                                 <label for="chattel_6" class="form-check-label">All Electric Light Fixtures</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="checkbox" name="chattels" id="chattel_7" class="form-check-input" value="All Existing Window Coverings">
+                                                <input type="checkbox" name="chattels" id="chattel_7" class="form-check-input" onclick="changeSelectionBorderColor(this)" value="All Existing Window Coverings">
                                                 <label for="chattel_7" class="form-check-label">All Existing Window Coverings</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check" id="form_chattel_order">
-                                                <input type="checkbox" name="chattels" id="chattel_other" class="form-check-input" value="">
+                                                <input type="checkbox" name="chattels" id="chattel_other" class="form-check-input" onclick="changeSelectionBorderColor(this)" value="">
                                                 <label for="chattel_other" class="form-check-label w-100 fw-bold" id="label_chattel_other">+ Add Custom Chattels</label>
                                             </div>
                                         </li>
@@ -504,6 +507,12 @@
         let labelDate_html = '';
         let labelDeposit_html = '';
         let labelType_html = '';
+
+        function changeSelectionBorderColor(select_element)
+        {
+            var list_group_item = select_element.closest('.list-group-item');
+            list_group_item.classList.toggle('greenBordered');
+        }
 
         chattel_other.onchange = function() {
             if (this.checked == true) {
@@ -660,7 +669,6 @@
 
         function commas_number_input(input_element) {
             var new_value = Intl.NumberFormat().format(input_element.value.replace(/,/g, ''));
-            console.log(new_value);
 
             input_element.value = new_value;
         }
