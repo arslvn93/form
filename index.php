@@ -76,7 +76,7 @@
 <body>
     <input type="hidden" name="type" id="type">
     <div class="container">
-        <div class="row justify-content-center" id="form_mls_number">
+        <div class="row justify-content-center d-none" id="form_mls_number">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4">
@@ -93,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" id="form_mls_number_result">
+        <div class="row justify-content-center d-none" id="form_mls_number_result">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4">
@@ -144,7 +144,7 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" id="form_legal_descriptions">
+        <div class="row justify-content-center d-none" id="form_legal_descriptions">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4">
@@ -213,7 +213,7 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" id="form_condition_finance">
+        <div class="row justify-content-center d-none" id="form_condition_finance">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4">
@@ -270,12 +270,12 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" id="form_condition_status_review">
+        <div class="row justify-content-center d-none" id="form_condition_status_review">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
-                            <label for="">Status Review Condition</label>
+                            <label for="">How long for the <strong>Status Review Condition</strong>?</label>
                             <div class="card my-4">
                                 <div class="card-body p-0">
                                     <ul class="list-group list-group-flush">
@@ -327,12 +327,12 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" id="form_condition_inspection">
+        <div class="row justify-content-center d-none" id="form_condition_inspection">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
-                            <label for="">Inspection Condition</label>
+                            <label for="">How Long for the <strong>Inspection Condition</strong>?</label>
                             <div class="card my-4">
                                 <div class="card-body p-0">
                                     <ul class="list-group list-group-flush">
@@ -384,7 +384,7 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" id="form_chattel">
+        <div class="row justify-content-center d-none" id="form_chattel">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4">
@@ -453,7 +453,7 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" id="form_thank_you">
+        <div class="row justify-content-center d-none" id="form_thank_you">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
                     <div class="card-body p-4 d-flex justify-content-center flex-column">
@@ -466,6 +466,7 @@
     </div>
 
     <script>
+        var firstTimeHide = true;
         var previous_mls_number = '';
         var customerNamesArray = [];
         var indexTargetForm = 0;
@@ -674,14 +675,34 @@
         }
 
         function hideAllForms() {
-            form_mls_number.style.display = 'none';
-            form_mls_number_result.style.display = 'none';
-            form_condition_finance.style.display = 'none';
-            form_condition_status_review.style.display = 'none';
-            form_condition_inspection.style.display = 'none';
-            form_legal_descriptions.style.display = 'none';
-            form_chattel.style.display = 'none';
-            form_thank_you.style.display = 'none';
+            if (firstTimeHide == true) {
+                form_mls_number.classList.remove('d-none');
+                form_mls_number_result.classList.remove('d-none');
+                form_condition_finance.classList.remove('d-none');
+                form_condition_status_review.classList.remove('d-none');
+                form_condition_inspection.classList.remove('d-none');
+                form_legal_descriptions.classList.remove('d-none');
+                form_chattel.classList.remove('d-none');
+                form_thank_you.classList.remove('d-none');
+                form_mls_number.style.display = 'none';
+                form_mls_number_result.style.display = 'none';
+                form_condition_finance.style.display = 'none';
+                form_condition_status_review.style.display = 'none';
+                form_condition_inspection.style.display = 'none';
+                form_legal_descriptions.style.display = 'none';
+                form_chattel.style.display = 'none';
+                form_thank_you.style.display = 'none';
+                firstTimeHide = false;
+            } else {
+                form_mls_number.style.display = 'none';
+                form_mls_number_result.style.display = 'none';
+                form_condition_finance.style.display = 'none';
+                form_condition_status_review.style.display = 'none';
+                form_condition_inspection.style.display = 'none';
+                form_legal_descriptions.style.display = 'none';
+                form_chattel.style.display = 'none';
+                form_thank_you.style.display = 'none';
+            }
         }
 
         window.onload = function () {
