@@ -83,7 +83,7 @@
                                 <input type="text" name="mls_number" id="mls_number" class="form-control" id="mls_number" required>
                             </div>
                             <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary btnSubmit" type="submit" onclick="targetFormArray=['form_mls_number', 'form_mls_number_result']">Next</button>
+                                <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                             </div>
                         </form>
                     </div>
@@ -215,7 +215,7 @@
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
-                            <label for="">Finance Condition</label>
+                            <label for="">How long for the <strong>Finance Condition?</strong></label>
                             <div class="card my-4">
                                 <div class="card-body p-0">
                                     <ul class="list-group list-group-flush">
@@ -227,32 +227,32 @@
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="finance_condition" id="one_finance_condition" value="One Finance Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="one_finance_condition" class="form-check-label">One Finance Condition</label>
+                                                <input type="radio" name="finance_condition" id="finance_one_business_day" value="One Business Day" class="form-check-input" onchange="displayForm()">
+                                                <label for="finance_one_business_day" class="form-check-label">One Business Day</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="finance_condition" id="two_finance_condition" value="Two Finance Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="two_finance_condition" class="form-check-label">Two Finance Condition</label>
+                                                <input type="radio" name="finance_condition" id="finance_two_business_days" value="Two Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="finance_two_business_days" class="form-check-label">Two Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="finance_condition" id="three_finance_condition" value="Three Finance Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="three_finance_condition" class="form-check-label">Three Finance Condition</label>
+                                                <input type="radio" name="finance_condition" id="finance_three_business_days" value="Three Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="finance_three_business_days" class="form-check-label">Three Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="finance_condition" id="four_finance_condition" value="Four Finance Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="four_finance_condition" class="form-check-label">Four Finance Condition</label>
+                                                <input type="radio" name="finance_condition" id="finance_four_business_days" value="Four Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="finance_four_business_days" class="form-check-label">Four Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="finance_condition" id="five_finance_condition" value="Five Finance Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="five_finance_condition" class="form-check-label">Five Finance Condition</label>
+                                                <input type="radio" name="finance_condition" id="finance_five_business_days" value="Five Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="finance_five_business_days" class="form-check-label">Five Business Days</label>
                                             </div>
                                         </li>
                                     </ul>
@@ -284,32 +284,32 @@
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="status_review_condition" id="one_status_review_condition" value="One Status Review Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="one_status_review_condition" class="form-check-label">One Status Review Condition</label>
+                                                <input type="radio" name="status_review_condition" id="status_review_one_business_day" value="One Business Day" class="form-check-input" onchange="displayForm()">
+                                                <label for="status_review_one_business_day" class="form-check-label">One Business Day</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="status_review_condition" id="two_status_review_condition" value="Two Status Review Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="two_status_review_condition" class="form-check-label">Two Status Review Condition</label>
+                                                <input type="radio" name="status_review_condition" id="status_review_two_business_days" value="Two Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="status_review_two_business_days" class="form-check-label">Two Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="status_review_condition" id="three_status_review_condition" value="Three Status Review Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="three_status_review_condition" class="form-check-label">Three Status Review Condition</label>
+                                                <input type="radio" name="status_review_condition" id="status_review_three_business_days" value="Three Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="status_review_three_business_days" class="form-check-label">Three Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="status_review_condition" id="four_status_review_condition" value="Four Status Review Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="four_status_review_condition" class="form-check-label">Four Status Review Condition</label>
+                                                <input type="radio" name="status_review_condition" id="status_review_four_business_days" value="Four Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="status_review_four_business_days" class="form-check-label">Four Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="status_review_condition" id="five_status_review_condition" value="Five Status Review Condition" class="form-check-input" onchange="displayForm()">
-                                                <label for="five_status_review_condition" class="form-check-label">Five Status Review Condition</label>
+                                                <input type="radio" name="status_review_condition" id="status_review_five_business_days" value="Five Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="status_review_five_business_days" class="form-check-label">Five Business Days</label>
                                             </div>
                                         </li>
                                     </ul>
@@ -341,32 +341,32 @@
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="one_business_day" value="One Business Day" class="form-check-input" onchange="displayForm()">
-                                                <label for="one_business_day" class="form-check-label">One Business Day</label>
+                                                <input type="radio" name="inspection_condition" id="inspection_one_business_day" value="One Business Day" class="form-check-input" onchange="displayForm()">
+                                                <label for="inspection_one_business_day" class="form-check-label">One Business Day</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="two_business_day" value="Two Business Day" class="form-check-input" onchange="displayForm()">
-                                                <label for="two_business_day" class="form-check-label">Two Business Day</label>
+                                                <input type="radio" name="inspection_condition" id="inspection_two_business_days" value="Two Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="inspection_two_business_days" class="form-check-label">Two Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="three_business_day" value="Three Business Day" class="form-check-input" onchange="displayForm()">
-                                                <label for="three_business_day" class="form-check-label">Three Business Day</label>
+                                                <input type="radio" name="inspection_condition" id="inspection_three_business_days" value="Three Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="inspection_three_business_days" class="form-check-label">Three Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="four_business_day" value="Four Business Day" class="form-check-input" onchange="displayForm()">
-                                                <label for="four_business_day" class="form-check-label">Four Business Day</label>
+                                                <input type="radio" name="inspection_condition" id="inspection_four_business_days" value="Four Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="inspection_four_business_days" class="form-check-label">Four Business Days</label>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
-                                                <input type="radio" name="inspection_condition" id="five_business_day" value="Five Business Day" class="form-check-input" onchange="displayForm()">
-                                                <label for="five_business_day" class="form-check-label">Five Business Day</label>
+                                                <input type="radio" name="inspection_condition" id="inspection_five_business_days" value="Five Business Days" class="form-check-input" onchange="displayForm()">
+                                                <label for="inspection_five_business_days" class="form-check-label">Five Business Days</label>
                                             </div>
                                         </li>
                                     </ul>
@@ -877,7 +877,8 @@
 
         async function getMLSForms() {
             return new Promise(function(resolve, reject) {
-                if (previous_mls_number != mls_number.value) {                    
+                if (previous_mls_number != mls_number.value) {
+                    targetFormArray=['form_mls_number', 'form_mls_number_result'];             
                     // var hero = 'https://cors-anywhere.herokuapp.com/';
                     var hero = 'https://cors-proxy-mls.herokuapp.com/';
                     var url = hero + `https://api.property.ca/v1/listings?mls_number=${mls_number.value}`;
