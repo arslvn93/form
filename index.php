@@ -108,7 +108,7 @@
                                     </div>
                                     <div class="col-xl-3 col-md-3 col-sm-3 col-3">
                                         <div class="form-group">
-                                            <label for="" class="form-label text-nowrap labelTypeCustomer"></label>
+                                            <label for="" class="form-label text-nowrap labelTypeCustomer" style="font-size: 0.8rem; line-height: 1.4rem;"></label>
                                             <button type="button" class="form-control btn btn-outline-primary" onclick="addInputCustomer(); setOldValuesInputCustomers();">+</button>
                                         </div>
                                     </div>
@@ -711,7 +711,7 @@
             $('#inputDate').datepicker({
                 changeYear: true,
                 changeMonth: true,
-                dateFormat: 'DD d MM, yy',
+                dateFormat: 'DD MM d, yy',
             });
         }
 
@@ -922,7 +922,7 @@
                     }
                     type.value = agreement.replace(' ', '');
                     divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
-                    divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}`;
+                    divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
                     labelPrice.innerHTML = labelPrice_html;
                     labelDate.innerHTML = labelDate_html;
                     mls_agreement.innerHTML = agreement + ' Agreement';
