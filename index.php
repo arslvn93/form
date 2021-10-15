@@ -878,17 +878,17 @@
 
             formData.append('Names', JSON.stringify(getValuesAllInputCustomers()));
             formData.append('Date', getActualDate());
-            formData.append('Price', price.value);
+            formData.append('Price', price.value.replace(/,/g, ''));
             formData.append('type', type.value);
 
             if (final_target_form == 'form_freehold_purchase_agreement') {
-                formData.append('Deposit', deposit.value);
+                formData.append('Deposit', deposit.value.replace(/,/g, ''));
                 formData.append('Finance', getSelectedFinanceCondition());
                 formData.append('Inspection', getSelectedInspectionCondition());
                 formData.append('LegalDescription', legal_description_property.value);
                 formData.append('Chattels', getSelectedChattels());
             } else if (final_target_form == 'form_condo_purchase_agreement') {
-                formData.append('Deposit', deposit.value);
+                formData.append('Deposit', deposit.value.replace(/,/g, ''));
                 formData.append('Finance', getSelectedFinanceCondition());
                 formData.append('Status', getSelectedStatusReviewCondition());
                 formData.append('Unit', legal_description_condo_unit.value);
