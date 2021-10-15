@@ -83,7 +83,7 @@
                                 <input type="text" name="mls_number" id="mls_number" class="form-control" id="mls_number" required>
                             </div>
                             <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit" onclick="targetFormArray=['form_mls_number', 'form_mls_number_result']">Next</button>
+                                <button class="btn btn-primary btnSubmit" type="submit" onclick="targetFormArray=['form_mls_number', 'form_mls_number_result']">Next</button>
                             </div>
                         </form>
                     </div>
@@ -133,7 +133,7 @@
                                 <input type="text" id="inputDate" autocomplete="off" class="form-control" placeholder="Date" required>
                             </div>
                             <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit">Next</button>
+                                <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                                 <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
                             </div>
                         </form>
@@ -202,7 +202,7 @@
                                 <textarea name="legal_description_property" id="legal_description_property" rows="4" class="form-control"></textarea>
                             </div>
                             <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit">Next</button>
+                                <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                                 <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
                             </div>
                         </form>
@@ -259,7 +259,7 @@
                                 </div>
                             </div>
                             <div class="d-grid gap-2">
-                                <button class="btn btn-primary" type="submit">Next</button>
+                                <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                                 <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
                             </div>
                         </form>
@@ -316,7 +316,7 @@
                                 </div>
                             </div>
                             <div class="d-grid gap-2">
-                                <button class="btn btn-primary" type="submit">Next</button>
+                                <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                                 <button class="btn" type="button" onclick="backPreviousForm()">Back</button>
                             </div>
                         </form>
@@ -373,7 +373,7 @@
                                 </div>
                             </div>
                             <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit">Next</button>
+                                <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                                 <button class="btn" type="button" onclick="backPreviousForm()">Back</button>
                             </div>
                         </form>
@@ -442,7 +442,7 @@
                                 </div>
                             </div>
                             <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary" type="submit">Draft Offer Now</button>
+                                <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                                 <button class="btn" type="button" onclick="backPreviousForm()">Back</button>
                             </div>
                         </form>
@@ -678,6 +678,12 @@
 
         function displayForm() {
             hideAllForms();
+
+            console.log(targetFormArray);
+            if (targetFormArray.length == indexTargetForm + 1) {
+                document.getElementById(targetFormArray[indexTargetForm]).querySelector('.btnSubmit').innerHTML = 'Draft Offer Now';
+            }
+
             document.getElementById(targetFormArray[indexTargetForm]).style.display = 'flex';
             indexTargetForm++;
         }
@@ -799,7 +805,7 @@
             });
 
             if (rowParkingSpots.length * 2 == countAllEmptyParkingSpot) {
-                parking_spots_array = '';
+                parking_spots_array = [];
             }
 
             return parking_spots_array;
@@ -834,7 +840,11 @@
                 formData.append('Status', getSelectedStatusReviewCondition());
                 formData.append('Unit', legal_description_condo_unit.value);
                 formData.append('Level', legal_description_condo_level.value);
-                formData.append('Parking', JSON.stringify(getValuesAllParkingSpots()));
+                if (getValuesAllParkingSpots().length == 0) {
+                    formData.append('Parking', '');
+                } else {
+                    formData.append('Parking', JSON.stringify(getValuesAllParkingSpots()));
+                }
                 formData.append('Chattels', getSelectedChattels());
             }
             xhttp.open('POST', url, true);
@@ -842,27 +852,24 @@
         }
 
         function emptyAllForms() {
-            return new Promise(function(resolve, reject) {
-                removeAllInputCustomers();
-                price.value = '';
-                deposit.value = '';
-                inputDate.value = '';
-                legal_description_condo_unit.value = '';
-                legal_description_condo_level.value = '';
-                legal_description_locker_unit.value = '';
-                legal_description_locker_level.value = '';
-                legal_description_property.value = '';
-                divLegalDescriptionParkingSpot.innerHTML = `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelParkingSpot"><strong>Legal</strong> Description of Parking Spot</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_0" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_0" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level_0" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level_0" class="form-control"></div></div></div></div></div>`;
-                removeSelectedFinanceCondition();
-                removeSelectedStatusReviewCondition();
-                removeSelectedInspectionCondition();
-                removeSelectedChattels();
-                $('#inputDate').datepicker('option', 'onSelect', '');
-                resolve('Finish');
-            })
+            removeAllInputCustomers();
+            price.value = '';
+            deposit.value = '';
+            inputDate.value = '';
+            legal_description_condo_unit.value = '';
+            legal_description_condo_level.value = '';
+            legal_description_locker_unit.value = '';
+            legal_description_locker_level.value = '';
+            legal_description_property.value = '';
+            divLegalDescriptionParkingSpot.innerHTML = `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelParkingSpot"><strong>Legal</strong> Description of Parking Spot</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_0" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_0" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level_0" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level_0" class="form-control"></div></div></div></div></div>`;
+            removeSelectedFinanceCondition();
+            removeSelectedStatusReviewCondition();
+            removeSelectedInspectionCondition();
+            removeSelectedChattels();
+            $('#inputDate').datepicker('option', 'onSelect', '');
         }
 
-        function getMLSForms() {
+        async function getMLSForms() {
             return new Promise(function(resolve, reject) {
                 if (previous_mls_number != mls_number.value) {                    
                     // var hero = 'https://cors-anywhere.herokuapp.com/';
@@ -882,7 +889,7 @@
                                 if (response.data.length != 0) {
                                     if (response.data[0].hasOwnProperty('offer') && response.data[0].hasOwnProperty('property_class')) {
                                         divDeposit.style.display = 'none';
-                                        await emptyAllForms();
+                                        emptyAllForms();
                                         divLegalDescriptionCondo.style.display = 'none';
                                         divLegalDescriptionParkingSpot.style.display = 'none';
                                         divLegalDescriptionLocker.style.display = 'none';
@@ -966,14 +973,18 @@
                     };
                     xhttp.open('GET', url, true);
                     xhttp.send();
+                } else {
+                    resolve('Finish');
                 }
-                resolve('Finish');
             });
         }
 
         function goNextForm() {
-            displayForm();
-        }   
+            return new Promise((resolve, reject) => {
+                displayForm();
+                resolve('Finish');
+            });
+        }
 
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
@@ -993,7 +1004,7 @@
                             if (indexTargetForm == 1) {
                                 await getMLSForms();
                             }
-                            goNextForm();
+                            await goNextForm();
                         } else {
                             sendForm(targetFinalForm);
                         }
