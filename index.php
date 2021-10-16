@@ -876,6 +876,7 @@
                 formData.append('user', user);
             }
 
+            formData.append('mls_number', mls_number.value);
             formData.append('Names', JSON.stringify(getValuesAllInputCustomers()));
             formData.append('Date', getActualDate());
             formData.append('Price', price.value.replace(/,/g, ''));
