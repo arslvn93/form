@@ -596,10 +596,6 @@
                 customerNamesArray.push(rowCustomer.querySelector('.inputCustomerName').value);
             });
 
-            if (customerNamesArray.length == 1) {
-                return customerNamesArray.join('');
-            }
-
             return customerNamesArray;
         }
 
@@ -839,12 +835,9 @@
                 var parking_spot_unit = rowParkingSpot.querySelector('input[name="legal_description_parking_spot_unit"]').value;
                 var parking_spot_level = rowParkingSpot.querySelector('input[name="legal_description_parking_spot_level"]').value;
 
-                parking_spots_array.push({
-                    'Unit': parking_spot_unit,
-                    'Level': parking_spot_level,
-                });
+                parking_spots_array.push(`(Unit ${parking_spot_unit}, Level ${parking_spot_level})`);
 
-                if (parking_spot_unit == '' && parking_spot_level == '') {
+                if (parking_spot_unit == '' || parking_spot_level == '') {
                     parking_spots_array[indexParkingSpot] = '';
                     countAllEmptyParkingSpot += 2;
                 }
@@ -873,14 +866,14 @@
             var formData = new FormData();
 
             if (user != '') {
-                formData.append('user', user);
+                formData.append('User', user);
             }
 
-            formData.append('mls_number', mls_number.value);
-            formData.append('Names', JSON.stringify(getValuesAllInputCustomers()));
+            formData.append('MLS Number', mls_number.value);
+            formData.append('Names', getValuesAllInputCustomers().join(' & '));
             formData.append('Date', getActualDate());
             formData.append('Price', price.value.replace(/,/g, ''));
-            formData.append('type', type.value);
+            formData.append('Type', type.value);
 
             if (final_target_form == 'form_freehold_purchase_agreement') {
                 formData.append('Deposit', deposit.value.replace(/,/g, ''));
@@ -897,7 +890,12 @@
                 if (getValuesAllParkingSpots().length == 0) {
                     formData.append('Parking', '');
                 } else {
-                    formData.append('Parking', JSON.stringify(getValuesAllParkingSpots()));
+                    formData.append('Parking', getValuesAllParkingSpots().join(' & '));
+                }
+                if (legal_description_locker_unit.value == '' || legal_description_locker_level.value == '') {
+                    formData.append('Locker', '');
+                } else {
+                    formData.append('Locker', `(Unit ${legal_description_locker_unit.value}, Level ${legal_description_locker_level.value})`);
                 }
                 formData.append('Chattels', getSelectedChattels());
             }
