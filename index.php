@@ -1009,7 +1009,6 @@
                                                 closed_date_weekend();
                                             });
                                         }
-                                        console.log('hai hai');
                                         type.value = agreement.replace(' ', '');
                                         divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
                                         divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
