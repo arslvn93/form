@@ -453,6 +453,24 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center d-none" id="form_email">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <form class="needs-validation" novalidate>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="text" name="email" id="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="d-grid gap-2 mt-4">
+                                <button class="btn btn-primary btnSubmit" type="submit">Next</button>
+                                <button class="btn" type="button" onclick="backPreviousForm()">Back</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row justify-content-center d-none" id="form_thank_you">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
                 <div class="card">
@@ -479,6 +497,7 @@
         var form_condition_status_review = document.getElementById('form_condition_status_review');
         var form_condition_inspection = document.getElementById('form_condition_inspection');
         var form_chattel = document.getElementById('form_chattel');
+        var form_email = document.getElementById('form_email');
         var form_thank_you = document.getElementById('form_thank_you');
         var divCustomer = document.getElementById('divCustomer');
         var form_legal_descriptions = document.getElementById('form_legal_descriptions');
@@ -497,6 +516,7 @@
         var chattel_other = document.getElementById('chattel_other');
         var form_chattel_other = document.getElementById('form_chattel_other');
         var label_chattel_other = document.getElementById('label_chattel_other');
+        var email = document.getElementById('email');
 
         var labelPrice = document.getElementById('labelPrice');
         var labelDeposit = document.getElementById('labelDeposit');
@@ -680,26 +700,19 @@
                 form_condition_inspection.classList.remove('d-none');
                 form_legal_descriptions.classList.remove('d-none');
                 form_chattel.classList.remove('d-none');
+                form_email.classList.remove('d-none');
                 form_thank_you.classList.remove('d-none');
-                form_mls_number.style.display = 'none';
-                form_mls_number_result.style.display = 'none';
-                form_condition_finance.style.display = 'none';
-                form_condition_status_review.style.display = 'none';
-                form_condition_inspection.style.display = 'none';
-                form_legal_descriptions.style.display = 'none';
-                form_chattel.style.display = 'none';
-                form_thank_you.style.display = 'none';
                 firstTimeHide = false;
-            } else {
-                form_mls_number.style.display = 'none';
-                form_mls_number_result.style.display = 'none';
-                form_condition_finance.style.display = 'none';
-                form_condition_status_review.style.display = 'none';
-                form_condition_inspection.style.display = 'none';
-                form_legal_descriptions.style.display = 'none';
-                form_chattel.style.display = 'none';
-                form_thank_you.style.display = 'none';
             }
+            form_mls_number.style.display = 'none';
+            form_mls_number_result.style.display = 'none';
+            form_condition_finance.style.display = 'none';
+            form_condition_status_review.style.display = 'none';
+            form_condition_inspection.style.display = 'none';
+            form_legal_descriptions.style.display = 'none';
+            form_chattel.style.display = 'none';
+            form_email.style.display = 'none';
+            form_thank_you.style.display = 'none';
         }
 
         window.onload = function () {
@@ -710,10 +723,12 @@
                 dateFormat: 'DD MM d, yy',
             });
             <?php
-                $user = '';
+                $user = 'demo';
 
                 if (isset($_GET['user'])) {
-                    $user = $_GET['user'];
+                    if ($_GET['user'] != '') {
+                        $user = $_GET['user'];
+                    }
                 }
             ?>
             user = '<?= $user; ?>';
@@ -865,10 +880,10 @@
 
             var formData = new FormData();
 
-            if (user != '') {
-                formData.append('User', user);
+            formData.append('User', user);
+            if (user == 'demo') {
+                formData.append('Email', email.value);
             }
-
             formData.append('MLS Number', mls_number.value);
             formData.append('Names', getValuesAllInputCustomers().join(' & '));
             formData.append('Date', getActualDate());
@@ -913,6 +928,7 @@
             legal_description_locker_unit.value = '';
             legal_description_locker_level.value = '';
             legal_description_property.value = '';
+            email.value = '';
             divLegalDescriptionParkingSpot.innerHTML = `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelParkingSpot"><strong>Legal</strong> Description of Parking Spot</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_0" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_0" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level_0" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level_0" class="form-control"></div></div></div></div></div>`;
             removeSelectedFinanceCondition();
             removeSelectedStatusReviewCondition();
@@ -1017,6 +1033,9 @@
                                         mls_agreement.innerHTML = agreement + ' Agreement';
                                         mls_address.innerHTML = response.data[0].title;
                                         previous_mls_number = mls_number.value;
+                                        if (user == 'demo') {
+                                            targetFormArray.push('form_email');
+                                        }
                                         resolve('Finish');
                                         return;
                                     }
@@ -1127,6 +1146,9 @@
                                         mls_agreement.innerHTML = agreement + ' Agreement';
                                         mls_address.innerHTML = response.data[0].title;
                                         previous_mls_number = mls_number.value;
+                                        if (user == 'demo') {
+                                            targetFormArray.push('form_email');
+                                        }
                                         resolve('Finish');
                                         return;
                                     }
