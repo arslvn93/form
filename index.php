@@ -719,7 +719,7 @@
         window.onload = async function () {
             <?php
                 $url_user = 'demo';
-                $url_mls_number = '';
+                $url_mls = '';
                 $url_email = '';
 
                 if (isset($_GET['user'])) {
@@ -728,9 +728,9 @@
                     }
                 }
 
-                if (isset($_GET['mls_number'])) {
-                    if ($_GET['mls_number'] != '') {
-                        $url_mls_number = $_GET['mls_number'];
+                if (isset($_GET['mls'])) {
+                    if ($_GET['mls'] != '') {
+                        $url_mls = $_GET['mls'];
                     }
                 }
 
@@ -742,7 +742,7 @@
             ?>
             url_user = '<?= $url_user; ?>';
             url_email = '<?= $url_email; ?>';
-            mls_number.value = '<?= $url_mls_number; ?>';
+            mls_number.value = '<?= $url_mls; ?>';
 
             if (mls_number.value != '') {
                 await getMLSForms();
