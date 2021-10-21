@@ -476,7 +476,7 @@
                 <div class="card">
                     <div class="card-body p-4 d-flex justify-content-center flex-column">
                         <p class="card-text text-center">Thank you! Please check your email to download the offer.</p>
-                        <button class="btn btn-primary d-block mt-2" onclick="location.reload();">Draft Another Offer</button>
+                        <button class="btn btn-primary d-block mt-2" onclick="location.href = 'index.php';">Draft Another Offer</button>
                     </div>
                 </div>
             </div>
@@ -484,7 +484,8 @@
     </div>
 
     <script>
-        var user = '';
+        var url_user = '';
+        var url_email = '';
         var firstTimeHide = true;
         var previous_mls_number = '';
         var customerNamesArray = [];
@@ -715,23 +716,46 @@
             form_thank_you.style.display = 'none';
         }
 
-        window.onload = function () {
+        window.onload = async function () {
+            <?php
+                $url_user = 'demo';
+                $url_mls_number = '';
+                $url_email = '';
+
+                if (isset($_GET['user'])) {
+                    if ($_GET['user'] != '') {
+                        $url_user = $_GET['user'];
+                    }
+                }
+
+                if (isset($_GET['mls_number'])) {
+                    if ($_GET['mls_number'] != '') {
+                        $url_mls_number = $_GET['mls_number'];
+                    }
+                }
+
+                if (isset($_GET['email'])) {
+                    if ($_GET['email'] != '') {
+                        $url_email = $_GET['email'];
+                    }
+                }
+            ?>
+            url_user = '<?= $url_user; ?>';
+            url_email = '<?= $url_email; ?>';
+            mls_number.value = '<?= $url_mls_number; ?>';
+
+            if (mls_number.value != '') {
+                await getMLSForms();
+                indexTargetForm++;
+            }
+
             displayForm();
+
             $('#inputDate').datepicker({
                 changeYear: true,
                 changeMonth: true,
                 dateFormat: 'DD MM d, yy',
             });
-            <?php
-                $user = 'demo';
-
-                if (isset($_GET['user'])) {
-                    if ($_GET['user'] != '') {
-                        $user = $_GET['user'];
-                    }
-                }
-            ?>
-            user = '<?= $user; ?>';
         }
 
         function displayForm() {
@@ -880,9 +904,12 @@
 
             var formData = new FormData();
 
-            formData.append('User', user);
-            if (user == 'demo') {
-                formData.append('Email', email.value);
+            formData.append('User', url_user);
+            if (url_user == 'demo') {
+                if (url_email == '') {
+                    formData.append('Email', email.value);
+                }
+                formData.append('Email', url_email);
             }
             formData.append('MLS Number', mls_number.value);
             formData.append('Names', getValuesAllInputCustomers().join(' & '));
@@ -903,12 +930,16 @@
                 formData.append('Unit', legal_description_condo_unit.value);
                 formData.append('Level', legal_description_condo_level.value);
                 if (getValuesAllParkingSpots().length == 0) {
-                    formData.append('Parking', '');
+                    if (divLegalDescriptionParkingSpot.style.display != 'none') {
+                        formData.append('Parking', '');
+                    }
                 } else {
                     formData.append('Parking', getValuesAllParkingSpots().join(' & '));
                 }
                 if (legal_description_locker_unit.value == '' || legal_description_locker_level.value == '') {
-                    formData.append('Locker', '');
+                    if (divLegalDescriptionLocker.style.display != 'none') {
+                        formData.append('Locker', '');
+                    }
                 } else {
                     formData.append('Locker', `(Unit ${legal_description_locker_unit.value}, Level ${legal_description_locker_level.value})`);
                 }
@@ -1014,7 +1045,7 @@
                                                 }
                                             }
             
-                                            if (response.data[0].has_locker != null) {
+                                            if (response.data[0].has_locker != 0) {
                                                 divLegalDescriptionLocker.style.display = 'block';
                                             }
                                             targetFormArray.push('form_condition_finance');
@@ -1033,7 +1064,7 @@
                                         mls_agreement.innerHTML = agreement + ' Agreement';
                                         mls_address.innerHTML = response.data[0].title;
                                         previous_mls_number = mls_number.value;
-                                        if (user == 'demo') {
+                                        if (url_user == 'demo' && url_email == '') {
                                             targetFormArray.push('form_email');
                                         }
                                         resolve('Finish');
@@ -1127,7 +1158,7 @@
                                                 }
                                             }
             
-                                            if (response.data[0].has_locker != null) {
+                                            if (response.data[0].has_locker != 0) {
                                                 divLegalDescriptionLocker.style.display = 'block';
                                             }
                                             targetFormArray.push('form_condition_finance');
@@ -1146,7 +1177,7 @@
                                         mls_agreement.innerHTML = agreement + ' Agreement';
                                         mls_address.innerHTML = response.data[0].title;
                                         previous_mls_number = mls_number.value;
-                                        if (user == 'demo') {
+                                        if (url_user == 'demo' && url_email == '') {
                                             targetFormArray.push('form_email');
                                         }
                                         resolve('Finish');
