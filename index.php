@@ -573,7 +573,7 @@
             var datetime = $('#inputDate').datepicker('getDate');
             var day = datetime.getDay();
             var date = datetime.getDate().toString().padStart(2, '0');
-            var month = datetime.getMonth().toString().padStart(2, '0');
+            var month = (datetime.getMonth() + 1).toString().padStart(2, '0');
             var year = datetime.getFullYear();
 
             actualDate = `${year}-${month}-${date}`;
@@ -908,8 +908,9 @@
             if (url_user == 'demo') {
                 if (url_email == '') {
                     formData.append('Email', email.value);
+                } else {
+                    formData.append('Email', url_email);
                 }
-                formData.append('Email', url_email);
             }
             formData.append('MLS Number', mls_number.value);
             formData.append('Names', getValuesAllInputCustomers().join(' & '));
