@@ -905,47 +905,47 @@
 
             var formData = new FormData();
 
-            formData.append('User', url_user);
+            formData.append('user_id', url_user);
             if (url_user == 'demo') {
                 if (url_email == '') {
-                    formData.append('Email', email.value);
+                    formData.append('email', email.value);
                 } else {
-                    formData.append('Email', url_email);
+                    formData.append('email', url_email);
                 }
             }
-            formData.append('MLS Number', mls_number.value);
-            formData.append('Names', getValuesAllInputCustomers().join(' & '));
-            formData.append('Date', getActualDate());
-            formData.append('Price', price.value.replace(/,/g, ''));
+            formData.append('mls_number', mls_number.value);
+            formData.append('names', getValuesAllInputCustomers().join(' & '));
+            formData.append('possession', getActualDate());
+            formData.append('offer_price', price.value.replace(/,/g, ''));
             formData.append('Type', type.value);
 
             if (final_target_form == 'form_freehold_purchase_agreement') {
-                formData.append('Deposit', deposit.value.replace(/,/g, ''));
-                formData.append('Finance', getSelectedFinanceCondition());
-                formData.append('Inspection', getSelectedInspectionCondition());
-                formData.append('LegalDescription', legal_description_property.value);
-                formData.append('Chattels', getSelectedChattels());
+                formData.append('deposit', deposit.value.replace(/,/g, ''));
+                formData.append('finance_condition', getSelectedFinanceCondition());
+                formData.append('inspection_condition', getSelectedInspectionCondition());
+                formData.append('legal_description', legal_description_property.value);
+                formData.append('chattels', getSelectedChattels());
             } else if (final_target_form == 'form_condo_purchase_agreement') {
-                formData.append('Deposit', deposit.value.replace(/,/g, ''));
-                formData.append('Finance', getSelectedFinanceCondition());
-                formData.append('Status', getSelectedStatusReviewCondition());
-                formData.append('Unit', legal_description_condo_unit.value);
-                formData.append('Level', legal_description_condo_level.value);
+                formData.append('deposit', deposit.value.replace(/,/g, ''));
+                formData.append('finance_condition', getSelectedFinanceCondition());
+                formData.append('status_review_condition', getSelectedStatusReviewCondition());
+                formData.append('legal_unit_number', legal_description_condo_unit.value);
+                formData.append('legal_level', legal_description_condo_level.value);
                 if (getValuesAllParkingSpots().length == 0) {
                     if (divLegalDescriptionParkingSpot.style.display != 'none') {
-                        formData.append('Parking', '');
+                        formData.append('legal_parking_number, '');
                     }
                 } else {
-                    formData.append('Parking', getValuesAllParkingSpots().join(' & '));
+                    formData.append('legal_parking_number', getValuesAllParkingSpots().join(' & '));
                 }
                 if (legal_description_locker_unit.value == '' || legal_description_locker_level.value == '') {
                     if (divLegalDescriptionLocker.style.display != 'none') {
-                        formData.append('Locker', '');
+                        formData.append('legal_locker_number', '');
                     }
                 } else {
-                    formData.append('Locker', `(Unit ${legal_description_locker_unit.value}, Level ${legal_description_locker_level.value})`);
+                    formData.append('legal_locker_number', `(Unit ${legal_description_locker_unit.value}, Level ${legal_description_locker_level.value})`);
                 }
-                formData.append('Chattels', getSelectedChattels());
+                formData.append('chattels', getSelectedChattels());
             }
             xhttp.open('POST', url, true);
             xhttp.send(formData);
