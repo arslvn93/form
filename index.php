@@ -933,7 +933,7 @@
                 formData.append('legal_level', legal_description_condo_level.value);
                 if (getValuesAllParkingSpots().length == 0) {
                     if (divLegalDescriptionParkingSpot.style.display != 'none') {
-                        formData.append('legal_parking_number, '');
+                        formData.append('legal_parking_number', '');
                     }
                 } else {
                     formData.append('legal_parking_number', getValuesAllParkingSpots().join(' & '));
