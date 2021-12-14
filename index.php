@@ -894,7 +894,7 @@
         function sendForm(final_target_form) {
             hideAllForms();
             form_thank_you.style.display = 'flex';
-            var url = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjEzNjI4OSI_3D';
+            var url = 'https://enbztng5hoatt1f.m.pipedream.net';
 
             var xhttp;
             if (window.XMLHttpRequest) {
