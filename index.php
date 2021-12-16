@@ -912,12 +912,12 @@
                 } else {
                     formData.append('email', url_email);
                 }
+                formData.append('demo', 'true');
             }
             formData.append('mls_number', mls_number.value);
             formData.append('names', getValuesAllInputCustomers().join(' & '));
             formData.append('possession', getActualDate());
             formData.append('offer_price', price.value.replace(/,/g, ''));
-            formData.append('Type', type.value);
 
             if (final_target_form == 'form_freehold_purchase_agreement') {
                 formData.append('deposit', deposit.value.replace(/,/g, ''));
@@ -925,6 +925,8 @@
                 formData.append('inspection_condition', getSelectedInspectionCondition());
                 formData.append('legal_description', legal_description_property.value);
                 formData.append('chattels', getSelectedChattels());
+                formData.append('agreement', 'Purchase Agreement');
+                formData.append('type', 'Freehold');
             } else if (final_target_form == 'form_condo_purchase_agreement') {
                 formData.append('deposit', deposit.value.replace(/,/g, ''));
                 formData.append('finance_condition', getSelectedFinanceCondition());
@@ -946,6 +948,14 @@
                     formData.append('legal_locker_number', `(Unit ${legal_description_locker_unit.value}, Level ${legal_description_locker_level.value})`);
                 }
                 formData.append('chattels', getSelectedChattels());
+                formData.append('agreement', 'Purchase Agreement');
+                formData.append('type', 'Condo');
+            } else if (final_target_form == 'form_freehold_lease_agreement') {
+                formData.append('agreement', 'Lease Agreement');
+                formData.append('type', 'Freehold');
+            } else if (final_target_form == 'form_condo_lease_agreement') {
+                formData.append('agreement', 'Lease Agreement');
+                formData.append('type', 'Condo');
             }
             xhttp.open('POST', url, true);
             xhttp.send(formData);
@@ -1002,16 +1012,18 @@
                                         divLegalDescriptionLocker.style.display = 'none';
                                         divLegalDescriptionProperty.style.display = 'none';
     
-                                        let agreement = response.data[0].property_class+' ';
+                                        let agreement = response.data[0].property_class + ' ';
                                         if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Rent') {
-                                            agreement += 'Lease';
+                                            agreement += 'Lease Agreement';
+                                            type.value = 'Freehold';
                                             labelCustomerName_html = 'Full Legal Name of Tenant';
                                             labelTypeCustomer_html = 'Tenant';
                                             labelPrice_html = 'Monthly Rent Amount';
                                             labelDate_html = 'Closing Date';
                                             targetFinalForm = 'form_freehold_lease_agreement';
                                         } else if (response.data[0].property_class == 'Freehold' && response.data[0].offer == 'Sale') {
-                                            agreement += 'Purchase';
+                                            agreement += 'Purchase Agreement';
+                                            type.value = 'Freehold';
                                             labelCustomerName_html = 'Full Legal Name of Buyer';
                                             labelTypeCustomer_html = 'Buyer';
                                             labelPrice_html = 'Offer Price';
@@ -1027,14 +1039,16 @@
                                                 closed_date_weekend();
                                             });
                                         } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Rent') {
-                                            agreement += 'Lease';
+                                            agreement += 'Lease Agreement';
+                                            type.value = 'Condo';
                                             labelCustomerName_html = 'Full Legal Name of Tenant';
                                             labelTypeCustomer_html = 'Tenant';
                                             labelPrice_html = 'Monthly Rent Amount';
                                             labelDate_html = 'Closing Date';
                                             targetFinalForm = 'form_condo_lease_agreement';
                                         } else if (response.data[0].property_class == 'Condo' && response.data[0].offer == 'Sale') {
-                                            agreement += 'Purchase';
+                                            agreement += 'Purchase Agreement';
+                                            type.value = 'Condo';
                                             labelCustomerName_html = 'Full Legal Name of Buyer';
                                             labelTypeCustomer_html = 'Buyer';
                                             labelPrice_html = 'Offer Price';
@@ -1061,12 +1075,12 @@
                                                 closed_date_weekend();
                                             });
                                         }
-                                        type.value = agreement.replace(' ', '');
+                                        // type.value = agreement.replace(' ', '');
                                         divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
                                         divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
                                         labelPrice.innerHTML = labelPrice_html;
                                         labelDate.innerHTML = labelDate_html;
-                                        mls_agreement.innerHTML = agreement + ' Agreement';
+                                        mls_agreement.innerHTML = agreement;
                                         mls_address.innerHTML = response.data[0].title;
                                         previous_mls_number = mls_number.value;
                                         if (url_user == 'demo' && url_email == '') {
