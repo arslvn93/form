@@ -904,6 +904,7 @@
             }
 
             var formData = new FormData();
+            formData.append('demo', '');
 
             formData.append('user_id', url_user);
             if (url_user == 'demo') {
