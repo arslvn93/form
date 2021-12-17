@@ -918,6 +918,19 @@
             formData.append('names', getValuesAllInputCustomers().join(' & '));
             formData.append('possession', getActualDate());
             formData.append('offer_price', price.value.replace(/,/g, ''));
+            formData.append('finance_condition',  '');
+            formData.append('inspection_condition',  '');
+            formData.append('legal_description',  '');
+            formData.append('chattels',  '');
+            formData.append('status_review_condition',  '');
+            formData.append('legal_unit_number',  '');
+            formData.append('legal_level',  '');
+            formData.append('legal_parking_number',  '');
+            formData.append('legal_locker_number', '');
+            formData.append('deposit', '');
+
+
+
 
             if (final_target_form == 'form_freehold_purchase_agreement') {
                 formData.append('deposit', deposit.value.replace(/,/g, ''));
