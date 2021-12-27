@@ -1011,120 +1011,120 @@
                         xhttp = new ActiveXObject('Microsoft.XMLHTTP');
                     }
                     xhttp.onreadystatechange = async function() {
-                        if(this.readyState === 4 && this.status === 200) {
-                            var response = JSON.parse(this.responseText);
-    
-                            if (response.hasOwnProperty('data')) {
-                                if (Object.keys(response.data).length != 0) {
-                                    if (url_sext == false) {
-                                        response.data = response.data[0];
-                                    } else {
-                                        response.data.title = mls_number.value;
-                                    }
-                                    if (response.data.hasOwnProperty('offer') && response.data.hasOwnProperty('property_class')) {
-                                        divDeposit.style.display = 'none';
-                                        emptyAllForms();
-                                        divLegalDescriptionCondo.style.display = 'none';
-                                        divLegalDescriptionParkingSpot.style.display = 'none';
-                                        divLegalDescriptionLocker.style.display = 'none';
-                                        divLegalDescriptionProperty.style.display = 'none';
-    
-                                        let agreement = '';           
-                                        if (response.data.property_class == 'Freehold' && response.data.offer == 'Rent' || !response.data.property_class.includes('Condo') && response.data.offer == 'Lease') {
-                                            agreement = 'Freehold Lease Agreement';
-                                            type.value = 'Freehold';
-                                            labelCustomerName_html = 'Full Legal Name of Tenant';
-                                            labelTypeCustomer_html = 'Tenant';
-                                            labelPrice_html = 'Monthly Rent Amount';
-                                            labelDate_html = 'Closing Date';
-                                            targetFinalForm = 'form_freehold_lease_agreement';
-                                        } else if (response.data.property_class == 'Freehold' && response.data.offer == 'Sale' || !response.data.property_class.includes('Condo') && response.data.offer == 'Sale') {
-                                            agreement = 'Freehold Purchase Agreement';
-                                            type.value = 'Freehold';
-                                            if (url_sext == true) {
-                                                legal_description_property.value = response.data.legal_description;
-                                            }
-                                            labelCustomerName_html = 'Full Legal Name of Buyer';
-                                            labelTypeCustomer_html = 'Buyer';
-                                            labelPrice_html = 'Offer Price';
-                                            labelDate_html = 'Closing Date';
-                                            divDeposit.style.display = 'block';
-                                            targetFormArray.push('form_legal_descriptions');
-                                            divLegalDescriptionProperty.style.display = 'block';
-                                            targetFormArray.push('form_condition_finance');
-                                            targetFormArray.push('form_condition_inspection');
-                                            targetFormArray.push('form_chattel');
-                                            targetFinalForm = 'form_freehold_purchase_agreement';
-                                            $('#inputDate').datepicker('option', 'onSelect', function() {
-                                                closed_date_weekend();
-                                            });
-                                        } else if (response.data.property_class.includes('Condo') && response.data.offer == 'Rent' || response.data.property_class.includes('Condo') && response.data.offer == 'Lease') {
-                                            agreement = 'Condo Lease Agreement';
-                                            type.value = 'Condo';
-                                            labelCustomerName_html = 'Full Legal Name of Tenant';
-                                            labelTypeCustomer_html = 'Tenant';
-                                            labelPrice_html = 'Monthly Rent Amount';
-                                            labelDate_html = 'Closing Date';
-                                            targetFinalForm = 'form_condo_lease_agreement';
-                                        } else if (response.data.property_class.includes('Condo') && response.data.offer == 'Sale') {
-                                            agreement = 'Condo Purchase Agreement';
-                                            type.value = 'Condo';
-                                            if (url_sext == true) {
-                                                legal_description_condo_unit.value = response.data.legal_unit;
-                                                legal_description_condo_level.value = response.data.legal_level;
-                                            }
-                                            labelCustomerName_html = 'Full Legal Name of Buyer';
-                                            labelTypeCustomer_html = 'Buyer';
-                                            labelPrice_html = 'Offer Price';
-                                            labelDate_html = 'Closing Date';
-                                            divDeposit.style.display = 'block';
-                                            targetFormArray.push('form_legal_descriptions');
-                                            divLegalDescriptionCondo.style.display = 'block';
-                                            
-                                            if (response.data.parking_spots != 0) {
-                                                divLegalDescriptionParkingSpot.style.display = 'block';
-                                                for (var x = p = 0; p < response.data.parking_spots - 1; p++) {
-                                                    addInputParkingSpot();
+                        if(this.readyState === 4) {
+                            if (this.status == 200) {
+                                var response = JSON.parse(this.responseText);
+        
+                                if (response.hasOwnProperty('data')) {
+                                    if (Object.keys(response.data).length != 0) {
+                                        if (url_sext == false) {
+                                            response.data = response.data[0];
+                                        } else {
+                                            response.data.title = mls_number.value;
+                                        }
+                                        if (response.data.hasOwnProperty('offer') && response.data.hasOwnProperty('property_class')) {
+                                            divDeposit.style.display = 'none';
+                                            emptyAllForms();
+                                            divLegalDescriptionCondo.style.display = 'none';
+                                            divLegalDescriptionParkingSpot.style.display = 'none';
+                                            divLegalDescriptionLocker.style.display = 'none';
+                                            divLegalDescriptionProperty.style.display = 'none';
+        
+                                            let array_freehold = ['Att/Row/Twnhouse', 'Cottage', 'Detached', 'Duplex', 'Farm', 'Fourplex', 'Link', 'Mobile/Trailer', 'Multiplex', 'Other', 'Rural Resid', 'Semi-Detached', 'Store W/Apt/Offc', 'Triplex', 'Vacant Land'];
+                                            let array_condo = ['Comm Element Condo', 'Condo Apt', 'Condo Townhouse', 'Co-Op Apt', 'Co-Ownership Apt', 'Det Condo', 'Leasehold Condo', 'Locker', 'Parking Space'];
+                                            let agreement = '';           
+                                            if (response.data.property_class == 'Freehold' && response.data.offer == 'Rent' || array_freehold.includes(response.data.property_class) && response.data.offer == 'Lease') {
+                                                agreement = 'Freehold Lease Agreement';
+                                                type.value = 'Freehold';
+                                                labelCustomerName_html = 'Full Legal Name of Tenant';
+                                                labelTypeCustomer_html = 'Tenant';
+                                                labelPrice_html = 'Monthly Rent Amount';
+                                                labelDate_html = 'Closing Date';
+                                                targetFinalForm = 'form_freehold_lease_agreement';
+                                            } else if (response.data.property_class == 'Freehold' && response.data.offer == 'Sale' || array_freehold.includes(response.data.property_class) && response.data.offer == 'Sale') {
+                                                agreement = 'Freehold Purchase Agreement';
+                                                type.value = 'Freehold';
+                                                if (url_sext == true) {
+                                                    legal_description_property.value = response.data.legal_description;
                                                 }
+                                                labelCustomerName_html = 'Full Legal Name of Buyer';
+                                                labelTypeCustomer_html = 'Buyer';
+                                                labelPrice_html = 'Offer Price';
+                                                labelDate_html = 'Closing Date';
+                                                divDeposit.style.display = 'block';
+                                                targetFormArray.push('form_legal_descriptions');
+                                                divLegalDescriptionProperty.style.display = 'block';
+                                                targetFormArray.push('form_condition_finance');
+                                                targetFormArray.push('form_condition_inspection');
+                                                targetFormArray.push('form_chattel');
+                                                targetFinalForm = 'form_freehold_purchase_agreement';
+                                                $('#inputDate').datepicker('option', 'onSelect', function() {
+                                                    closed_date_weekend();
+                                                });
+                                            } else if (response.data.property_class == 'Condo' && response.data.offer == 'Rent' || array_condo.includes(response.data.property_class) && response.data.offer == 'Lease') {
+                                                agreement = 'Condo Lease Agreement';
+                                                type.value = 'Condo';
+                                                labelCustomerName_html = 'Full Legal Name of Tenant';
+                                                labelTypeCustomer_html = 'Tenant';
+                                                labelPrice_html = 'Monthly Rent Amount';
+                                                labelDate_html = 'Closing Date';
+                                                targetFinalForm = 'form_condo_lease_agreement';
+                                            } else if (response.data.property_class == 'Condo' && response.data.offer == 'Sale' || array_condo.includes(response.data.property_class) && response.data.offer == 'Sale') {
+                                                agreement = 'Condo Purchase Agreement';
+                                                type.value = 'Condo';
+                                                if (url_sext == true) {
+                                                    legal_description_condo_unit.value = response.data.legal_unit;
+                                                    legal_description_condo_level.value = response.data.legal_level;
+                                                }
+                                                labelCustomerName_html = 'Full Legal Name of Buyer';
+                                                labelTypeCustomer_html = 'Buyer';
+                                                labelPrice_html = 'Offer Price';
+                                                labelDate_html = 'Closing Date';
+                                                divDeposit.style.display = 'block';
+                                                targetFormArray.push('form_legal_descriptions');
+                                                divLegalDescriptionCondo.style.display = 'block';
+                                                
+                                                if (response.data.parking_spots != 0) {
+                                                    divLegalDescriptionParkingSpot.style.display = 'block';
+                                                    for (var x = p = 0; p < response.data.parking_spots - 1; p++) {
+                                                        addInputParkingSpot();
+                                                    }
+                                                }
+    
+                                                if (response.data.has_locker != 0 && response.data.has_locker != 'Ensuite' && response.data.has_locker != 'Common' && response.data.has_locker != 'None') {
+                                                    divLegalDescriptionLocker.style.display = 'block';
+                                                }
+                                                targetFormArray.push('form_condition_finance');
+                                                targetFormArray.push('form_condition_status_review');
+                                                targetFormArray.push('form_chattel');
+                                                targetFinalForm = 'form_condo_purchase_agreement';
+                                                $('#inputDate').datepicker('option', 'onSelect', function() {
+                                                    closed_date_weekend();
+                                                });
                                             }
-
-                                            console.log(response.data.has_locker);
-
-                                            // if (response.data.has_locker == 0 || response.data.has_locker != 'Owned' || response.data.has_locker != 'Exclusive') {
-                                            //     divLegalDescriptionLocker.style.display = 'block';
-                                            // }
-                                            if (response.data.has_locker != 0 && response.data.has_locker != 'Ensuite' && response.data.has_locker != 'Common' && response.data.has_locker != 'None') {
-                                                divLegalDescriptionLocker.style.display = 'block';
+                                            divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
+                                            divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
+                                            labelPrice.innerHTML = labelPrice_html;
+                                            labelDate.innerHTML = labelDate_html;
+                                            mls_agreement.innerHTML = agreement;
+                                            mls_address.innerHTML = response.data.title;
+                                            previous_mls_number = mls_number.value;
+                                            if (url_user == 'demo' && url_email == '') {
+                                                targetFormArray.push('form_email');
                                             }
-                                            targetFormArray.push('form_condition_finance');
-                                            targetFormArray.push('form_condition_status_review');
-                                            targetFormArray.push('form_chattel');
-                                            targetFinalForm = 'form_condo_purchase_agreement';
-                                            $('#inputDate').datepicker('option', 'onSelect', function() {
-                                                closed_date_weekend();
-                                            });
+                                            resolve('Finish');
+                                            return;
                                         }
-                                        // type.value = agreement.replace(' ', '');
-                                        divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
-                                        divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
-                                        labelPrice.innerHTML = labelPrice_html;
-                                        labelDate.innerHTML = labelDate_html;
-                                        mls_agreement.innerHTML = agreement;
-                                        mls_address.innerHTML = response.data.title;
-                                        previous_mls_number = mls_number.value;
-                                        if (url_user == 'demo' && url_email == '') {
-                                            targetFormArray.push('form_email');
-                                        }
-                                        resolve('Finish');
-                                        return;
                                     }
                                 }
-                            }
-                            if (first_get_mls_forms == true) {
-                                first_get_mls_forms = false;
-                                await getMLSForms();
-                                resolve('Finish');
-                            } else {
+                                if (first_get_mls_forms == true) {
+                                    first_get_mls_forms = false;
+                                    await getMLSForms();
+                                    resolve('Finish');
+                                } else {
+                                    alert('MLS Number not supported, please try another one.');
+                                }
+                            } else {                                
                                 alert('MLS Number not supported, please try another one.');
                             }
                         }
