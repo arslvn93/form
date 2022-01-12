@@ -72,8 +72,22 @@
         .greenBordered {
             border: 1px solid #40d8a1 !important;
         }
+        .verticalhorizontal {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 20px;
+
+    }
     </style>
 <body>
+<a href='https://fastoffers.ca'>
+
+<div class="verticalhorizontal">
+    <img src="https://res.cloudinary.com/andrewa/image/upload/w_500,c_scale/v1641958511/logo.png" alt="fastoffers.ca" />
+</div>
+</a>
+
     <input type="hidden" name="type" id="type">
     <div class="container">
         <div class="row justify-content-center d-none" id="form_mls_number">
