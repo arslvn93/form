@@ -94,10 +94,11 @@
     }
 
     .verticalhorizontal {
-        display: block;
-    margin-left: auto;
-    margin-right: auto;
-        padding-top: 20px;
+        margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  
     }
 </style>
 
