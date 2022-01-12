@@ -93,23 +93,19 @@
         border: 1px solid #40d8a1 !important;
     }
 
-    .logo {
-        padding-top: 30px;
-    }
-
 </style>
 
 <body>
     <a href='https://fastoffers.ca'>
-        <div class="logo">
-            <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo350.svg" class="img-fluid mx-auto d-block" alt="Fast Offers Logo" />
+        <div>
+            <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo350.svg" class="img-fluid mx-auto d-block" style="margin-top: 2.5rem;" alt="Fast Offers Logo" />
         </div>
     </a>
 
     <input type="hidden" name="type" id="type">
     <div class="container">
         <div class="row justify-content-center d-none" id="form_mls_number">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
@@ -126,7 +122,7 @@
             </div>
         </div>
         <div class="row justify-content-center d-none" id="form_mls_number_result">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
@@ -177,7 +173,7 @@
             </div>
         </div>
         <div class="row justify-content-center d-none" id="form_legal_descriptions">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;"">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
@@ -246,7 +242,7 @@
             </div>
         </div>
         <div class="row justify-content-center d-none" id="form_condition_finance">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
@@ -303,7 +299,7 @@
             </div>
         </div>
         <div class="row justify-content-center d-none" id="form_condition_status_review">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
@@ -360,7 +356,7 @@
             </div>
         </div>
         <div class="row justify-content-center d-none" id="form_condition_inspection">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
@@ -417,7 +413,7 @@
             </div>
         </div>
         <div class="row justify-content-center d-none" id="form_chattel">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
@@ -486,7 +482,7 @@
             </div>
         </div>
         <div class="row justify-content-center d-none" id="form_email">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
@@ -504,7 +500,7 @@
             </div>
         </div>
         <div class="row justify-content-center d-none" id="form_thank_you">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card">
                     <div class="card-body p-4 d-flex justify-content-center flex-column">
                         <p class="card-text text-center">Thank you! Please check your email to download the offer.</p>
