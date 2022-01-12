@@ -93,12 +93,16 @@
         border: 1px solid #40d8a1 !important;
     }
 
+    .logo {
+        padding-top: 20px;
+    }
+
 </style>
 
 <body>
     <a href='https://fastoffers.ca'>
-        <div>
-            <img src="https://res.cloudinary.com/andrewa/image/upload/w_300,c_scale/v1641958511/logo.png" class="img-fluid mx-auto d-block" alt="Fast Offers Logo" />
+        <div class="logo">
+            <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo350.svg" class="img-fluid mx-auto d-block" alt="Fast Offers Logo" />
         </div>
     </a>
 
