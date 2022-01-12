@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,83 +12,102 @@
     <link rel="stylesheet" href="assets/vendor/jquery-ui/jquery-ui.css">
     <script src="assets/vendor/jquery-ui/jquery-ui.js"></script>
 </head>
-    <style>
-        .btn-primary {
-            color: #fff;
-            background-color: #40d8a1;
-            border-color: #40d8a1;
-        }
-        .btn-primary:hover {
-            color: #fff;
-            background-color: #35b587;
-            border-color: #35b587;
-        }
-        .btn-primary:focus {
-            color: #fff;
-            background-color: #35b587;
-            border-color: #35b587;
-            box-shadow: 0 0 0 0.25rem #35b587;
-        }
-        .btn-primary:active {
-            color: #fff;
-            background-color: #35b587;
-            border-color: #35b587;
-        }
-        .btn-primary:focus, .btn-primary:active:focus {
-            box-shadow: 0 0 0 0.25rem #35b587;
-        }
-        .btn-outline-primary {
-            color: #40d8a1;
-            border-color: #40d8a1;
-        }
-        .btn-outline-primary:hover {
-            color: #fff;
-            background-color: #40d8a1;
-            border-color: #40d8a1;
-        }
-        .btn-outline-primary:focus {
-            box-shadow: 0 0 0 0.25rem #35b587;
-        }
-        .btn-outline-primary:active, .btn-outline-primary.active {
-            color: #fff;
-            background-color: #40d8a1;
-            border-color: #40d8a1;
-        }
-        .btn-outline-primary:focus, .btn-outline-primary.active:focus {
-            box-shadow: 0 0 0 0.25rem #35b587 !important;
-        }
-        .form-check-input[type=radio], .form-check-input[type=radio] {
-            border-radius: 0;
-            transition: .2s;
-        }
-        .form-check-input:checked {
-            border-color: #40d8a1;
-        }
-        .form-check-input:focus {
-            box-shadow: 0 0 0 0.25rem #35b587;
-        }
-        .form-check-input:checked[type=radio], .form-check-input:checked[type=checkbox] {
-            background: #40d8a1;
-        }
-        .greenBordered {
-            border: 1px solid #40d8a1 !important;
-        }
-        .verticalhorizontal {
+<style>
+    .btn-primary {
+        color: #fff;
+        background-color: #40d8a1;
+        border-color: #40d8a1;
+    }
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #35b587;
+        border-color: #35b587;
+    }
+
+    .btn-primary:focus {
+        color: #fff;
+        background-color: #35b587;
+        border-color: #35b587;
+        box-shadow: 0 0 0 0.25rem #35b587;
+    }
+
+    .btn-primary:active {
+        color: #fff;
+        background-color: #35b587;
+        border-color: #35b587;
+    }
+
+    .btn-primary:focus,
+    .btn-primary:active:focus {
+        box-shadow: 0 0 0 0.25rem #35b587;
+    }
+
+    .btn-outline-primary {
+        color: #40d8a1;
+        border-color: #40d8a1;
+    }
+
+    .btn-outline-primary:hover {
+        color: #fff;
+        background-color: #40d8a1;
+        border-color: #40d8a1;
+    }
+
+    .btn-outline-primary:focus {
+        box-shadow: 0 0 0 0.25rem #35b587;
+    }
+
+    .btn-outline-primary:active,
+    .btn-outline-primary.active {
+        color: #fff;
+        background-color: #40d8a1;
+        border-color: #40d8a1;
+    }
+
+    .btn-outline-primary:focus,
+    .btn-outline-primary.active:focus {
+        box-shadow: 0 0 0 0.25rem #35b587 !important;
+    }
+
+    .form-check-input[type=radio],
+    .form-check-input[type=radio] {
+        border-radius: 0;
+        transition: .2s;
+    }
+
+    .form-check-input:checked {
+        border-color: #40d8a1;
+    }
+
+    .form-check-input:focus {
+        box-shadow: 0 0 0 0.25rem #35b587;
+    }
+
+    .form-check-input:checked[type=radio],
+    .form-check-input:checked[type=checkbox] {
+        background: #40d8a1;
+    }
+
+    .greenBordered {
+        border: 1px solid #40d8a1 !important;
+    }
+
+    .verticalhorizontal {
         display: table-cell;
         text-align: center;
         vertical-align: middle;
         padding-top: 20px;
-        }
-
     }
-    </style>
-<body>
-<a href='https://fastoffers.ca'>
+</style>
 
-<div class="verticalhorizontal">
-    <img src="https://res.cloudinary.com/andrewa/image/upload/w_500,c_scale/v1641958511/logo.png" alt="fastoffers.ca" />
-</div>
-</a>
+<body>
+    <a href='https://fastoffers.ca'>
+
+        <div class="verticalhorizontal">
+            <img src="https://res.cloudinary.com/andrewa/image/upload/w_300,c_scale/v1641958511/logo.png" alt="fastoffers.ca" />
+        </div>
+    </a>
 
     <input type="hidden" name="type" id="type">
     <div class="container">
@@ -355,7 +375,7 @@
                                             <div class="form-check">
                                                 <input type="radio" name="inspection_condition" id="no_inspection_condition" value="No Inspection Condition" class="form-check-input" onchange="displayForm();">
                                                 <label for="no_inspection_condition" class="form-check-label">No Inspection Condition</label>
-                                            </div>   
+                                            </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="form-check">
@@ -654,7 +674,7 @@
 
             divLegalDescriptionParkingSpot.innerHTML += `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelParkingSpot"><strong>Legal</strong> Description of Parking Spot ${rowParkingSpots.length + 1}</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_${rowParkingSpots.length}" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_${rowParkingSpots.length}" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level_${rowParkingSpots.length}" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level_${rowParkingSpots.length}" class="form-control"></div></div></div></div></div>`;
         }
-    
+
         function removeInputCustomer(indexRowCustomer) {
             var rowCustomers = divCustomer.querySelectorAll('.rowCustomer');
             rowCustomers[indexRowCustomer].remove();
@@ -732,36 +752,36 @@
             form_thank_you.style.display = 'none';
         }
 
-        window.onload = async function () {
+        window.onload = async function() {
             <?php
-                $url_user = 'demo';
-                $url_mls = '';
-                $url_email = '';
-                $url_sext = false;
+            $url_user = 'demo';
+            $url_mls = '';
+            $url_email = '';
+            $url_sext = false;
 
-                if (isset($_GET['user'])) {
-                    if ($_GET['user'] != '') {
-                        $url_user = $_GET['user'];
-                    }
+            if (isset($_GET['user'])) {
+                if ($_GET['user'] != '') {
+                    $url_user = $_GET['user'];
                 }
+            }
 
-                if (isset($_GET['mls'])) {
-                    if ($_GET['mls'] != '') {
-                        $url_mls = $_GET['mls'];
-                    }
+            if (isset($_GET['mls'])) {
+                if ($_GET['mls'] != '') {
+                    $url_mls = $_GET['mls'];
                 }
+            }
 
-                if (isset($_GET['email'])) {
-                    if ($_GET['email'] != '') {
-                        $url_email = $_GET['email'];
-                    }
+            if (isset($_GET['email'])) {
+                if ($_GET['email'] != '') {
+                    $url_email = $_GET['email'];
                 }
+            }
 
-                if (isset($_GET['s'])) {
-                    if ($_GET['s'] == 'ext') {
-                        $url_sext = true;
-                    }
+            if (isset($_GET['s'])) {
+                if ($_GET['s'] == 'ext') {
+                    $url_sext = true;
                 }
+            }
             ?>
             url_user = '<?= $url_user; ?>';
             url_email = '<?= $url_email; ?>';
@@ -796,7 +816,7 @@
 
         function backPreviousForm() {
             hideAllForms();
-            indexTargetForm-=2;
+            indexTargetForm -= 2;
             document.getElementById(targetFormArray[indexTargetForm]).style.display = 'flex';
             indexTargetForm++;
         }
@@ -804,7 +824,7 @@
         function getSelectedFinanceCondition() {
             var finance_conditions = document.querySelectorAll('input[name="finance_condition"]');
 
-            for(f = 0; f < finance_conditions.length; f++) {
+            for (f = 0; f < finance_conditions.length; f++) {
                 if (finance_conditions[f].checked) {
                     return finance_conditions[f].value;
                 }
@@ -815,7 +835,7 @@
         function removeSelectedFinanceCondition() {
             var finance_conditions = document.querySelectorAll('input[name="finance_condition"]');
 
-            for(f = 0; f < finance_conditions.length; f++) {
+            for (f = 0; f < finance_conditions.length; f++) {
                 if (finance_conditions[f].checked) {
                     finance_conditions[f].checked = false;
                 }
@@ -825,7 +845,7 @@
         function getSelectedStatusReviewCondition() {
             var status_review_conditions = document.querySelectorAll('input[name="status_review_condition"]');
 
-            for(s = 0; s < status_review_conditions.length; s++) {
+            for (s = 0; s < status_review_conditions.length; s++) {
                 if (status_review_conditions[s].checked) {
                     return status_review_conditions[s].value;
                 }
@@ -836,7 +856,7 @@
         function removeSelectedStatusReviewCondition() {
             var status_review_conditions = document.querySelectorAll('input[name="status_review_condition"]');
 
-            for(s = 0; s < status_review_conditions.length; s++) {
+            for (s = 0; s < status_review_conditions.length; s++) {
                 if (status_review_conditions[s].checked) {
                     status_review_conditions[s].checked = false;
                 }
@@ -846,7 +866,7 @@
         function getSelectedInspectionCondition() {
             var inspection_conditions = document.querySelectorAll('input[name="inspection_condition"]');
 
-            for(i = 0; i < inspection_conditions.length; i++) {
+            for (i = 0; i < inspection_conditions.length; i++) {
                 if (inspection_conditions[i].checked) {
                     return inspection_conditions[i].value;
                 }
@@ -857,7 +877,7 @@
         function removeSelectedInspectionCondition() {
             var inspection_conditions = document.querySelectorAll('input[name="inspection_condition"]');
 
-            for(i = 0; i < inspection_conditions.length; i++) {
+            for (i = 0; i < inspection_conditions.length; i++) {
                 if (inspection_conditions[i].checked) {
                     inspection_conditions[i].checked = false;
                 }
@@ -868,9 +888,9 @@
             var chattels = form_chattel.querySelectorAll('input[name="chattels"]');
             var chattels_array = [];
 
-            for(c = 0; c < chattels.length; c++) {
+            for (c = 0; c < chattels.length; c++) {
                 if (chattels[c].checked) {
-                   chattels_array.push(chattels[c].value);
+                    chattels_array.push(chattels[c].value);
                 }
             }
 
@@ -881,9 +901,9 @@
         function removeSelectedChattels() {
             var chattels = form_chattel.querySelectorAll('input[name="chattels"]');
 
-            for(c = 0; c < chattels.length; c++) {
+            for (c = 0; c < chattels.length; c++) {
                 if (chattels[c].checked) {
-                   chattels[c].checked = false;
+                    chattels[c].checked = false;
                 }
             }
         }
@@ -1018,18 +1038,18 @@
                     }
                 }
                 if (previous_mls_number != mls_number.value) {
-                    targetFormArray = ['form_mls_number', 'form_mls_number_result'];             
+                    targetFormArray = ['form_mls_number', 'form_mls_number_result'];
                     var xhttp;
-                    if(window.XMLHttpRequest) {
-                        xhttp = new XMLHttpRequest();   
+                    if (window.XMLHttpRequest) {
+                        xhttp = new XMLHttpRequest();
                     } else {
                         xhttp = new ActiveXObject('Microsoft.XMLHTTP');
                     }
                     xhttp.onreadystatechange = async function() {
-                        if(this.readyState === 4) {
+                        if (this.readyState === 4) {
                             if (this.status == 200) {
                                 var response = JSON.parse(this.responseText);
-        
+
                                 if (response.hasOwnProperty('data')) {
                                     if (Object.keys(response.data).length != 0) {
                                         if (url_sext == false) {
@@ -1044,10 +1064,10 @@
                                             divLegalDescriptionParkingSpot.style.display = 'none';
                                             divLegalDescriptionLocker.style.display = 'none';
                                             divLegalDescriptionProperty.style.display = 'none';
-        
+
                                             let array_freehold = ['Att/Row/Twnhouse', 'Cottage', 'Detached', 'Duplex', 'Farm', 'Fourplex', 'Link', 'Mobile/Trailer', 'Multiplex', 'Other', 'Rural Resid', 'Semi-Detached', 'Store W/Apt/Offc', 'Triplex', 'Vacant Land'];
                                             let array_condo = ['Comm Element Condo', 'Condo Apt', 'Condo Townhouse', 'Co-Op Apt', 'Co-Ownership Apt', 'Det Condo', 'Leasehold Condo', 'Locker', 'Parking Space'];
-                                            let agreement = '';           
+                                            let agreement = '';
                                             if (response.data.property_class == 'Freehold' && response.data.offer == 'Rent' || array_freehold.includes(response.data.property_class) && response.data.offer == 'Lease') {
                                                 agreement = 'Freehold Lease Agreement';
                                                 type.value = 'Freehold';
@@ -1098,14 +1118,14 @@
                                                 divDeposit.style.display = 'block';
                                                 targetFormArray.push('form_legal_descriptions');
                                                 divLegalDescriptionCondo.style.display = 'block';
-                                                
+
                                                 if (response.data.parking_spots != 0) {
                                                     divLegalDescriptionParkingSpot.style.display = 'block';
                                                     for (var x = p = 0; p < response.data.parking_spots - 1; p++) {
                                                         addInputParkingSpot();
                                                     }
                                                 }
-    
+
                                                 if (response.data.has_locker != 0 && response.data.has_locker != 'Ensuite' && response.data.has_locker != 'Common' && response.data.has_locker != 'None') {
                                                     divLegalDescriptionLocker.style.display = 'block';
                                                 }
@@ -1139,7 +1159,7 @@
                                 } else {
                                     alert('MLS Number not supported, please try another one.');
                                 }
-                            } else {                                
+                            } else {
                                 alert('MLS Number not supported, please try another one.');
                             }
                         }
@@ -1160,32 +1180,33 @@
         }
 
         // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-        'use strict'
+        (function() {
+            'use strict'
 
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
 
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', async function (event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    if (form.checkValidity()) {
-                        if (indexTargetForm != targetFormArray.length) {
-                            if (indexTargetForm == 1) {
-                                await getMLSForms();
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', async function(event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        if (form.checkValidity()) {
+                            if (indexTargetForm != targetFormArray.length) {
+                                if (indexTargetForm == 1) {
+                                    await getMLSForms();
+                                }
+                                await goNextForm();
+                            } else {
+                                sendForm(targetFinalForm);
                             }
-                            await goNextForm();
-                        } else {
-                            sendForm(targetFinalForm);
                         }
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
+                        form.classList.add('was-validated');
+                    }, false);
+                });
         })();
     </script>
 </body>
+
 </html>
