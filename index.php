@@ -93,18 +93,12 @@
         border: 1px solid #40d8a1 !important;
     }
 
-    .verticalhorizontal {
-        margin: auto;
-  padding: 10px;
-
-    }
 </style>
 
 <body>
     <a href='https://fastoffers.ca'>
-
-        <div class="verticalhorizontal">
-            <img src="https://res.cloudinary.com/andrewa/image/upload/w_300,c_scale/v1641958511/logo.png" alt="fastoffers.ca" />
+        <div>
+            <img src="https://res.cloudinary.com/andrewa/image/upload/w_300,c_scale/v1641958511/logo.png" class="img-fluid" alt="Fast Offers Logo" />
         </div>
     </a>
 
