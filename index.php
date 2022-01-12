@@ -94,9 +94,9 @@
     }
 
     .verticalhorizontal {
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
+        display: block;
+    margin-left: auto;
+    margin-right: auto;
         padding-top: 20px;
     }
 </style>
