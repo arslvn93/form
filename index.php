@@ -98,7 +98,7 @@
 <body>
     <a href='https://fastoffers.ca'>
         <div>
-            <img src="https://res.cloudinary.com/andrewa/image/upload/w_300,c_scale/v1641958511/logo.png" class="img-fluid" alt="Fast Offers Logo" />
+            <img src="https://res.cloudinary.com/andrewa/image/upload/w_300,c_scale/v1641958511/logo.png" class="img-fluid mx-auto d-block" alt="Fast Offers Logo" />
         </div>
     </a>
 
