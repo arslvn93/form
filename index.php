@@ -94,7 +94,7 @@
     }
 
     .logo {
-        padding-top: 20px;
+        padding-top: 30px;
     }
 
 </style>
@@ -109,7 +109,7 @@
     <input type="hidden" name="type" id="type">
     <div class="container">
         <div class="row justify-content-center d-none" id="form_mls_number">
-            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2rem;">
                 <div class="card">
                     <div class="card-body p-4">
                         <form class="needs-validation" novalidate>
