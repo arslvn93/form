@@ -149,14 +149,14 @@
                                 <label for="price" class="form-label" id="labelPrice"></label>
                                 <div class="input-group">
                                     <span class="input-group-text">$</span>
-                                    <input  type="number" pattern="[0-9]*" name="price" id="price" class="form-control" placeholder="Price" aria-describedby="price" required min="0" oninput="price_input(); commas_number_input(price);">
+                                    <input  type="number" pattern="[0-9]*" min="0" max="999999999" name="price" id="price" class="form-control" placeholder="Price" aria-describedby="price" required min="0" oninput="price_input(); commas_number_input(price);">
                                 </div>
                             </div>
                             <div class="form-group mb-4" id="divDeposit">
                                 <label for="deposit" class="form-label" id="labelDeposit">Deposit Amount</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
-                                    <input  type="number" pattern="[0-9]*" name="deposit" id="deposit" class="form-control" placeholder="Deposit" aria-label="Deposit" aria-describedby="deposit" required min="0" oninput="commas_number_input(deposit);">
+                                    <input  type="number" pattern="[0-9]*" min="0" max="999999999" name="deposit" id="deposit" class="form-control" placeholder="Deposit" aria-label="Deposit" aria-describedby="deposit" required min="0" oninput="commas_number_input(deposit);">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
