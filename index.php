@@ -234,7 +234,10 @@
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
+                            </div>
+                            <div class="d-flex justify-content-between">
                                 <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
+                                <button class="btn btnSubmit" type="submit">Skip</button>
                             </div>
                         </form>
                     </div>
@@ -291,7 +294,10 @@
                             </div>
                             <div class="d-grid gap-2">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
+                            </div>
+                            <div class="d-flex justify-content-between">
                                 <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
+                                <button class="btn btnSubmit" type="submit">Skip</button>
                             </div>
                         </form>
                     </div>
@@ -348,7 +354,10 @@
                             </div>
                             <div class="d-grid gap-2">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
-                                <button class="btn" type="button" onclick="backPreviousForm()">Back</button>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
+                                <button class="btn btnSubmit" type="submit">Skip</button>
                             </div>
                         </form>
                     </div>
@@ -405,7 +414,10 @@
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
-                                <button class="btn" type="button" onclick="backPreviousForm()">Back</button>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
+                                <button class="btn btnSubmit" type="submit">Skip</button>
                             </div>
                         </form>
                     </div>
@@ -509,6 +521,17 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center d-none" id="form_loading">
+            <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
+                <div class="card" style="height: 32rem;">
+                    <div class="card-body p-4 d-flex justify-content-center align-items-center flex-row">
+                        <div class="spinner-grow text-light" role="status" style="width: 3rem; height: 3rem;">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -530,6 +553,7 @@
         var form_chattel = document.getElementById('form_chattel');
         var form_email = document.getElementById('form_email');
         var form_thank_you = document.getElementById('form_thank_you');
+        var form_loading = document.getElementById('form_loading');
         var divCustomer = document.getElementById('divCustomer');
         var form_legal_descriptions = document.getElementById('form_legal_descriptions');
         var divLegalDescriptionCondo = document.getElementById('divLegalDescriptionCondo');
@@ -732,6 +756,7 @@
                 form_chattel.classList.remove('d-none');
                 form_email.classList.remove('d-none');
                 form_thank_you.classList.remove('d-none');
+                form_loading.classList.remove('d-none');
                 firstTimeHide = false;
             }
             form_mls_number.style.display = 'none';
@@ -743,6 +768,7 @@
             form_chattel.style.display = 'none';
             form_email.style.display = 'none';
             form_thank_you.style.display = 'none';
+            form_loading.style.display = 'none';
         }
 
         window.onload = async function() {
@@ -798,9 +824,16 @@
         function displayForm() {
             hideAllForms();
 
-            document.getElementById(targetFormArray[indexTargetForm]).querySelector('.btnSubmit').innerHTML = 'Next';
+            var btn_draft = document.getElementById(targetFormArray[indexTargetForm]).querySelector('.btnSubmit');
+            btn_draft.innerHTML = 'Next';
+            btn_draft.style.backgroundColor = null;
+            btn_draft.style.border = null;
+            btn_draft.style.fontWeight = null;
             if (targetFormArray.length == indexTargetForm + 1) {
-                document.getElementById(targetFormArray[indexTargetForm]).querySelector('.btnSubmit').innerHTML = 'Draft Offer Now';
+                btn_draft.innerHTML = 'DRAFT MY FAST OFFER';
+                btn_draft.style.backgroundColor = '#2E3655';
+                btn_draft.style.border = '1px solid #2E3655';
+                btn_draft.style.fontWeight = 'bold';
             }
 
             document.getElementById(targetFormArray[indexTargetForm]).style.display = 'flex';
@@ -949,6 +982,8 @@
                     formData.append('email', url_email);
                 }
                 formData.append('demo', true);
+            } else {
+                formData.append('demo', false);
             }
             formData.append('mls_number', mls_number.value);
             formData.append('names', getValuesAllInputCustomers().join(' & '));
@@ -992,6 +1027,9 @@
             } else if (final_target_form == 'form_condo_lease_agreement') {
                 formData.append('agreement', 'Lease Agreement');
                 formData.append('type', 'Condo');
+            }
+            if (url_user != 'demo') {
+                location.href = 'https://forms.ltd/offers';
             }
             xhttp.open('POST', url, true);
             xhttp.send(formData);
@@ -1039,7 +1077,11 @@
                         xhttp = new ActiveXObject('Microsoft.XMLHTTP');
                     }
                     xhttp.onreadystatechange = async function() {
-                        if (this.readyState === 4) {
+                        if (this.readyState === 1) {
+                            hideAllForms();
+
+                            form_loading.style.display = 'flex';
+                        } else if (this.readyState === 4) {
                             if (this.status == 200) {
                                 var response = JSON.parse(this.responseText);
 
@@ -1058,10 +1100,10 @@
                                             divLegalDescriptionLocker.style.display = 'none';
                                             divLegalDescriptionProperty.style.display = 'none';
 
-                                            let array_freehold = ['Att/Row/Twnhouse', 'Cottage', 'Detached', 'Duplex', 'Farm', 'Fourplex', 'Link', 'Mobile/Trailer', 'Multiplex', 'Other', 'Rural Resid', 'Semi-Detached', 'Store W/Apt/Offc', 'Triplex', 'Vacant Land'];
-                                            let array_condo = ['Comm Element Condo', 'Condo Apt', 'Condo Townhouse', 'Co-Op Apt', 'Co-Ownership Apt', 'Det Condo', 'Leasehold Condo', 'Locker', 'Parking Space'];
+                                            let array_property_freehold = ['Att/Row/Twnhouse', 'Cottage', 'Detached', 'Duplex', 'Farm', 'Fourplex', 'Link', 'Mobile/Trailer', 'Multiplex', 'Other', 'Rural Resid', 'Semi-Detached', 'Store W/Apt/Offc', 'Triplex', 'Vacant Land'];
+                                            let array_property_condo = ['Comm Element Condo', 'Condo Apt', 'Condo Townhouse', 'Co-Op Apt', 'Co-Ownership Apt', 'Det Condo', 'Leasehold Condo', 'Locker', 'Parking Space'];
                                             let agreement = '';
-                                            if (response.data.property_class == 'Freehold' && response.data.offer == 'Rent' || array_freehold.includes(response.data.property_class) && response.data.offer == 'Lease') {
+                                            if (response.data.property_class == 'Freehold' && response.data.offer == 'Rent' || array_property_freehold.includes(response.data.property_class) && response.data.offer == 'Lease') {
                                                 agreement = 'Freehold Lease Agreement';
                                                 type.value = 'Freehold';
                                                 labelCustomerName_html = 'Full Legal Name of Tenant';
@@ -1069,7 +1111,7 @@
                                                 labelPrice_html = 'Monthly Rent Amount';
                                                 labelDate_html = 'Closing Date';
                                                 targetFinalForm = 'form_freehold_lease_agreement';
-                                            } else if (response.data.property_class == 'Freehold' && response.data.offer == 'Sale' || array_freehold.includes(response.data.property_class) && response.data.offer == 'Sale') {
+                                            } else if (response.data.property_class == 'Freehold' && response.data.offer == 'Sale' || array_property_freehold.includes(response.data.property_class) && response.data.offer == 'Sale' || array_property_freehold.includes(response.data.property_class) && response.data.offer == 'Sold') {
                                                 agreement = 'Freehold Purchase Agreement';
                                                 type.value = 'Freehold';
                                                 if (url_sext == true) {
@@ -1089,7 +1131,7 @@
                                                 $('#inputDate').datepicker('option', 'onSelect', function() {
                                                     closed_date_weekend();
                                                 });
-                                            } else if (response.data.property_class == 'Condo' && response.data.offer == 'Rent' || array_condo.includes(response.data.property_class) && response.data.offer == 'Lease') {
+                                            } else if (response.data.property_class == 'Condo' && response.data.offer == 'Rent' || array_property_condo.includes(response.data.property_class) && response.data.offer == 'Lease') {
                                                 agreement = 'Condo Lease Agreement';
                                                 type.value = 'Condo';
                                                 labelCustomerName_html = 'Full Legal Name of Tenant';
@@ -1097,12 +1139,18 @@
                                                 labelPrice_html = 'Monthly Rent Amount';
                                                 labelDate_html = 'Closing Date';
                                                 targetFinalForm = 'form_condo_lease_agreement';
-                                            } else if (response.data.property_class == 'Condo' && response.data.offer == 'Sale' || array_condo.includes(response.data.property_class) && response.data.offer == 'Sale') {
+                                            } else if (response.data.property_class == 'Condo' && response.data.offer == 'Sale' || array_property_condo.includes(response.data.property_class) && response.data.offer == 'Sale' || array_property_condo.includes(response.data.property_class) && response.data.offer == 'Sold') {
                                                 agreement = 'Condo Purchase Agreement';
                                                 type.value = 'Condo';
                                                 if (url_sext == true) {
                                                     legal_description_condo_unit.value = response.data.legal_unit;
                                                     legal_description_condo_level.value = response.data.legal_level;
+                                                    if (response.data.locker_unit == '') {
+                                                        legal_description_locker_unit.value = response.data.locker_number;
+                                                    } else {
+                                                        legal_description_locker_unit.value = response.data.locker_unit;
+                                                    }
+                                                    legal_description_locker_level.value = response.data.locker_level;
                                                 }
                                                 labelCustomerName_html = 'Full Legal Name of Buyer';
                                                 labelTypeCustomer_html = 'Buyer';
@@ -1116,6 +1164,15 @@
                                                     divLegalDescriptionParkingSpot.style.display = 'block';
                                                     for (var x = p = 0; p < response.data.parking_spots - 1; p++) {
                                                         addInputParkingSpot();
+                                                    }
+                                                    if (url_sext == true) {
+                                                        if (response.data.parking_unit == '') {
+                                                            document.getElementById('legal_description_parking_spot_unit_0').value = response.data.parking_number;
+                                                        } else {
+                                                            document.getElementById('legal_description_parking_spot_unit_0').value = response.data.parking_unit;
+                                                        }
+        
+                                                        document.getElementById('legal_description_parking_spot_level_0').value = response.data.parking_level;
                                                     }
                                                 }
 
@@ -1151,9 +1208,17 @@
                                     resolve('Finish');
                                 } else {
                                     alert('MLS Number not supported, please try another one.');
+                                    hideAllForms();
+
+                                    form_loading.style.display = 'none';
+                                    form_mls_number.style.display = 'flex';
                                 }
                             } else {
                                 alert('MLS Number not supported, please try another one.');
+                                hideAllForms();
+
+                                form_loading.style.display = 'none';
+                                form_mls_number.style.display = 'flex';
                             }
                         }
                     };
@@ -1168,6 +1233,17 @@
         function goNextForm() {
             return new Promise((resolve, reject) => {
                 displayForm();
+                resolve('Finish');
+            });
+        }
+
+        function removeValidatedForms() {
+            return new Promise((resolve, reject) => {
+                var forms = document.querySelectorAll('.needs-validation');
+
+                forms.forEach(function(form) {
+                    form.classList.remove('was-validated');
+                });
                 resolve('Finish');
             });
         }
@@ -1188,6 +1264,7 @@
                         if (form.checkValidity()) {
                             if (indexTargetForm != targetFormArray.length) {
                                 if (indexTargetForm == 1) {
+                                    await removeValidatedForms();
                                     await getMLSForms();
                                 }
                                 await goNextForm();
