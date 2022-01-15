@@ -617,7 +617,7 @@
         }
 
         function closed_date_weekend() {
-            var datetime = $('#inputDate').datepicker('getDate').attr('readonly', 'readonly');
+            var datetime = $('#inputDate').datepicker('getDate');
             var day = datetime.getDay();
             var date = datetime.getDate();
             var month = datetime.getMonth();
@@ -632,7 +632,7 @@
         };
 
         function getActualDate() {
-            var datetime = $('#inputDate').datepicker('getDate').attr('readonly', 'readonly');
+            var datetime = $('#inputDate').datepicker('getDate');
             var day = datetime.getDay();
             var date = datetime.getDate().toString().padStart(2, '0');
             var month = (datetime.getMonth() + 1).toString().padStart(2, '0');
@@ -827,6 +827,18 @@
                 changeYear: true,
                 changeMonth: true,
                 dateFormat: 'DD MM d, yy',
+                beforeShow: function (textbox, instance) {
+                    var txtBoxOffset = $(this).offset();
+                    var top = txtBoxOffset.top;
+                    var left = txtBoxOffset.left;
+                    var textBoxWidth = $(this).outerWidth();
+                    setTimeout(function () {
+                        instance.dpDiv.css({
+                            top: top+40,
+                            left: left,
+                        });
+                    }, 0);
+                },
             }).attr('readonly', 'readonly');
         }
 
@@ -1085,7 +1097,7 @@
             removeSelectedStatusReviewCondition();
             removeSelectedInspectionCondition();
             removeSelectedChattels();
-            $('#inputDate').datepicker('option', 'onSelect', '').attr('readonly', 'readonly');
+            $('#inputDate').datepicker('option', 'onSelect', '');
         }
 
         async function getMLSForms() {
@@ -1163,7 +1175,7 @@
                                                 targetFinalForm = 'form_freehold_purchase_agreement';
                                                 $('#inputDate').datepicker('option', 'onSelect', function() {
                                                     closed_date_weekend();
-                                                }).attr('readonly', 'readonly');
+                                                });
                                             } else if (response.data.property_class == 'Condo' && response.data.offer == 'Rent' || array_property_condo.includes(response.data.property_class) && response.data.offer == 'Lease') {
                                                 agreement = 'Condo Lease Agreement';
                                                 type.value = 'Condo';
@@ -1218,7 +1230,7 @@
                                                 targetFinalForm = 'form_condo_purchase_agreement';
                                                 $('#inputDate').datepicker('option', 'onSelect', function() {
                                                     closed_date_weekend();
-                                                }).attr('readonly', 'readonly');
+                                                });
                                             }
                                             divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
                                             divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
