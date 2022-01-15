@@ -95,14 +95,14 @@
 </style>
 
 <body>
-    <a href='https://fastoffers.ca'>
+    <a href='https://fastoffers.ca' id="div_logo">
         <div>
             <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo350.svg" class="img-fluid mx-auto d-block" style="margin-top: 2.5rem;" alt="Fast Offers Logo" />
         </div>
     </a>
 
     <input type="hidden" name="type" id="type">
-    <div class="container">
+    <div class="container" id="div_main_container">
         <div class="row justify-content-center d-none" id="form_mls_number">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card">
@@ -110,7 +110,7 @@
                         <form class="needs-validation" novalidate>
                             <div class="form-group">
                                 <label for="mls_number" class="form-label">MLS Number</label>
-                                <input type="text" name="mls_number" id="mls_number" class="form-control" id="mls_number" required>
+                                <input type="text" name="mls_number" id="mls_number" class="form-control" id="mls_number" required autocomplete="off">
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
@@ -134,7 +134,7 @@
                                 <div class="row rowCustomer">
                                     <div class="form-group mb-4 col-xl-9 col-md-9 col-sm-9 col-9">
                                         <label for="name0" class="form-label labelCustomerName"></label>
-                                        <input type="text" name="names[]" id="name0" class="form-control inputCustomerName" required>
+                                        <input type="text" name="names[]" id="name0" class="form-control inputCustomerName" required autocomplete="off">
                                     </div>
                                     <div class="col-xl-3 col-md-3 col-sm-3 col-3">
                                         <div class="form-group">
@@ -148,19 +148,19 @@
                                 <label for="price" class="form-label" id="labelPrice"></label>
                                 <div class="input-group">
                                     <span class="input-group-text">$</span>
-                                    <input type="text" name="price" id="price" class="form-control" placeholder="Price" aria-describedby="price" required min="0" oninput="price_input(); commas_number_input(price);">
+                                    <input type="text" name="price" id="price" class="form-control" placeholder="Price" aria-describedby="price" required min="0" oninput="price_input(); commas_number_input(price);" autocomplete="off" inputmode="numeric">
                                 </div>
                             </div>
                             <div class="form-group mb-4" id="divDeposit">
                                 <label for="deposit" class="form-label" id="labelDeposit">Deposit Amount</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
-                                    <input type="text" name="deposit" id="deposit" class="form-control" placeholder="Deposit" aria-label="Deposit" aria-describedby="deposit" required min="0" oninput="commas_number_input(deposit);">
+                                    <input type="text" name="deposit" id="deposit" class="form-control" placeholder="Deposit" aria-label="Deposit" aria-describedby="deposit" required min="0" oninput="commas_number_input(deposit);" autocomplete="off" inputmode="numeric">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="inputDate" class="form-label" id="labelDate"></label>
-                                <input type="text" id="inputDate" autocomplete="off" class="form-control" placeholder="Date" required>
+                                <input type="text" id="inputDate" autocomplete="off" class="form-control" placeholder="Date" required autocomplete="off">
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
@@ -181,13 +181,13 @@
                                 <div class="row mb-2">
                                     <label for="legal_description_condo_unit" class="col-3 col-form-label">UNIT</label>
                                     <div class="col-3">
-                                        <input type="text" name="legal_description_condo_unit" id="legal_description_condo_unit" class="form-control">
+                                        <input type="text" name="legal_description_condo_unit" id="legal_description_condo_unit" class="form-control" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label for="legal_description_condo_level" class="col-3 col-form-label">LEVEL</label>
                                     <div class="col-3">
-                                        <input type="text" name="legal_description_condo_level" id="legal_description_condo_level" class="form-control">
+                                        <input type="text" name="legal_description_condo_level" id="legal_description_condo_level" class="form-control" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -199,13 +199,13 @@
                                             <div class="row mb-2">
                                                 <label for="legal_description_parking_spot_unit_0" class="col-3 col-form-label">UNIT</label>
                                                 <div class="col-3">
-                                                    <input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_0" class="form-control">
+                                                    <input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_0" class="form-control" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <label for="legal_description_parking_spot_level" class="col-3 col-form-label">LEVEL</label>
                                                 <div class="col-3">
-                                                    <input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level" class="form-control">
+                                                    <input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level" class="form-control" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
@@ -217,19 +217,19 @@
                                 <div class="row mb-2">
                                     <label for="legal_description_locker_unit" class="col-3 col-form-label">UNIT</label>
                                     <div class="col-3">
-                                        <input type="text" name="legal_description_locker_unit" id="legal_description_locker_unit" class="form-control">
+                                        <input type="text" name="legal_description_locker_unit" id="legal_description_locker_unit" class="form-control" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label for="legal_description_locker_level" class="col-3 col-form-label">LEVEL</label>
                                     <div class="col-3">
-                                        <input type="text" name="legal_description_locker_level" id="legal_description_locker_level" class="form-control">
+                                        <input type="text" name="legal_description_locker_level" id="legal_description_locker_level" class="form-control" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group mb-4" id="divLegalDescriptionProperty">
                                 <label for="legal_description_property" class="form-label">What is the Legal Description of the Property?</label>
-                                <textarea name="legal_description_property" id="legal_description_property" rows="4" class="form-control"></textarea>
+                                <textarea name="legal_description_property" id="legal_description_property" rows="4" class="form-control" autocomplete="off"></textarea>
                             </div>
                             <div class="d-grid gap-2 mt-4 mb-2">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
@@ -499,7 +499,7 @@
                         <form class="needs-validation" novalidate>
                             <div class="form-group">
                                 <label for="email" class="form-label">Email Address</label>
-                                <input type="text" name="email" id="email" class="form-control" id="email" required>
+                                <input type="text" name="email" id="email" class="form-control" id="email" required autocomplete="on">
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
@@ -522,11 +522,15 @@
         </div>
         <div class="row justify-content-center d-none" id="form_loading">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
-                <div class="card" style="height: 32rem; background-color: white; border-color: white;">
-                    <div class="card-body p-4 d-flex justify-content-center align-items-center flex-row">
-                        <div class="spinner-grow text-light" role="status" style="width: 3rem; height: 3rem;">
+                <div class="card" style="background-color: white; border-color: white;">
+                    <div class="card-body p-4 d-flex justify-content-center align-items-center flex-column">
+                        <div class="alert alert-primary text-center opacity-0" role="alert" id="label_message">
+                            Auto-populated information is provided solely for your convenience and Fast Offers disclaims any representation as to the accuracy or completeness of this information. <span class="fw-bold">You are responsible for verifying the accuracy and completeness of all information in the agreement<span> from Fast Offers, including auto-populated information.
+                        </div>
+                        <div class="spinner-grow text-light mb-4" role="status" style="width: 3rem; height: 3rem;">
                             <span class="visually-hidden">Loading...</span>
                         </div>
+                        <p class="opacity-0" id="label_redirect">You will be redirected in 5 Seconds</p>
                     </div>
                 </div>
             </div>
@@ -576,6 +580,11 @@
         var labelDeposit = document.getElementById('labelDeposit');
         var labelDate = document.getElementById('labelDate');
         var deposit = document.getElementById('deposit');
+
+        var div_logo = document.getElementById('div_logo');
+        var div_main_container = document.getElementById('div_main_container');
+        var label_message = document.getElementById('label_message');
+        var label_redirect = document.getElementById('label_redirect');
 
         let labelCustomerName_html = '';
         let labelTypeCustomer_html = '';
@@ -731,7 +740,7 @@
 
         function price_input() {
             if (price.value != '') {
-                deposit.value = (5 * parseInt(price.value.replace(/,/g, ''))) / 100;
+                deposit.value = (5 * parseInt(price.value.replace(/,/g, '').replace(/-/g, ''))) / 100;
             } else {
                 deposit.value = '0';
             }
@@ -739,7 +748,7 @@
         };
 
         function commas_number_input(input_element) {
-            var new_value = Intl.NumberFormat().format(input_element.value.replace(/,/g, ''));
+            var new_value = Intl.NumberFormat().format(input_element.value.replace(/,/g, '').replace(/-/g, ''));
 
             input_element.value = new_value;
         }
@@ -778,7 +787,7 @@
             $url_sext = false;
 
             if (isset($_GET['user'])) {
-                if ($_GET['user'] != '') {
+                if ($_GET['user'] != '' && is_numeric($_GET['user']) === true) {
                     $url_user = $_GET['user'];
                 }
             }
@@ -961,7 +970,6 @@
 
         function sendForm(final_target_form) {
             hideAllForms();
-            form_thank_you.style.display = 'flex';
             var url = 'https://e3e294cd33d5995eeefeeab161b796a6.m.pipedream.net';
 
             var xhttp;
@@ -972,6 +980,12 @@
             }
 
             var formData = new FormData();
+
+            if (url_sext == false) {
+                formData.append('source', 'property');
+            } else {
+                formData.append('source', 'extension');
+            }
 
             formData.append('user_id', url_user);
             if (url_user == 'demo') {
@@ -1027,8 +1041,27 @@
                 formData.append('agreement', 'Lease Agreement');
                 formData.append('type', 'Condo');
             }
-            if (url_user != 'demo') {
-                location.href = 'https://forms.ltd/offers';
+            if (url_user == 'demo') {
+                form_thank_you.style.display = 'flex';
+            } else {
+                label_message.classList.remove('opacity-0');
+                label_redirect.classList.remove('opacity-0');
+                form_loading.style.display = 'flex';
+                div_logo.classList.add('d-none');
+                div_main_container.style.minHeight = '100vh';
+                div_main_container.style.display = 'flex';
+                div_main_container.style.alignItems = 'center';
+                
+                var second = 5;
+                var count_redirect = setInterval(function() {
+                    if (second > 0) {
+                        label_redirect.innerHTML = `You will be redirected in ${second} Seconds`;
+                        second--;
+                    } else {
+                        clearInterval(count_redirect);
+                        location.href = 'https://forms.ltd/offers';
+                    }
+                }, 1000);
             }
             xhttp.open('POST', url, true);
             xhttp.send(formData);
@@ -1088,9 +1121,8 @@
                                     if (Object.keys(response.data).length != 0) {
                                         if (url_sext == false) {
                                             response.data = response.data[0];
-                                        } else {
-                                            response.data.title = mls_number.value;
                                         }
+                                        
                                         if (response.data.hasOwnProperty('offer') && response.data.hasOwnProperty('property_class')) {
                                             divDeposit.style.display = 'none';
                                             emptyAllForms();
