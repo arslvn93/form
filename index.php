@@ -21,8 +21,8 @@
 
     .btn-primary:hover {
         color: #fff;
-        background-color: #35b587;
-        border-color: #35b587;
+        background-color: #35b587 !important;
+        border-color: #35b587 !important;
     }
 
     .btn-primary:focus {
@@ -92,7 +92,6 @@
     .greenBordered {
         border: 1px solid #40d8a1 !important;
     }
-
 </style>
 
 <body>
@@ -149,14 +148,14 @@
                                 <label for="price" class="form-label" id="labelPrice"></label>
                                 <div class="input-group">
                                     <span class="input-group-text">$</span>
-                                    <input  type="text"  name="price" id="price" class="form-control" placeholder="Price" aria-describedby="price" required min="0" oninput="price_input(); commas_number_input(price);">
+                                    <input type="text" name="price" id="price" class="form-control" placeholder="Price" aria-describedby="price" required min="0" oninput="price_input(); commas_number_input(price);">
                                 </div>
                             </div>
                             <div class="form-group mb-4" id="divDeposit">
                                 <label for="deposit" class="form-label" id="labelDeposit">Deposit Amount</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
-                                    <input  type="text"name="deposit" id="deposit" class="form-control" placeholder="Deposit" aria-label="Deposit" aria-describedby="deposit" required min="0" oninput="commas_number_input(deposit);">
+                                    <input type="text" name="deposit" id="deposit" class="form-control" placeholder="Deposit" aria-label="Deposit" aria-describedby="deposit" required min="0" oninput="commas_number_input(deposit);">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
@@ -165,7 +164,7 @@
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
-                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
+                                <button class="btn" type="button" onclick="backPreviousForm();" style="color: #A9A9A9;">Back</button>
                             </div>
                         </form>
                     </div>
@@ -232,12 +231,12 @@
                                 <label for="legal_description_property" class="form-label">What is the Legal Description of the Property?</label>
                                 <textarea name="legal_description_property" id="legal_description_property" rows="4" class="form-control"></textarea>
                             </div>
-                            <div class="d-grid gap-2 mt-4">
+                            <div class="d-grid gap-2 mt-4 mb-2">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
-                                <button class="btn btnSubmit" type="submit">Skip</button>
+                                <button class="btn" type="button" onclick="backPreviousForm();" style="color: #A9A9A9;">Back</button>
+                                <button class="btn btnSubmit" type="submit" style="color: #A9A9A9;">Skip</button>
                             </div>
                         </form>
                     </div>
@@ -292,12 +291,12 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2">
+                            <div class="d-grid gap-2 mb-2">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
-                                <button class="btn btnSubmit" type="submit">Skip</button>
+                                <button class="btn" type="button" onclick="backPreviousForm();" style="color: #A9A9A9;">Back</button>
+                                <button class="btn btnSubmit" type="submit" style="color: #A9A9A9;">Skip</button>
                             </div>
                         </form>
                     </div>
@@ -352,12 +351,12 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2">
+                            <div class="d-grid gap-2 mb-2">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
-                                <button class="btn btnSubmit" type="submit">Skip</button>
+                                <button class="btn" type="button" onclick="backPreviousForm();" style="color: #A9A9A9;">Back</button>
+                                <button class="btn btnSubmit" type="submit" style="color: #A9A9A9;">Skip</button>
                             </div>
                         </form>
                     </div>
@@ -412,12 +411,12 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 mt-4">
+                            <div class="d-grid gap-2 mt-4 mb-2">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <button class="btn" type="button" onclick="backPreviousForm();">Back</button>
-                                <button class="btn btnSubmit" type="submit">Skip</button>
+                                <button class="btn" type="button" onclick="backPreviousForm();" style="color: #A9A9A9;">Back</button>
+                                <button class="btn btnSubmit" type="submit" style="color: #A9A9A9;">Skip</button>
                             </div>
                         </form>
                     </div>
@@ -486,7 +485,7 @@
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
-                                <button class="btn" type="button" onclick="backPreviousForm()">Back</button>
+                                <button class="btn" type="button" onclick="backPreviousForm()" style="color: #A9A9A9;">Back</button>
                             </div>
                         </form>
                     </div>
@@ -504,7 +503,7 @@
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
-                                <button class="btn" type="button" onclick="backPreviousForm()">Back</button>
+                                <button class="btn" type="button" onclick="backPreviousForm()" style="color: #A9A9A9;">Back</button>
                             </div>
                         </form>
                     </div>
@@ -523,7 +522,7 @@
         </div>
         <div class="row justify-content-center d-none" id="form_loading">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
-                <div class="card" style="height: 32rem;">
+                <div class="card" style="height: 32rem; background-color: white; border-color: white;">
                     <div class="card-body p-4 d-flex justify-content-center align-items-center flex-row">
                         <div class="spinner-grow text-light" role="status" style="width: 3rem; height: 3rem;">
                             <span class="visually-hidden">Loading...</span>
