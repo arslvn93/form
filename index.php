@@ -524,13 +524,13 @@
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
                 <div class="card" style="background-color: white; border-color: white;">
                     <div class="card-body p-4 d-flex justify-content-center align-items-center flex-column">
-                        <div class="alert alert-primary text-center opacity-0" role="alert" id="label_message">
-                            Auto-populated information is provided solely for your convenience and Fast Offers disclaims any representation as to the accuracy or completeness of this information. <span class="fw-bold">You are responsible for verifying the accuracy and completeness of all information in the agreement<span> from Fast Offers, including auto-populated information.
+                        <div class="alert alert-primary text-center d-none" role="alert" id="label_message">
+                            Auto-populated information is provided solely for your convenience and Fast Offers disclaims any representation as to the accuracy or completeness of this information. <br><br><span class="fw-bold">You are responsible for verifying the accuracy and completeness of all information in the agreement<span> from Fast Offers, including auto-populated information.
                         </div>
-                        <div class="spinner-grow text-light mb-4" role="status" style="width: 3rem; height: 3rem;">
+                        <div class="spinner-grow text-light" id="div_spinner" role="status" style="width: 3rem; height: 3rem; margin: 8rem 0;">
                             <span class="visually-hidden">Loading...</span>
                         </div>
-                        <p class="opacity-0" id="label_redirect">You will be redirected in 5 Seconds</p>
+                        <p class="d-none mt-4" id="label_redirect">You will be redirected in 5 Seconds</p>
                     </div>
                 </div>
             </div>
@@ -584,6 +584,7 @@
         var div_logo = document.getElementById('div_logo');
         var div_main_container = document.getElementById('div_main_container');
         var label_message = document.getElementById('label_message');
+        var div_spinner = document.getElementById('div_spinner');
         var label_redirect = document.getElementById('label_redirect');
 
         let labelCustomerName_html = '';
@@ -616,7 +617,7 @@
         }
 
         function closed_date_weekend() {
-            var datetime = $('#inputDate').datepicker('getDate');
+            var datetime = $('#inputDate').datepicker('getDate').attr('readonly', 'readonly');
             var day = datetime.getDay();
             var date = datetime.getDate();
             var month = datetime.getMonth();
@@ -631,7 +632,7 @@
         };
 
         function getActualDate() {
-            var datetime = $('#inputDate').datepicker('getDate');
+            var datetime = $('#inputDate').datepicker('getDate').attr('readonly', 'readonly');
             var day = datetime.getDay();
             var date = datetime.getDate().toString().padStart(2, '0');
             var month = (datetime.getMonth() + 1).toString().padStart(2, '0');
@@ -826,7 +827,7 @@
                 changeYear: true,
                 changeMonth: true,
                 dateFormat: 'DD MM d, yy',
-            });
+            }).attr('readonly', 'readonly');
         }
 
         function displayForm() {
@@ -1044,8 +1045,9 @@
             if (url_user == 'demo') {
                 form_thank_you.style.display = 'flex';
             } else {
-                label_message.classList.remove('opacity-0');
-                label_redirect.classList.remove('opacity-0');
+                div_spinner.style.margin = '0';
+                label_message.classList.remove('d-none');
+                label_redirect.classList.remove('d-none');
                 form_loading.style.display = 'flex';
                 div_logo.classList.add('d-none');
                 div_main_container.style.minHeight = '100vh';
@@ -1083,7 +1085,7 @@
             removeSelectedStatusReviewCondition();
             removeSelectedInspectionCondition();
             removeSelectedChattels();
-            $('#inputDate').datepicker('option', 'onSelect', '');
+            $('#inputDate').datepicker('option', 'onSelect', '').attr('readonly', 'readonly');
         }
 
         async function getMLSForms() {
@@ -1161,7 +1163,7 @@
                                                 targetFinalForm = 'form_freehold_purchase_agreement';
                                                 $('#inputDate').datepicker('option', 'onSelect', function() {
                                                     closed_date_weekend();
-                                                });
+                                                }).attr('readonly', 'readonly');
                                             } else if (response.data.property_class == 'Condo' && response.data.offer == 'Rent' || array_property_condo.includes(response.data.property_class) && response.data.offer == 'Lease') {
                                                 agreement = 'Condo Lease Agreement';
                                                 type.value = 'Condo';
@@ -1216,7 +1218,7 @@
                                                 targetFinalForm = 'form_condo_purchase_agreement';
                                                 $('#inputDate').datepicker('option', 'onSelect', function() {
                                                     closed_date_weekend();
-                                                });
+                                                }).attr('readonly', 'readonly');
                                             }
                                             divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
                                             divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
