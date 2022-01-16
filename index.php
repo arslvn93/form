@@ -160,7 +160,7 @@
                             </div>
                             <div class="form-group mb-4">
                                 <label for="inputDate" class="form-label" id="labelDate"></label>
-                                <input type="text" id="inputDate" autocomplete="off" class="form-control" placeholder="Date" required autocomplete="off" style="background-color: white;">
+                                <input type="text" id="inputDate" autocomplete="off" class="form-control bg-white" placeholder="Date" required autocomplete="off">
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
@@ -525,7 +525,7 @@
         </div>
         <div class="row justify-content-center d-none" id="form_loading">
             <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 2.5rem;">
-                <div class="card" style="background-color: white; border-color: white;">
+                <div class="card border border-white bg-white">
                     <div class="card-body p-4 d-flex justify-content-center align-items-center flex-column">
                         <div class="alert alert-primary text-center d-none" role="alert" id="label_message">
                             Auto-populated information is provided solely for your convenience and Fast Offers disclaims any representation as to the accuracy or completeness of this information. <br><br><span class="fw-bold">You are responsible for verifying the accuracy and completeness of all information in the agreement<span> from Fast Offers, including auto-populated information.
