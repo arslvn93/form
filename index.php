@@ -132,14 +132,11 @@
                             <hr>
                             <div id="divCustomer">
                                 <div class="row rowCustomer">
-                                    <div class="form-group mb-4 col-xl-9 col-md-9 col-sm-9 col-9">
+                                    <div class="form-group mb-4 col-xl-12 col-md-12 col-sm-12 col-12">
                                         <label for="name0" class="form-label labelCustomerName"></label>
-                                        <input type="text" name="names[]" id="name0" class="form-control inputCustomerName" required autocomplete="off">
-                                    </div>
-                                    <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                        <div class="form-group">
-                                            <label for="" class="form-label text-nowrap labelTypeCustomer" style="font-size: 0.8rem; line-height: 1.4rem;"></label>
-                                            <button type="button" class="form-control btn btn-outline-primary" onclick="addInputCustomer(); setOldValuesInputCustomers();">+</button>
+                                        <div class="input-group">
+                                            <input type="text" name="names[]" id="name0" class="form-control inputCustomerName" required autocomplete="off">
+                                            <button type="button" class="btn btn-primary" onclick="addInputCustomer(); setOldValuesInputCustomers();">+</button>            
                                         </div>
                                     </div>
                                 </div>
@@ -160,7 +157,7 @@
                             </div>
                             <div class="form-group mb-4">
                                 <label for="inputDate" class="form-label" id="labelDate"></label>
-                                <input type="text" id="inputDate" oninput="return false;" autocomplete="off" class="form-control bg-white" placeholder="Date" required>
+                                <input type="text" id="inputDate" autocomplete="off" class="form-control bg-white" placeholder="Date" required>
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
@@ -691,7 +688,7 @@
 
             if (rowCustomers.length != 4) {
                 getValuesAllInputCustomers();
-                divCustomer.innerHTML += `<div class="row rowCustomer"><div class="form-group mb-4 col-xl-9 col-md-9 col-sm-9 col-9"><label for="name${rowCustomers.length}" class="form-label labelCustomerName">${labelCustomerName_html} ${rowCustomers.length + 1}</label><input type="text" name="names[]" id="name${rowCustomers.length}" class="form-control inputCustomerName" required></div><div class="col-xl-3 col-md-3 col-sm-3 col-3"><div class="form-group"><label for="" class="form-label text-nowrap opacity-0">_</label><button type="button" class="btnRemoveCustomer form-control btn btn-outline-danger" onclick="removeInputCustomer('${rowCustomers.length}')">x</button></div></div></div>`;
+                divCustomer.innerHTML += `<div class="row rowCustomer"><div class="form-group mb-4 col-xl-12 col-md-12 col-sm-12 col-12"><label for="name${rowCustomers.length}" class="form-label labelCustomerName">${labelCustomerName_html} ${rowCustomers.length + 1}</label><div class="input-group"><input type="text" name="names[]" id="name${rowCustomers.length}" class="form-control inputCustomerName" required autocomplete="off"><button type="button" class="btn btn-danger btnRemoveCustomer" onclick="removeInputCustomer('${rowCustomers.length}')">-</button></div></div></div>`;
             } else {
                 alert(`Sorry, 4 is the max number of ${labelTypeCustomer_html.toLowerCase()}s`);
             }
@@ -842,6 +839,14 @@
                         });
                     }, 0);
                 },
+            });
+
+            $('#inputDate').focus(function() {
+                $(this).attr('readonly', true);
+            });
+
+            $('#inputDate').blur(function() {
+                $(this).attr('readonly', false);
             });
         }
 
@@ -1236,7 +1241,7 @@
                                                 });
                                             }
                                             divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelCustomerName`).innerHTML = labelCustomerName_html;
-                                            divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
+                                            // divCustomer.querySelectorAll('.rowCustomer')[0].querySelector(`.labelTypeCustomer`).innerHTML = `Add ${labelTypeCustomer_html}</small>`;
                                             labelPrice.innerHTML = labelPrice_html;
                                             labelDate.innerHTML = labelDate_html;
                                             mls_agreement.innerHTML = agreement;
