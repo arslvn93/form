@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form MLS</title>
     <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap-icons.css">
     <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/vendor/jquery/jquery.js"></script>
     <link rel="stylesheet" href="assets/vendor/jquery-ui/jquery-ui.css">
