@@ -141,7 +141,7 @@
                                         <label for="name0" class="form-label labelCustomerName"></label>
                                         <div class="input-group">
                                             <input type="text" name="names[]" id="name0" class="form-control inputCustomerName" required autocomplete="off">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="" onclick="addInputCustomer(); setOldValuesInputCustomers();"><i class="bi bi-plus-lg"></i></button>            
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="" onclick="addInputCustomer(); setOldValuesInputCustomers();"><i class="bi bi-plus-lg" style="font-size: 24px;"></i></button>            
                                         </div>
                                     </div>
                                 </div>
@@ -693,7 +693,7 @@
 
             if (rowCustomers.length != 4) {
                 getValuesAllInputCustomers();
-                divCustomer.innerHTML += `<div class="row rowCustomer"><div class="form-group mb-4 col-xl-12 col-md-12 col-sm-12 col-12"><label for="name${rowCustomers.length}" class="form-label labelCustomerName">${labelCustomerName_html} ${rowCustomers.length + 1}</label><div class="input-group"><input type="text" name="names[]" id="name${rowCustomers.length}" class="form-control inputCustomerName" required autocomplete="off"><button type="button" class="btn btn-danger btnRemoveCustomer" onclick="removeInputCustomer('${rowCustomers.length}')"><i class="bi bi-dash-lg"></i></button></div></div></div>`;
+                divCustomer.innerHTML += `<div class="row rowCustomer"><div class="form-group mb-4 col-xl-12 col-md-12 col-sm-12 col-12"><label for="name${rowCustomers.length}" class="form-label labelCustomerName">${labelCustomerName_html} ${rowCustomers.length + 1}</label><div class="input-group"><input type="text" name="names[]" id="name${rowCustomers.length}" class="form-control inputCustomerName" required autocomplete="off"><button type="button" class="btn btn-danger btnRemoveCustomer" onclick="removeInputCustomer('${rowCustomers.length}')"><i class="bi bi-dash-lg" style="font-size: 24px;"></i></button></div></div></div>`;
             } else {
                 alert(`Sorry, 4 is the max number of ${labelTypeCustomer_html.toLowerCase()}s`);
             }
