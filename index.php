@@ -1153,8 +1153,8 @@
                                             divLegalDescriptionLocker.style.display = 'none';
                                             divLegalDescriptionProperty.style.display = 'none';
 
-                                            let array_property_freehold = ['Att/Row/Twnhouse', 'Cottage', 'Detached', 'Duplex', 'Farm', 'Fourplex', 'Link', 'Mobile/Trailer', 'Multiplex', 'Other', 'Rural Resid', 'Semi-Detached', 'Store W/Apt/Offc', 'Triplex', 'Vacant Land'];
-                                            let array_property_condo = ['Comm Element Condo', 'Condo Apt', 'Condo Townhouse', 'Co-Op Apt', 'Co-Ownership Apt', 'Det Condo', 'Leasehold Condo', 'Locker', 'Parking Space'];
+                                            let array_property_freehold = ['Freehold', 'Att/Row/Twnhouse', 'Cottage', 'Detached', 'Duplex', 'Farm', 'Fourplex', 'Link', 'Mobile/Trailer', 'Multiplex', 'Other', 'Rural Resid', 'Semi-Detached', 'Store W/Apt/Offc', 'Triplex', 'Vacant Land'];
+                                            let array_property_condo = ['Condo','Comm Element Condo', 'Condo Apt', 'Condo Townhouse', 'Co-Op Apt', 'Co-Ownership Apt', 'Det Condo', 'Leasehold Condo', 'Locker', 'Parking Space'];
                                             let agreement = '';
                                             if (response.data.property_class == 'Freehold' && response.data.offer == 'Rent' || array_property_freehold.includes(response.data.property_class) && response.data.offer == 'Lease') {
                                                 agreement = 'Freehold Lease Agreement';
