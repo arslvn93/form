@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form MLS</title>
     <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap-icons.css">
+    <script src="./assets/vendor/fontawesome/js/all.js"></script>
     <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/vendor/jquery/jquery.js"></script>
-    <link rel="stylesheet" href="assets/vendor/jquery-ui/jquery-ui.css">
-    <script src="assets/vendor/jquery-ui/jquery-ui.js"></script>
+    <script src="./assets/vendor/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="./assets/vendor/jquery-ui/jquery-ui.css">
+    <script src="./assets/vendor/jquery-ui/jquery-ui.js"></script>
 </head>
 <style>
     .btn-primary {
@@ -141,7 +141,7 @@
                                         <label for="name0" class="form-label labelCustomerName"></label>
                                         <div class="input-group">
                                             <input type="text" name="names[]" id="name0" class="form-control inputCustomerName" required autocomplete="off">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="" onclick="addInputCustomer(); setOldValuesInputCustomers();"><i class="bi bi-plus-lg"></i></button>            
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="" onclick="addInputCustomer(); setOldValuesInputCustomers();"><i class="fa fa-plus"></i></button>            
                                         </div>
                                     </div>
                                 </div>
@@ -693,7 +693,7 @@
 
             if (rowCustomers.length != 4) {
                 getValuesAllInputCustomers();
-                divCustomer.innerHTML += `<div class="row rowCustomer"><div class="form-group mb-4 col-xl-12 col-md-12 col-sm-12 col-12"><label for="name${rowCustomers.length}" class="form-label labelCustomerName">${labelCustomerName_html} ${rowCustomers.length + 1}</label><div class="input-group"><input type="text" name="names[]" id="name${rowCustomers.length}" class="form-control inputCustomerName" required autocomplete="off"><button type="button" class="btn btn-danger btnRemoveCustomer" onclick="removeInputCustomer('${rowCustomers.length}')"><i class="bi bi-dash-lg"></i></button></div></div></div>`;
+                divCustomer.innerHTML += `<div class="row rowCustomer"><div class="form-group mb-4 col-xl-12 col-md-12 col-sm-12 col-12"><label for="name${rowCustomers.length}" class="form-label labelCustomerName">${labelCustomerName_html} ${rowCustomers.length + 1}</label><div class="input-group"><input type="text" name="names[]" id="name${rowCustomers.length}" class="form-control inputCustomerName" required autocomplete="off"><button type="button" class="btn btn-danger btnRemoveCustomer" onclick="removeInputCustomer('${rowCustomers.length}')"><i class="fa fa-minus"></i></button></div></div></div>`;
             } else {
                 alert(`Sorry, 4 is the max number of ${labelTypeCustomer_html.toLowerCase()}s`);
             }
