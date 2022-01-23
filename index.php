@@ -816,17 +816,6 @@
                 }
             }
             ?>
-            url_user = '<?= $url_user; ?>';
-            url_email = '<?= $url_email; ?>';
-            url_sext = '<?= $url_sext ?>';
-            mls_number.value = '<?= $url_mls; ?>';
-
-            if (mls_number.value != '') {
-                await getMLSForms();
-                indexTargetForm++;
-            }
-
-            displayForm();
 
             $('#inputDate').datepicker({
                 changeYear: true,
@@ -853,6 +842,18 @@
             $('#inputDate').blur(function() {
                 $(this).attr('readonly', false);
             });
+            
+            url_user = '<?= $url_user; ?>';
+            url_email = '<?= $url_email; ?>';
+            url_sext = '<?= $url_sext ?>';
+            mls_number.value = '<?= $url_mls; ?>';
+
+            if (mls_number.value != '') {
+                await getMLSForms();
+                indexTargetForm++;
+            }
+            
+            displayForm();
         }
 
         function displayForm() {
