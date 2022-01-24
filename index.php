@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form MLS</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
     <script src="./assets/vendor/fontawesome/js/all.js"></script>
     <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="./assets/vendor/jquery/jquery.js"></script>
@@ -14,16 +14,110 @@
     <script src="./assets/vendor/jquery-ui/jquery-ui.js"></script>
 </head>
 <style>
-    .btn-primary, .btn-success {
+    .btn-success {
         color: #fff;
+        background-color: #5CB85C;
+        border-color: #5CB85C;
     }
 
-    .btn-primary:hover, .btn-success:hover {
+    .btn-success:hover {
         color: #fff;
+        background-color: #47a447 !important;
+        border-color: #47a447 !important;
     }
 
-    .btn-primary:focus, .btn-success:focus {
+    .btn-success:focus {
         color: #fff;
+        background-color: #47a447;
+        border-color: #47a447;
+        box-shadow: null !important;
+    }
+
+    .btn-success:active {
+        color: #fff;
+        background-color: #47a447;
+        border-color: #47a447;
+    }
+
+    .btn-success:focus,
+    .btn-success:active:focus {
+        box-shadow: null !important;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #40d8a1;
+        border-color: #40d8a1;
+    }
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #35b587 !important;
+        border-color: #35b587 !important;
+    }
+
+    .btn-primary:focus {
+        color: #fff;
+        background-color: #35b587;
+        border-color: #35b587;
+        box-shadow: 0 0 0 0.25rem #35b587;
+    }
+
+    .btn-primary:active {
+        color: #fff;
+        background-color: #35b587;
+        border-color: #35b587;
+    }
+
+    .btn-primary:focus,
+    .btn-primary:active:focus {
+        box-shadow: 0 0 0 0.25rem #35b587;
+    }
+
+    .btn-outline-primary {
+        color: #40d8a1;
+        border-color: #40d8a1;
+    }
+
+    .btn-outline-primary:hover {
+        color: #fff;
+        background-color: #40d8a1;
+        border-color: #40d8a1;
+    }
+
+    .btn-outline-primary:focus {
+        box-shadow: 0 0 0 0.25rem #35b587;
+    }
+
+    .btn-outline-primary:active,
+    .btn-outline-primary.active {
+        color: #fff;
+        background-color: #40d8a1;
+        border-color: #40d8a1;
+    }
+
+    .btn-outline-primary:focus,
+    .btn-outline-primary.active:focus {
+        box-shadow: 0 0 0 0.25rem #35b587 !important;
+    }
+
+    .form-check-input[type=radio],
+    .form-check-input[type=radio] {
+        border-radius: 0;
+        transition: .2s;
+    }
+
+    .form-check-input:checked {
+        border-color: #40d8a1;
+    }
+
+    .form-check-input:focus {
+        box-shadow: 0 0 0 0.25rem #35b587;
+    }
+
+    .form-check-input:checked[type=radio],
+    .form-check-input:checked[type=checkbox] {
+        background: #40d8a1;
     }
 
     .greenBordered {
