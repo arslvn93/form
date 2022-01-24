@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form MLS</title>
-    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/vendor/fontawesome/js/all.js"></script>
     <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="./assets/vendor/jquery/jquery.js"></script>
@@ -14,80 +14,16 @@
     <script src="./assets/vendor/jquery-ui/jquery-ui.js"></script>
 </head>
 <style>
-    .btn-primary {
+    .btn-primary, .btn-success {
         color: #fff;
-        background-color: #40d8a1;
-        border-color: #40d8a1;
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover, .btn-success:hover {
         color: #fff;
-        background-color: #35b587 !important;
-        border-color: #35b587 !important;
     }
 
-    .btn-primary:focus {
+    .btn-primary:focus, .btn-success:focus {
         color: #fff;
-        background-color: #35b587;
-        border-color: #35b587;
-        box-shadow: 0 0 0 0.25rem #35b587;
-    }
-
-    .btn-primary:active {
-        color: #fff;
-        background-color: #35b587;
-        border-color: #35b587;
-    }
-
-    .btn-primary:focus,
-    .btn-primary:active:focus {
-        box-shadow: 0 0 0 0.25rem #35b587;
-    }
-
-    .btn-outline-primary {
-        color: #40d8a1;
-        border-color: #40d8a1;
-    }
-
-    .btn-outline-primary:hover {
-        color: #fff;
-        background-color: #40d8a1;
-        border-color: #40d8a1;
-    }
-
-    .btn-outline-primary:focus {
-        box-shadow: 0 0 0 0.25rem #35b587;
-    }
-
-    .btn-outline-primary:active,
-    .btn-outline-primary.active {
-        color: #fff;
-        background-color: #40d8a1;
-        border-color: #40d8a1;
-    }
-
-    .btn-outline-primary:focus,
-    .btn-outline-primary.active:focus {
-        box-shadow: 0 0 0 0.25rem #35b587 !important;
-    }
-
-    .form-check-input[type=radio],
-    .form-check-input[type=radio] {
-        border-radius: 0;
-        transition: .2s;
-    }
-
-    .form-check-input:checked {
-        border-color: #40d8a1;
-    }
-
-    .form-check-input:focus {
-        box-shadow: 0 0 0 0.25rem #35b587;
-    }
-
-    .form-check-input:checked[type=radio],
-    .form-check-input:checked[type=checkbox] {
-        background: #40d8a1;
     }
 
     .greenBordered {
@@ -141,7 +77,7 @@
                                         <label for="name0" class="form-label labelCustomerName"></label>
                                         <div class="input-group">
                                             <input type="text" name="names[]" id="name0" class="form-control inputCustomerName" required autocomplete="off">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="" onclick="addInputCustomer(); setOldValuesInputCustomers();"><i class="fa fa-plus"></i></button>            
+                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="" onclick="addInputCustomer(); setOldValuesInputCustomers();"><i class="fa fa-plus"></i></button>            
                                         </div>
                                     </div>
                                 </div>
