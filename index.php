@@ -192,7 +192,7 @@
                             </div>
                             <div class="form-group mb-4">
                                 <label for="inputDate" class="form-label" id="labelDate"></label>
-                                <input type="text" id="inputDate" autocomplete="off" class="form-control bg-white" placeholder="Date" required>
+                                <input type="text" inputmode="none" id="inputDate" autocomplete="off" class="form-control bg-white" placeholder="Date" required>
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
