@@ -12,6 +12,7 @@
     <script src="./assets/vendor/jquery/jquery.js"></script>
     <link rel="stylesheet" href="./assets/vendor/jquery-ui/jquery-ui.css">
     <script src="./assets/vendor/jquery-ui/jquery-ui.js"></script>
+    <script src="./assets/vendor/sweetalert/sweetalert2@11.js"></script>
 </head>
 <style>
     .btn-success {
@@ -629,6 +630,14 @@
         let labelDeposit_html = '';
         let labelType_html = '';
 
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-primary',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false,
+        });
+
         function changeSelectionBorderColor(select_element) {
             var list_group_item = select_element.closest('.list-group-item');
             list_group_item.classList.toggle('greenBordered');
@@ -660,7 +669,12 @@
             var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
             if (days[day] == 'Saturday' || days[day] == 'Sunday') {
-                alert('Cannot have Closing Date on a Weekend');
+                swalWithBootstrapButtons.fire({
+                    title: 'Error!',
+                    text: 'Cannot have Closing Date on a Weekend',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
                 inputDate.value = '';
             }
             actualDate = `${year}-${month}-${date}`;
@@ -685,7 +699,12 @@
             var numbers = '1234567890';
 
             if (!numbers.includes(type.key)) {
-                alert('Numbers Only Please');
+                swalWithBootstrapButtons.fire({
+                    title: 'Error!',
+                    text: 'Numbers Only Please',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
                 type.preventDefault();
             }
         });
@@ -694,7 +713,12 @@
             var numbers = '1234567890,';
 
             if (!numbers.includes(type.key)) {
-                alert('Numbers Only Please');
+                swalWithBootstrapButtons.fire({
+                    title: 'Error!',
+                    text: 'Numbers Only Please',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
                 type.preventDefault();
             }
         });
@@ -725,7 +749,12 @@
                 getValuesAllInputCustomers();
                 divCustomer.innerHTML += `<div class="row rowCustomer"><div class="form-group mb-4 col-xl-12 col-md-12 col-sm-12 col-12"><label for="name${rowCustomers.length}" class="form-label labelCustomerName">${labelCustomerName_html} ${rowCustomers.length + 1}</label><div class="input-group"><input type="text" name="names[]" id="name${rowCustomers.length}" class="form-control inputCustomerName" required autocomplete="off"><button type="button" class="btn btn-danger btnRemoveCustomer" onclick="removeInputCustomer('${rowCustomers.length}')"><i class="fa fa-minus"></i></button></div></div></div>`;
             } else {
-                alert(`Sorry, 4 is the max number of ${labelTypeCustomer_html.toLowerCase()}s`);
+                swalWithBootstrapButtons.fire({
+                    title: 'Error!',
+                    text: `Sorry, 4 is the max number of ${labelTypeCustomer_html.toLowerCase()}s`,
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
             }
         }
 
@@ -1296,14 +1325,26 @@
                                     await getMLSForms();
                                     resolve('Finish');
                                 } else {
-                                    alert('MLS Number not supported, please try another one.');
+                                    previous_mls_number = '';
+                                    swalWithBootstrapButtons.fire({
+                                        title: 'Error!',
+                                        text: 'MLS Number not supported, please try another one',
+                                        icon: 'error',
+                                        confirmButtonText: 'OK',
+                                    });
                                     hideAllForms();
 
                                     form_loading.style.display = 'none';
                                     form_mls_number.style.display = 'flex';
                                 }
                             } else {
-                                alert('MLS Number not supported, please try another one.');
+                                previous_mls_number = '';
+                                swalWithBootstrapButtons.fire({
+                                    title: 'Error!',
+                                    text: 'MLS Number not supported, please try another one',
+                                    icon: 'error',
+                                    confirmButtonText: 'OK',
+                                });
                                 hideAllForms();
 
                                 form_loading.style.display = 'none';
