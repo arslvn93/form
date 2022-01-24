@@ -6,119 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form MLS</title>
-    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/vendor/fontawesome/js/all.js"></script>
     <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="./assets/vendor/jquery/jquery.js"></script>
     <link rel="stylesheet" href="./assets/vendor/jquery-ui/jquery-ui.css">
     <script src="./assets/vendor/jquery-ui/jquery-ui.js"></script>
-    <script src="./assets/vendor/sweetalert/sweetalert2@11.js"></script>
 </head>
 <style>
-    .btn-success {
+    .btn-primary, .btn-success {
         color: #fff;
-        background-color: #5CB85C;
-        border-color: #5CB85C;
     }
 
-    .btn-success:hover {
+    .btn-primary:hover, .btn-success:hover {
         color: #fff;
-        background-color: #47a447 !important;
-        border-color: #47a447 !important;
     }
 
-    .btn-success:focus {
+    .btn-primary:focus, .btn-success:focus {
         color: #fff;
-        background-color: #47a447;
-        border-color: #47a447;
-        box-shadow: null !important;
-    }
-
-    .btn-success:active {
-        color: #fff;
-        background-color: #47a447;
-        border-color: #47a447;
-    }
-
-    .btn-success:focus,
-    .btn-success:active:focus {
-        box-shadow: null !important;
-    }
-
-    .btn-primary {
-        color: #fff;
-        background-color: #40d8a1;
-        border-color: #40d8a1;
-    }
-
-    .btn-primary:hover {
-        color: #fff;
-        background-color: #35b587 !important;
-        border-color: #35b587 !important;
-    }
-
-    .btn-primary:focus {
-        color: #fff;
-        background-color: #35b587;
-        border-color: #35b587;
-        box-shadow: 0 0 0 0.25rem #35b587;
-    }
-
-    .btn-primary:active {
-        color: #fff;
-        background-color: #35b587;
-        border-color: #35b587;
-    }
-
-    .btn-primary:focus,
-    .btn-primary:active:focus {
-        box-shadow: 0 0 0 0.25rem #35b587;
-    }
-
-    .btn-outline-primary {
-        color: #40d8a1;
-        border-color: #40d8a1;
-    }
-
-    .btn-outline-primary:hover {
-        color: #fff;
-        background-color: #40d8a1;
-        border-color: #40d8a1;
-    }
-
-    .btn-outline-primary:focus {
-        box-shadow: 0 0 0 0.25rem #35b587;
-    }
-
-    .btn-outline-primary:active,
-    .btn-outline-primary.active {
-        color: #fff;
-        background-color: #40d8a1;
-        border-color: #40d8a1;
-    }
-
-    .btn-outline-primary:focus,
-    .btn-outline-primary.active:focus {
-        box-shadow: 0 0 0 0.25rem #35b587 !important;
-    }
-
-    .form-check-input[type=radio],
-    .form-check-input[type=radio] {
-        border-radius: 0;
-        transition: .2s;
-    }
-
-    .form-check-input:checked {
-        border-color: #40d8a1;
-    }
-
-    .form-check-input:focus {
-        box-shadow: 0 0 0 0.25rem #35b587;
-    }
-
-    .form-check-input:checked[type=radio],
-    .form-check-input:checked[type=checkbox] {
-        background: #40d8a1;
     }
 
     .greenBordered {
@@ -193,7 +98,7 @@
                             </div>
                             <div class="form-group mb-4">
                                 <label for="inputDate" class="form-label" id="labelDate"></label>
-                                <input type="text" inputmode="none" id="inputDate" autocomplete="off" class="form-control bg-white" placeholder="Date" required>
+                                <input type="text" id="inputDate" autocomplete="off" class="form-control bg-white" placeholder="Date" required>
                             </div>
                             <div class="d-grid gap-2 mt-4">
                                 <button class="btn btn-primary btnSubmit" type="submit">Next</button>
@@ -630,14 +535,6 @@
         let labelDeposit_html = '';
         let labelType_html = '';
 
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-primary',
-                cancelButton: 'btn btn-danger'
-            },
-            buttonsStyling: false,
-        });
-
         function changeSelectionBorderColor(select_element) {
             var list_group_item = select_element.closest('.list-group-item');
             list_group_item.classList.toggle('greenBordered');
@@ -669,12 +566,7 @@
             var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
             if (days[day] == 'Saturday' || days[day] == 'Sunday') {
-                swalWithBootstrapButtons.fire({
-                    title: 'Error!',
-                    text: 'Cannot have Closing Date on a Weekend',
-                    icon: 'error',
-                    confirmButtonText: 'OK',
-                });
+                alert('Cannot have Closing Date on a Weekend');
                 inputDate.value = '';
             }
             actualDate = `${year}-${month}-${date}`;
@@ -699,12 +591,7 @@
             var numbers = '1234567890';
 
             if (!numbers.includes(type.key)) {
-                swalWithBootstrapButtons.fire({
-                    title: 'Error!',
-                    text: 'Numbers Only Please',
-                    icon: 'error',
-                    confirmButtonText: 'OK',
-                });
+                alert('Numbers Only Please');
                 type.preventDefault();
             }
         });
@@ -713,12 +600,7 @@
             var numbers = '1234567890,';
 
             if (!numbers.includes(type.key)) {
-                swalWithBootstrapButtons.fire({
-                    title: 'Error!',
-                    text: 'Numbers Only Please',
-                    icon: 'error',
-                    confirmButtonText: 'OK',
-                });
+                alert('Numbers Only Please');
                 type.preventDefault();
             }
         });
@@ -749,12 +631,7 @@
                 getValuesAllInputCustomers();
                 divCustomer.innerHTML += `<div class="row rowCustomer"><div class="form-group mb-4 col-xl-12 col-md-12 col-sm-12 col-12"><label for="name${rowCustomers.length}" class="form-label labelCustomerName">${labelCustomerName_html} ${rowCustomers.length + 1}</label><div class="input-group"><input type="text" name="names[]" id="name${rowCustomers.length}" class="form-control inputCustomerName" required autocomplete="off"><button type="button" class="btn btn-danger btnRemoveCustomer" onclick="removeInputCustomer('${rowCustomers.length}')"><i class="fa fa-minus"></i></button></div></div></div>`;
             } else {
-                swalWithBootstrapButtons.fire({
-                    title: 'Error!',
-                    text: `Sorry, 4 is the max number of ${labelTypeCustomer_html.toLowerCase()}s`,
-                    icon: 'error',
-                    confirmButtonText: 'OK',
-                });
+                alert(`Sorry, 4 is the max number of ${labelTypeCustomer_html.toLowerCase()}s`);
             }
         }
 
@@ -1325,26 +1202,14 @@
                                     await getMLSForms();
                                     resolve('Finish');
                                 } else {
-                                    previous_mls_number = '';
-                                    swalWithBootstrapButtons.fire({
-                                        title: 'Error!',
-                                        text: 'MLS Number not supported, please try another one',
-                                        icon: 'error',
-                                        confirmButtonText: 'OK',
-                                    });
+                                    alert('MLS Number not supported, please try another one.');
                                     hideAllForms();
 
                                     form_loading.style.display = 'none';
                                     form_mls_number.style.display = 'flex';
                                 }
                             } else {
-                                previous_mls_number = '';
-                                swalWithBootstrapButtons.fire({
-                                    title: 'Error!',
-                                    text: 'MLS Number not supported, please try another one',
-                                    icon: 'error',
-                                    confirmButtonText: 'OK',
-                                });
+                                alert('MLS Number not supported, please try another one.');
                                 hideAllForms();
 
                                 form_loading.style.display = 'none';
