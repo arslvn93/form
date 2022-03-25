@@ -1328,7 +1328,7 @@
                                     previous_mls_number = '';
                                     swalWithBootstrapButtons.fire({
                                         title: 'Error!',
-                                        text: 'MLS Number not supported, please try another one',
+                                        text: 'MLS Number not supported. Use the Fast Offers Booster to avoid this error in the future. If you are using the Booster and see this message, reload/refresh the page to continue',
                                         icon: 'error',
                                         confirmButtonText: 'OK',
                                     });
@@ -1341,7 +1341,7 @@
                                 previous_mls_number = '';
                                 swalWithBootstrapButtons.fire({
                                     title: 'Error!',
-                                    text: 'MLS Number not supported, please try another one',
+                                    text: 'MLS Number not supported. Use the Fast Offers Booster to avoid this error in the future. If you are using the Booster and see this message, reload/refresh the page to continue',
                                     icon: 'error',
                                     confirmButtonText: 'OK',
                                 });
