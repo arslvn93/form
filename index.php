@@ -566,7 +566,7 @@
                         <div class="spinner-grow text-light" id="div_spinner" role="status" style="width: 3rem; height: 3rem; margin: 8rem 0;">
                             <span class="visually-hidden">Loading...</span>
                         </div>
-                        <p class="d-none mt-4" id="label_redirect">You will be redirected in 5 Seconds</p>
+                        <p class="d-none mt-4" id="label_redirect">You will be redirected in 8 Seconds</p>
                     </div>
                 </div>
             </div>
