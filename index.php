@@ -1139,14 +1139,14 @@
                 div_main_container.style.display = 'flex';
                 div_main_container.style.alignItems = 'center';
                 
-                var second = 5;
+                var second = 7;
                 var count_redirect = setInterval(function() {
                     if (second > 0) {
                         label_redirect.innerHTML = `You will be redirected in ${second} Seconds`;
                         second--;
                     } else {
                         clearInterval(count_redirect);
-                        location.href = 'https://forms.ltd/offers';
+                        window.top.location.href = 'https://forms.ltd/offers';
                     }
                 }, 1000);
             }
