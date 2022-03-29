@@ -639,7 +639,7 @@
         <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12" style="margin-top: 4rem;">
             <div class="card">
                 <div class="card-body p-4">
-                    <form novalidate>
+                    <form class="needs-validation" novalidate>
                         <label for="">Some information is not available without the <strong>Fast Offers
                                 Booster</strong>.<br /><small>Fill out the missing information now, or skip it and add
                                 it to the PDF later.</small></label>
@@ -719,7 +719,7 @@
                         style="width: 3rem; height: 3rem; margin: 8rem 0;">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    <p class="d-none mt-4" id="label_redirect">You will be redirected in 8 Seconds</p>
+                    <p class="d-none mt-4" id="label_redirect">You will be redirected in 5 Seconds</p>
                 </div>
             </div>
         </div>
@@ -1228,11 +1228,14 @@
     }
 
     function sanitizeInput(data) {
+        var cleanData = '';
         var characterReplacement = {
             '/': '',
             '"': ''
         };
-        var cleanData = data.replace(/[/"]/g, m => characterReplacement[m]);
+        if (data != '') {
+            cleanData = data.replace(/[/"]/g, m => characterReplacement[m]);
+        }
         return cleanData;
     }
 
@@ -1266,14 +1269,14 @@
         } else {
             formData.append('demo', false);
 
-            owner = sanitizeInput(owner);
-            listing_agent = sanitizeInput(listing_agent);
-            phone = sanitizeInput(phone);
-            fax = sanitizeInput(fax);
-            formData.append('owner', owner);
-            formData.append('listing_agent', listing_agent);
-            formData.append('phone', phone);
-            formData.append('fax', fax);
+            owner = sanitizeInput(owner.value);
+            listing_agent = sanitizeInput(listing_agent.value);
+            phone = sanitizeInput(phone.value);
+            fax = sanitizeInput(fax.value);
+            formData.append('owner', owner.value);
+            formData.append('listing_agent', listing_agent.value);
+            formData.append('phone', phone.value);
+            formData.append('fax', fax.value);
         }
         formData.append('mls_number', mls_number.value);
         formData.append('names', getValuesAllInputCustomers().join(' & '));
@@ -1559,6 +1562,7 @@
                                         previous_mls_number = mls_number.value;
                                         if (url_user !== 'demo' && url_s_value !== 'ext') {
                                             targetFormArray.push('form_booster');
+                                            targetFinalForm = 'form_booster';
                                         }
                                         if (url_user == 'demo' && url_email == '') {
                                             targetFormArray.push('form_email');
