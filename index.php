@@ -1273,15 +1273,15 @@
             listing_agent = sanitizeInput(listing_agent.value);
             phone = sanitizeInput(phone.value);
             fax = sanitizeInput(fax.value);
-            formData.append('owner', owner.value);
-            formData.append('listing_agent', listing_agent.value);
-            formData.append('phone', phone.value);
-            formData.append('fax', fax.value);
         }
         formData.append('mls_number', mls_number.value);
         formData.append('names', getValuesAllInputCustomers().join(' & '));
         formData.append('possession', getActualDate());
         formData.append('offer_price', price.value.replace(/,/g, ''));
+        formData.append('owner', owner);
+        formData.append('listing_agent', listing_agent);
+        formData.append('phone', phone);
+        formData.append('fax', fax);
 
         if (final_target_form == 'form_freehold_purchase_agreement') {
             formData.append('deposit', deposit.value.replace(/,/g, ''));
