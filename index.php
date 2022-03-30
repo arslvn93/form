@@ -1562,7 +1562,6 @@
                                         previous_mls_number = mls_number.value;
                                         if (url_user !== 'demo' && url_s_value !== 'ext') {
                                             targetFormArray.push('form_booster');
-                                            targetFinalForm = 'form_booster';
                                         }
                                         if (url_user == 'demo' && url_email == '') {
                                             targetFormArray.push('form_email');
