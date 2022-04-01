@@ -1277,11 +1277,18 @@
         formData.append('mls_number', mls_number.value);
         formData.append('names', getValuesAllInputCustomers().join(' & '));
         formData.append('possession', getActualDate());
+        if (url_user == 'demo') {
+            formData.append('owner', '');
+            formData.append('listing_agent', '');
+            formData.append('phone', '');
+            formData.append('fax', '');
+        } else {
+            formData.append('owner', owner);
+            formData.append('listing_agent', listing_agent);
+            formData.append('phone', phone);
+            formData.append('fax', fax);
+        }
         formData.append('offer_price', price.value.replace(/,/g, ''));
-        formData.append('owner', owner);
-        formData.append('listing_agent', listing_agent);
-        formData.append('phone', phone);
-        formData.append('fax', fax);
 
         if (final_target_form == 'form_freehold_purchase_agreement') {
             formData.append('deposit', deposit.value.replace(/,/g, ''));
@@ -1334,18 +1341,20 @@
             div_main_container.style.display = 'flex';
             div_main_container.style.alignItems = 'center';
 
-            var second = 4;
-            var count_redirect = setInterval(function() {
-                if (second > 0) {
-                    label_redirect.innerHTML = `You will be redirected in ${second} Seconds`;
-                    second--;
-                } else {
-                    clearInterval(count_redirect);
-                    window.top.location.href = 'https://forms.ltd/offers';
-                }
-            }, 1000);
+            // var second = 4;
+            // var count_redirect = setInterval(function() {
+            //     if (second > 0) {
+            //         label_redirect.innerHTML = `You will be redirected in ${second} Seconds`;
+            //         second--;
+            //     } else {
+            //         clearInterval(count_redirect);
+            //         window.top.location.href = 'https://forms.ltd/offers';
+            //     }
+            // }, 1000);
         }
         xhttp.open('POST', url, true);
+        console.log(...formData);
+        throw new Error('test');
         xhttp.send(formData);
     }
 
@@ -1360,6 +1369,10 @@
         legal_description_locker_level.value = '';
         legal_description_property.value = '';
         email.value = '';
+        owner.value = '';
+        phone.value = '';
+        fax.value = '';
+        listing_agent.value = '';
         divLegalDescriptionParkingSpot.innerHTML =
             `<div class="row rowParkingSpot"><div class="col-12"><div class="form-group mb-4"><label for="" class="form-label labelParkingSpot"><strong>Legal</strong> Description of Parking Spot</label><div class="row mb-2"><label for="legal_description_parking_spot_unit_0" class="col-3 col-form-label">UNIT</label><div class="col-3"><input type="text" name="legal_description_parking_spot_unit" id="legal_description_parking_spot_unit_0" class="form-control"></div></div><div class="row"><label for="legal_description_parking_spot_level_0" class="col-3 col-form-label">LEVEL</label><div class="col-3"><input type="text" name="legal_description_parking_spot_level" id="legal_description_parking_spot_level_0" class="form-control"></div></div></div></div></div>`;
         removeSelectedFinanceCondition();
