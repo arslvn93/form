@@ -53,26 +53,26 @@
 
     .btn-primary:hover {
         color: #fff;
-        background-color: #35b587 !important;
-        border-color: #35b587 !important;
+        background-color: #062b40 !important;
+        border-color: #062b40 !important;
     }
 
     .btn-primary:focus {
         color: #fff;
-        background-color: #35b587;
-        border-color: #35b587;
-        box-shadow: 0 0 0 0.25rem #35b587;
+        background-color: #062b40;
+        border-color: #062b40;
+        box-shadow: 0 0 0 0.25rem #062b40;
     }
 
     .btn-primary:active {
         color: #fff;
-        background-color: #35b587;
-        border-color: #35b587;
+        background-color: #062b40;
+        border-color: #062b40;
     }
 
     .btn-primary:focus,
     .btn-primary:active:focus {
-        box-shadow: 0 0 0 0.25rem #35b587;
+        box-shadow: 0 0 0 0.25rem #062b40;
     }
 
     .btn-outline-primary {
@@ -87,7 +87,7 @@
     }
 
     .btn-outline-primary:focus {
-        box-shadow: 0 0 0 0.25rem #35b587;
+        box-shadow: 0 0 0 0.25rem #062b40;
     }
 
     .btn-outline-primary:active,
@@ -99,7 +99,7 @@
 
     .btn-outline-primary:focus,
     .btn-outline-primary.active:focus {
-        box-shadow: 0 0 0 0.25rem #35b587 !important;
+        box-shadow: 0 0 0 0.25rem #062b40 !important;
     }
 
     .form-check-input[type=radio],
@@ -113,7 +113,7 @@
     }
 
     .form-check-input:focus {
-        box-shadow: 0 0 0 0.25rem #35b587;
+        box-shadow: 0 0 0 0.25rem #062b40;
     }
 
     .form-check-input:checked[type=radio],
