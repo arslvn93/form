@@ -17,8 +17,8 @@
 <style>
     .btn-success {
         color: #fff;
-        background-color: #5CB85C;
-        border-color: #5CB85C;
+        background-color: #81c3d7;
+        border-color: #81c3d7;
     }
 
     .btn-success:hover {
@@ -47,8 +47,8 @@
 
     .btn-primary {
         color: #fff;
-        background-color: #40d8a1;
-        border-color: #40d8a1;
+        background-color: #81c3d7;
+        border-color: #81c3d7;
     }
 
     .btn-primary:hover {
@@ -76,14 +76,14 @@
     }
 
     .btn-outline-primary {
-        color: #40d8a1;
-        border-color: #40d8a1;
+        color: #81c3d7;
+        border-color: #81c3d7;
     }
 
     .btn-outline-primary:hover {
         color: #fff;
-        background-color: #40d8a1;
-        border-color: #40d8a1;
+        background-color: #81c3d7;
+        border-color: #81c3d7;
     }
 
     .btn-outline-primary:focus {
@@ -93,8 +93,8 @@
     .btn-outline-primary:active,
     .btn-outline-primary.active {
         color: #fff;
-        background-color: #40d8a1;
-        border-color: #40d8a1;
+        background-color: #81c3d7;
+        border-color: #81c3d7;
     }
 
     .btn-outline-primary:focus,
@@ -109,7 +109,7 @@
     }
 
     .form-check-input:checked {
-        border-color: #40d8a1;
+        border-color: #81c3d7;
     }
 
     .form-check-input:focus {
@@ -118,11 +118,11 @@
 
     .form-check-input:checked[type=radio],
     .form-check-input:checked[type=checkbox] {
-        background: #40d8a1;
+        background: #81c3d7;
     }
 
     .greenBordered {
-        border: 1px solid #40d8a1 !important;
+        border: 1px solid #81c3d7 !important;
     }
 
     .inputCustomerName:focus {
@@ -133,7 +133,7 @@
 <body>
     <a href='https://fastoffers.ca' id="div_logo">
         <div>
-            <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo350.svg" class="img-fluid mx-auto d-block" style="margin-top: 2.5rem;" alt="Fast Offers Logo" />
+            <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo-2.svg" class="img-fluid mx-auto d-block" style="margin-top: 2.5rem;" alt="Fast Offers Logo" />
         </div>
     </a>
 
@@ -925,8 +925,8 @@
             btn_draft.style.fontWeight = null;
             if (targetFormArray.length == indexTargetForm + 1) {
                 btn_draft.innerHTML = 'DRAFT MY FAST OFFER';
-                btn_draft.style.backgroundColor = '#2E3655';
-                btn_draft.style.border = '1px solid #2E3655';
+                btn_draft.style.backgroundColor = '#062b40';
+                btn_draft.style.border = '1px solid #062b40';
                 btn_draft.style.fontWeight = 'bold';
             }
 
