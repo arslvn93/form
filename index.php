@@ -563,7 +563,7 @@
                         <div class="alert alert-primary text-center d-none" role="alert" id="label_message">
                             Auto-populated information is provided solely for your convenience and Fast Offers disclaims any representation as to the accuracy or completeness of this information. <br><br><span class="fw-bold">You are responsible for verifying the accuracy and completeness of all information in the agreement<span> from Fast Offers, including auto-populated information.
                         </div>
-                        <div class="spinner-grow text-light" id="div_spinner" role="status" style="width: 3rem; height: 3rem; margin: 8rem 0;">
+                        <div class="spinner-grow text-info" id="div_spinner" role="status" style="width: 3rem; height: 3rem; margin: 8rem 0;">
                             <span class="visually-hidden">Loading...</span>
                         </div>
                         <p class="d-none mt-4" id="label_redirect">You will be redirected in 8 Seconds</p>
