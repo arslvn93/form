@@ -17,8 +17,8 @@
 <style>
 .btn-success {
     color: #fff;
-    background-color: #5CB85C;
-    border-color: #5CB85C;
+    background-color: #81c3d7;
+        border-color: #81c3d7;
 }
 
 .btn-success:hover {
@@ -47,59 +47,58 @@
 
 .btn-primary {
     color: #fff;
-    background-color: #40d8a1;
-    border-color: #40d8a1;
+    background-color: #81c3d7;
+        border-color: #81c3d7;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #35b587 !important;
-    border-color: #35b587 !important;
-}
+    background-color: #062b40 !important;
+        border-color: #062b40 !important;
 
 .btn-primary:focus {
     color: #fff;
-    background-color: #35b587;
-    border-color: #35b587;
-    box-shadow: 0 0 0 0.25rem #35b587;
+    background-color: #062b40;
+        border-color: #062b40;
+        box-shadow: 0 0 0 0.25rem #062b40;
 }
 
 .btn-primary:active {
     color: #fff;
-    background-color: #35b587;
-    border-color: #35b587;
+    background-color: #062b40;
+        border-color: #062b40;
 }
 
 .btn-primary:focus,
 .btn-primary:active:focus {
-    box-shadow: 0 0 0 0.25rem #35b587;
+    box-shadow: 0 0 0 0.25rem #062b40;
 }
 
 .btn-outline-primary {
-    color: #40d8a1;
-    border-color: #40d8a1;
+    color: #81c3d7;
+        border-color: #81c3d7;
 }
 
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #40d8a1;
-    border-color: #40d8a1;
+    background-color: #81c3d7;
+        border-color: #81c3d7;
 }
 
 .btn-outline-primary:focus {
-    box-shadow: 0 0 0 0.25rem #35b587;
+    box-shadow: 0 0 0 0.25rem #062b40;
 }
 
 .btn-outline-primary:active,
 .btn-outline-primary.active {
     color: #fff;
-    background-color: #40d8a1;
-    border-color: #40d8a1;
+    background-color: #81c3d7;
+        border-color: #81c3d7;
 }
 
 .btn-outline-primary:focus,
 .btn-outline-primary.active:focus {
-    box-shadow: 0 0 0 0.25rem #35b587 !important;
+    box-shadow: 0 0 0 0.25rem #062b40 !important;
 }
 
 .form-check-input[type=radio],
@@ -109,20 +108,20 @@
 }
 
 .form-check-input:checked {
-    border-color: #40d8a1;
+    border-color: #81c3d7;
 }
 
 .form-check-input:focus {
-    box-shadow: 0 0 0 0.25rem #35b587;
+    box-shadow: 0 0 0 0.25rem #062b40;
 }
 
 .form-check-input:checked[type=radio],
 .form-check-input:checked[type=checkbox] {
-    background: #40d8a1;
+    background: #81c3d7;
 }
 
 .greenBordered {
-    border: 1px solid #40d8a1 !important;
+    border: 1px solid #81c3d7 !important;
 }
 
 .inputCustomerName:focus {
@@ -133,7 +132,7 @@
 <body>
     <a href='https://fastoffers.ca' id="div_logo">
         <div>
-            <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo350.svg"
+            <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo2.svg"
                 class="img-fluid mx-auto d-block" style="margin-top: 2.5rem;" alt="Fast Offers Logo" />
         </div>
     </a>
@@ -715,7 +714,7 @@
                             class="fw-bold">You are responsible for verifying the accuracy and completeness of all
                             information in the agreement<span> from Fast Offers, including auto-populated information.
                     </div>
-                    <div class="spinner-grow text-light" id="div_spinner" role="status"
+                    <div class="spinner-grow text-info" id="div_spinner" role="status"
                         style="width: 3rem; height: 3rem; margin: 8rem 0;">
                         <span class="visually-hidden">Loading...</span>
                     </div>
@@ -1096,8 +1095,8 @@
         btn_draft.style.fontWeight = null;
         if (targetFormArray.length == indexTargetForm + 1) {
             btn_draft.innerHTML = 'DRAFT MY FAST OFFER';
-            btn_draft.style.backgroundColor = '#2E3655';
-            btn_draft.style.border = '1px solid #2E3655';
+            btn_draft.style.backgroundColor = '#062b40';
+                btn_draft.style.border = '1px solid #062b40';
             btn_draft.style.fontWeight = 'bold';
         }
 
