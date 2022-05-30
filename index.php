@@ -132,7 +132,7 @@
 <body>
     <a href='https://fastoffers.ca' id="div_logo">
         <div>
-            <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo2.svg"
+            <img src="https://formsltd.s3.ca-central-1.amazonaws.com/public/logo/logo-2.svg"
                 class="img-fluid mx-auto d-block" style="margin-top: 2.5rem;" alt="Fast Offers Logo" />
         </div>
     </a>
