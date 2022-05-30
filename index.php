@@ -640,19 +640,19 @@
                 <div class="card-body p-4">
                     <form class="needs-validation" novalidate>
                         <label for="">Some information is not available without the <strong>Fast Offers
-                                Booster</strong>.<br /><small>Fill out the missing information now, or skip it and add
-                                it to the PDF later.</small></label>
+                                Booster</strong>.<br /><br><small>Fill out the missing information now, or skip it and add
+                                it to the PDF later.</small><br><br></label>
                         <div class="form-group">
                             <label for="email" class="form-label">Seller name(s)</label>
-                            <input type="text" name="owner" id="owner" class="form-control" id="email">
+                            <input type="text" name="owner" id="owner" class="form-control" id="email"><br>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Listing Agent Name</label>
-                            <input type="text" name="listing_agent" id="listing_agent" class="form-control" id="email">
+                            <input type="text" name="listing_agent" id="listing_agent" class="form-control" id="email"><br>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Listing Brokerage Phone #</label>
-                            <input type="text" name="phone" id="phone" class="form-control" id="email">
+                            <input type="text" name="phone" id="phone" class="form-control" id="email"><br>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Listing Brokerage Fax #</label>
