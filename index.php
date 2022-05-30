@@ -718,7 +718,7 @@
                         style="width: 3rem; height: 3rem; margin: 8rem 0;">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    <p class="d-none mt-4" id="label_redirect">You will be redirected in 5 Seconds</p>
+                    <p class="d-none mt-4" id="label_redirect">You will be redirected in 8 Seconds</p>
                 </div>
             </div>
         </div>
@@ -1340,7 +1340,7 @@
             div_main_container.style.display = 'flex';
             div_main_container.style.alignItems = 'center';
 
-            var second = 4;
+            var second = 7;
             var count_redirect = setInterval(function() {
                 if (second > 0) {
                     label_redirect.innerHTML = `You will be redirected in ${second} Seconds`;
