@@ -644,19 +644,19 @@
                                 it to the PDF later.</small><br><br></label>
                         <div class="form-group">
                             <label for="email" class="form-label">Seller name(s)</label>
-                            <input type="text" name="owner" id="owner" class="form-control" id="email"><br>
+                            <input type="text" name="owner" id="owner" class="form-control" autocomplete="off"><br>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Listing Agent Name</label>
-                            <input type="text" name="listing_agent" id="listing_agent" class="form-control" id="email"><br>
+                            <input type="text" name="listing_agent" id="listing_agent" class="form-control" autocomplete="off"><br>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Listing Brokerage Phone #</label>
-                            <input type="text" name="phone" id="phone" class="form-control" id="email"><br>
+                            <input type="text" name="phone" id="phone" class="form-control" autocomplete="off"><br>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Listing Brokerage Fax #</label>
-                            <input type="text" name="fax" id="fax" class="form-control" id="email">
+                            <input type="text" name="fax" id="fax" class="form-control" autocomplete="off">
                         </div>
                         <div class="d-grid gap-2 mt-4">
                             <button class="btn btn-primary btnSubmit" type="submit">Draft my fast offer</button>
