@@ -639,7 +639,7 @@
             <div class="card">
                 <div class="card-body p-4">
                     <form class="needs-validation" novalidate>
-                    <label for="">Some information is not available without the <strong><a href="https://chrome.google.com/webstore/detail/fast-offers-booster/jlknceenhfldcgiagbfebpdfgffeefej">Fast Offers Booster</a></strong>
+                    <label for="">Some information is not available without the <strong><a target="_parent" href="https://chrome.google.com/webstore/detail/fast-offers-booster/jlknceenhfldcgiagbfebpdfgffeefej">Fast Offers Booster</a></strong>
 . <small>Fill out the missing information now, or skip it and add
                                 it to the PDF later.</small><br><br></label>
                         <div class="form-group">
